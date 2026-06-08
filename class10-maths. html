@@ -12,6 +12,8 @@
             --text-sub: #8da9c4;
             --accent-blue: #38bdf8;
             --border-color: rgba(255, 255, 255, 0.05);
+            --success: #10b981;
+            --wrong: #ef4444;
         }
 
         body {
@@ -23,18 +25,11 @@
         }
 
         .container {
-            max-width: 600px;
+            max-width: 800px;
             margin: 30px auto;
         }
 
-        .back-link {
-            color: var(--text-sub);
-            text-decoration: none;
-            font-size: 0.9rem;
-            display: inline-block;
-            margin-bottom: 20px;
-        }
-
+        /* Dashboard Styles */
         .header {
             text-align: center;
             margin-bottom: 40px;
@@ -48,149 +43,591 @@
             margin: 10px 0;
         }
 
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
         .subject-card {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
             border-radius: 16px;
-            margin-bottom: 16px;
-            overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-        }
-
-        .subject-header {
             padding: 20px;
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .subject-title {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 1.2rem;
-            font-weight: 700;
-        }
-
-        .chapter-count {
-            background: rgba(56, 189, 248, 0.15);
-            color: var(--accent-blue);
-            padding: 4px 10px;
-            border-radius: 12px;
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
-
-        .chapters-list {
-            padding: 0 20px 20px 20px;
-            display: flex;
             flex-direction: column;
-            gap: 12px;
+            justify-content: space-between;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            transition: transform 0.2s;
         }
 
-        .chapter-item {
-            background: #111a36;
-            border: 1px solid rgba(255,255,255,0.03);
+        .subject-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .subject-card h3 {
+            margin: 0 0 10px 0;
+            font-size: 1.3rem;
+            color: var(--accent-blue);
+        }
+
+        .subject-card p {
+            color: var(--text-sub);
+            font-size: 0.9rem;
+            margin: 0 0 20px 0;
+            flex-grow: 1;
+        }
+
+        .practice-btn {
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            color: white;
+            border: none;
+            padding: 12px;
             border-radius: 10px;
-            padding: 14px 16px;
+            font-weight: 600;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+
+        .practice-btn:hover {
+            opacity: 0.9;
+        }
+
+        /* Practice Arena Styles (Hidden by Default) */
+        #practice-arena {
+            display: none;
+        }
+
+        .back-link {
+            color: var(--text-sub);
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-bottom: 20px;
+            cursor: pointer;
+        }
+
+        .level-tabs {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
+            gap: 10px;
+            margin-bottom: 25px;
+            background: rgba(255,255,255,0.03);
+            padding: 5px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+
+        .tab-btn {
+            flex: 1;
+            background: transparent;
+            color: var(--text-sub);
+            border: none;
+            padding: 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.95rem;
             transition: all 0.2s;
         }
 
-        .chapter-item:hover {
-            border-color: var(--accent-blue);
-            background: #152247;
+        .tab-btn.active {
+            background: var(--card-bg);
+            color: var(--accent-blue);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
         }
 
-        .chapter-name {
-            font-size: 0.95rem;
+        .question-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        }
+
+        .question-text {
+            font-size: 1.15rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .options-grid {
+            display: grid;
+            gap: 12px;
+        }
+
+        .option-btn {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            padding: 14px 20px;
+            border-radius: 10px;
+            text-align: left;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.2s;
+        }
+
+        .option-btn:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: var(--accent-blue);
+        }
+
+        .option-btn.selected {
+            border-color: var(--accent-blue);
+            background: rgba(56, 189, 248, 0.1);
+        }
+
+        .option-btn.correct {
+            border-color: var(--success);
+            background: rgba(16, 185, 129, 0.15);
+            color: #34d399;
+        }
+
+        .option-btn.wrong {
+            border-color: var(--wrong);
+            background: rgba(239, 68, 68, 0.15);
+            color: #f87171;
+        }
+
+        .action-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 25px;
+        }
+
+        .nav-btn {
+            background: var(--card-bg);
+            color: var(--text-main);
+            border: 1px solid var(--border-color);
+            padding: 12px 24px;
+            border-radius: 10px;
+            cursor: pointer;
             font-weight: 600;
         }
 
-        .start-btn {
-            background: linear-gradient(135deg, #38bdf8, #0284c7);
-            color: #fff;
-            text-decoration: none;
-            padding: 8px 14px;
-            border-radius: 8px;
-            font-size: 0.85rem;
-            font-weight: 700;
+        .nav-btn:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+
+        .submit-btn {
+            background: var(--success);
+            color: white;
+            border: none;
+            padding: 12px 28px;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <a href="index.html" class="back-link">← Back to Dashboard</a>
-        
-        <div class="header">
-            <h1>✨ Practice Arena</h1>
-            <p style="color: var(--text-sub); margin: 0;">Select any chapter to start your dynamic preparation</p>
+        <div id="dashboard">
+            <div class="header">
+                <h1>ICSE Class 10 Mathematics</h1>
+                <p style="color: var(--text-sub);">Select a chapter to enter the dynamic Practice Arena</p>
+            </div>
+            <div class="grid-container" id="chapters-grid"></div>
         </div>
 
-        <div class="subject-card">
-            <div class="subject-header">
-                <div class="subject-title">
-                    <span>📐 Mathematics</span>
-                    <span class="chapter-count">All Board Chapters Live</span>
-                </div>
+        <div id="practice-arena">
+            <div class="back-link" onclick="showDashboard()">← Back to Dashboard</div>
+            <div class="header">
+                <h1 id="arena-title">Chapter Name</h1>
+                <p id="arena-subtitle" style="color: var(--text-sub);"></p>
             </div>
-            
-            <div class="chapters-list">
-                <div class="chapter-item">
-                    <div class="chapter-name">1. Goods and Services Tax (GST)</div>
-                    <a href="practice.html?ch=gst" class="start-btn">Practice →</a>
-                </div>
 
-                <div class="chapter-item">
-                    <div class="chapter-name">2. Banking (Recurring Deposits)</div>
-                    <a href="practice.html?ch=banking" class="start-btn">Practice →</a>
-                </div>
+            <div class="level-tabs">
+                <button class="tab-btn active" onclick="switchLevel('normal')">Normal Level</button>
+                <button class="tab-btn" onclick="switchLevel('high')">High Level</button>
+                <button class="tab-btn" onclick="switchLevel('reasoning')">Assertion & Reason</button>
+            </div>
 
-                <div class="chapter-item">
-                    <div class="chapter-name">3. Linear Inequations</div>
-                    <a href="practice.html?ch=lineariq" class="start-btn">Practice →</a>
-                </div>
-
-                <div class="chapter-item">
-                    <div class="chapter-name">4. Quadratic Equations</div>
-                    <a href="practice.html?ch=quadratic" class="start-btn">Practice →</a>
-                </div>
-
-                <div class="chapter-item">
-                    <div class="chapter-name">5. Ratio and Proportion</div>
-                    <a href="practice.html?ch=ratio" class="start-btn">Practice →</a>
-                </div>
-
-                <div class="chapter-item">
-                    <div class="chapter-name">6. Matrices</div>
-                    <a href="practice.html?ch=matrices" class="start-btn">Practice →</a>
-                </div>
-
-                <div class="chapter-item">
-                    <div class="chapter-name">7. Arithmetic Progression (A.P.)</div>
-                    <a href="practice.html?ch=ap" class="start-btn">Practice →</a>
-                </div>
-
-                <div class="chapter-item">
-                    <div class="chapter-name">8. Reflection & Coordinate Geometry</div>
-                    <a href="practice.html?ch=coordinate" class="start-btn">Practice →</a>
-                </div>
-
-                <div class="chapter-item">
-                    <div class="chapter-name">9. Trigonometry Mastery</div>
-                    <a href="practice.html?ch=trigo" class="start-btn">Practice →</a>
-                </div>
-
-                <div class="chapter-item">
-                    <div class="chapter-name">10. Statistics & Probability</div>
-                    <a href="practice.html?ch=stats" class="start-btn">Practice →</a>
+            <div class="question-card">
+                <div class="question-text" id="q-text">Loading question...</div>
+                <div class="options-grid" id="options-container"></div>
+                <div class="action-bar">
+                    <button class="nav-btn" id="prev-btn" onclick="navigateQuestion(-1)">Previous</button>
+                    <button class="submit-btn" id="action-btn" onclick="checkAnswer()">Submit Answer</button>
+                    <button class="nav-btn" id="next-btn" onclick="navigateQuestion(1)">Next</button>
                 </div>
             </div>
         </div>
     </div>
 
+    <script>
+        // FULL 16 CHAPTERS COMPLETE DATABASE
+        const chaptersDatabase = {
+            gst: {
+                title: "GST (Goods and Services Tax)",
+                sub: "Set 1: Intra-state and Inter-state Transactions",
+                normal: [
+                    { q: "An article is marked at ₹5,000. A dealer sells it to a consumer at a 10% discount. If the GST rate is 18%, calculate the total amount paid by the consumer.", ops: ["₹5,310", "₹4,500", "₹4,810", "₹5,000"], ai: 0 },
+                    { q: "For an intra-state transaction, the CGST paid by a shopkeeper is ₹450. Find the SGST amount.", ops: ["₹0", "₹900", "₹450", "₹225"], ai: 2 },
+                    { q: "A service cost ₹12,000 inter-state. If IGST is 12%, what is the total bill value?", ops: ["₹13,440", "₹12,000", "₹12,720", "₹14,000"], ai: 0 }
+                ],
+                high: [
+                    { q: "Manufacturer A sells a product to Dealer B for ₹10,000 (intra-state). Dealer B sells it to Consumer C at a profit of ₹2,000. If GST is 18%, find the net GST paid by Dealer B to the government.", ops: ["₹1,800", "₹360", "₹2,160", "₹0"], ai: 1 }
+                ],
+                reasoning: [
+                    { q: "Assertion (A): In inter-state sales, CGST and SGST are charged at half the rate of IGST.\nReason (R): IGST is applicable only when goods move from one state to another.", ops: ["Both A and R are true and R explains A", "Both A and R are true but R does not explain A", "A is true, R is false", "A is false, R is true"], ai: 3 }
+                ]
+            },
+            banking: {
+                title: "Banking (Recurring Deposits)",
+                sub: "Set 1: Maturity Value Calculations",
+                normal: [
+                    { q: "Karan deposits ₹600 per month in a recurring deposit account for 20 months. If the total interest earned is ₹1,100, find the maturity value.", ops: ["₹12,000", "₹13,100", "₹11,000", "₹12,600"], ai: 1 }
+                ],
+                high: [
+                    { q: "A man has a recurring deposit account of ₹400 per month for 2 years. If he receives ₹10,200 at maturity, find the rate of interest per annum.", ops: ["10%", "9%", "8%", "11%"], ai: 1 }
+                ],
+                reasoning: [
+                    { q: "Assertion (A): The formula for equivalent principal for 1 month is P * [n(n+1)/2].\nReason (R): Interest in RD is calculated using Simple Interest formula on this equivalent principal.", ops: ["Both A and R are true and R explains A", "Both A and R are true", "A is true, R is false", "A is false, R is true"], ai: 0 }
+                ]
+            },
+            shares: {
+                title: "Shares and Dividends",
+                sub: "Set 1: Market Value & Yields",
+                normal: [
+                    { q: "Find the dividend received on 60 shares of nominal value ₹100 if the company declares a 12% dividend.", ops: ["₹720", "₹600", "₹120", "₹840"], ai: 0 }
+                ],
+                high: [
+                    { q: "A man invests ₹9,600 in ₹100 shares at ₹20 premium. If the dividend is 15%, find his percentage return.", ops: ["12.5%", "15%", "10%", "8%"], ai: 0 }
+                ],
+                reasoning: [
+                    { q: "Assertion (A): Dividend is always calculated on the Market Value of a share.\nReason (R): Market value changes constantly based on market demand.", ops: ["Both A and R are true", "A is true, R is false", "A is false, R is true", "Both false"], ai: 2 }
+                ]
+            },
+            linear_inequations: {
+                title: "Linear Inequations",
+                sub: "Set 1: Solution Sets on Number Lines",
+                normal: [
+                    { q: "Solve: -3 <= 2x - 1 < 5, given x belongs to Integers (Z).", ops: ["{-1, 0, 1, 2}", "{0, 1, 2}", "{-1, 0, 1, 2, 3}", "{-2, -1, 0, 1}"], ai: 0 }
+                ],
+                high: [
+                    { q: "Find the smallest value of x satisfying: 2x - 5 <= 5x + 4 and x belongs to Real Numbers.", ops: ["-3", "3", "0", "No boundary"], ai: 0 }
+                ],
+                reasoning: [
+                    { q: "Assertion (A): When an inequation is multiplied or divided by a negative number, the sign of inequality reverses.\nReason (R): -5 is greater than -2.", ops: ["A is true, R is false", "A is false, R is true", "Both true", "Both false"], ai: 0 }
+                ]
+            },
+            quadratic: {
+                title: "Quadratic Equations",
+                sub: "Set 1: Roots and Discriminant Analysis",
+                normal: [
+                    { q: "Find the discriminant of the equation 3x² - 5x + 2 = 0.", ops: ["1", "25", "13", "0"], ai: 0 }
+                ],
+                high: [
+                    { q: "For what value of k does the quadratic equation kx² - 4x + 1 = 0 have real and equal roots?", ops: ["4", "2", "1", "0"], ai: 0 }
+                ],
+                reasoning: [
+                    { q: "Assertion (A): If the discriminant is negative, roots are imaginary.\nReason (R): A quadratic equation can have at most two distinct real roots.", ops: ["Both true, R explains A", "Both true, R doesn't explain A", "A true, R false", "A false, R true"], ai: 1 }
+                ]
+            },
+            ratio_proportion: {
+                title: "Ratio and Proportion",
+                sub: "Set 1: Componendo and Dividendo rules",
+                normal: [
+                    { q: "If a, b, c, d are in proportion, then which of the following is true?", ops: ["ad = bc", "ab = cd", "ac = bd", "a+d = b+c"], ai: 0 }
+                ],
+                high: [
+                    { q: "Using properties of proportion, solve for x: (x³ + 3x)/(3x² + 1) = 341/91.", ops: ["11", "9", "7", "5"], ai: 0 }
+                ],
+                reasoning: [
+                    { q: "Assertion (A): If a/b = c/d, then (a+b)/(a-b) = (c+d)/(c-d).\nReason (R): This property is known as Componendo and Dividendo.", ops: ["Both true and R explains A", "Both true but no explanation", "A true", "R true"], ai: 0 }
+                ]
+            },
+            matrices: {
+                title: "Matrices",
+                sub: "Set 1: Multiplication and Identity Matrix operations",
+                normal: [
+                    { q: "If Matrix A is of order 2x3 and Matrix B is of order 3x1, what is the order of AB?", ops: ["2x1", "3x3", "1x2", "Multiplication impossible"], ai: 0 }
+                ],
+                high: [
+                    { q: "Find matrix X such that X + [2 -1; 3 5] = [0 4; -1 2].", ops: ["[-2 5; -4 -3]", "[2 -3; 4 3]", "[-2 3; -4 -3]", "[2 5; 4 3]"], ai: 0 }
+                ],
+                reasoning: [
+                    { q: "Assertion (A): Matrix multiplication is always commutative, i.e., AB = BA.\nReason (R): Identity matrix multiplied by any square matrix leaves it unchanged.", ops: ["A is true, R is false", "A is false, R is true", "Both true", "Both false"], ai: 1 }
+                ]
+            },
+            arithmetic_progression: {
+                title: "Arithmetic Progression (A.P.)",
+                sub: "Set 1: General Term and Summation Problems",
+                normal: [
+                    { q: "Find the 10th term of the A.P.: 2, 7, 12, 17...", ops: ["47", "52", "42", "37"], ai: 0 }
+                ],
+                high: [
+                    { q: "The sum of the first 3 terms of an A.P. is 21 and their product is 280. Find the common difference.", ops: ["±3", "±4", "±2", "±5"], ai: 0 }
+                ],
+                reasoning: [
+                    { q: "Assertion (A): The sequence 1, 4, 9, 16... forms an A.P.\nReason (R): In an A.P., the difference between consecutive terms remains constant.", ops: ["A is true, R is false", "A is false, R is true", "Both true", "Both false"], ai: 1 }
+                ]
+            },
+            geometric_progression: {
+                title: "Geometric Progression (G.P.)",
+                sub: "Set 1: Common Ratios and nth Term",
+                normal: [
+                    { q: "Find the common ratio of the G.P.: 3, 6, 12, 24...", ops: ["2", "3", "4", "0.5"], ai: 0 }
+                ],
+                high: [
+                    { q: "The third term of a G.P. is 24 and the 6th term is 192. Find the 10th term.", ops: ["3072", "1536", "768", "6144"], ai: 0 }
+                ],
+                reasoning: [
+                    { q: "Assertion (A): If a, b, c are in G.P., then b² = ac.\nReason (R): The ratio b/a equals c/b in a geometric sequence.", ops: ["Both true and R explains A", "Both true", "A true", "R true"], ai: 0 }
+                ]
+            },
+            reflection: {
+                title: "Reflection",
+                sub: "Set 1: Axis and Origin Coordinates",
+                normal: [
+                    { q: "A point P(3, -4) is reflected in the x-axis. Find its co-ordinates.", ops: ["(3, 4)", "(-3, -4)", "(-3, 4)", "(4, 3)"], ai: 0 }
+                ],
+                high: [
+                    { q: "Point A(a, b) is reflected in origin to A'(-2, 5). Find values of a and b.", ops: ["a=2, b=-5", "a=-2, b=5", "a=5, b=-2", "a=-5, b=2"], ai: 0 }
+                ],
+                reasoning: [
+                    { q: "Assertion (A): The origin (0,0) is invariant when reflected in both axes.\nReason (R): Invariant points do not change coordinates during a reflection process.", ops: ["Both true and R explains A", "Both true", "A true", "R true"], ai: 0 }
+                ]
+            },
+            section_formula: {
+                title: "Section and Midpoint Formula",
+                sub: "Set 1: Internal division parameters",
+                normal: [
+                    { q: "Find the midpoint of the line segment joining A(2, 4) and B(6, 8).", ops: ["(4, 6)", "(3, 5)", "(8, 12)", "(2, 2)"], ai: 0 }
+                ],
+                high: [
+                    { q: "In what ratio does the y-axis divide the line joining P(-3, 4) and Q(2, 5)?", ops: ["3:2", "2:3", "1:1", "3:5"], ai: 0 }
+                ],
+                reasoning: [
+                    { q: "Assertion (A): The coordinates of centroid of a triangle are ((x1+x2+x3)/3, (y1+y2+y3)/3).\nReason (R): Centroid divides each median in the ratio 2:1.", ops: ["Both true and R explains A", "Both true", "A true", "R true"], ai: 0 }
+                ]
+            },
+            equation_line: {
+                title: "Equation of a Line",
+                sub: "Set 1: Slopes, Intercepts, Parallel/Perpendicular Conditions",
+                normal: [
+                    { q: "Find the slope of the line parallel to 3x - 2y + 5 = 0.", ops: ["3/2", "-3/2", "2/3", "-2/3"], ai: 0 }
+                ],
+                high: [
+                    { q: "Find equation of line perpendicular to x - 3y + 4 = 0 and passing through (1, -2).", ops: ["3x + y - 1 = 0", "3x - y + 1 = 0", "x + 3y + 5 = 0", "3x + y + 1 = 0"], ai: 3 }
+                ],
+                reasoning: [
+                    { q: "Assertion (A): Product of slopes of two perpendicular lines is always -1.\nReason (R): Parallel lines have equal inclination angles.", ops: ["Both true but R does not explain A", "Both true and R explains A", "A true", "R true"], ai: 0 }
+                ]
+            },
+            similarity: {
+                title: "Similarity",
+                sub: "Set 1: Thales Theorem (BPT) and Scale Factors",
+                normal: [
+                    { q: "If two triangles are similar, then their corresponding angles are always...", ops: ["Equal", "Proportional", "Complementary", "Supplementary"], ai: 0 }
+                ],
+                high: [
+                    { q: "The areas of two similar triangles ABC and PQR are 64 cm² and 121 cm² respectively. If QR = 15.4 cm, find BC.", ops: ["11.2 cm", "12.4 cm", "13.2 cm", "14.1 cm"], ai: 0 }
+                ],
+                reasoning: [
+                    { q: "Assertion (A): All equilateral triangles are structurally similar to each other regardless of sizing boundaries.\nReason (R): AAA similarity can be validated by checking just two angles (AA rule) instead of all three setups safely.", ops: ["Both true but R does not explain A", "Both true and R explains A", "A true", "R true"], ai: 0 }
+                ]
+            },
+            circles: {
+                title: "Circles",
+                sub: "Set 1: Cyclic Quadrilaterals and Tangent Properties",
+                normal: [
+                    { q: "The angle subtended by an arc at the center is _______ the angle subtended by it at any point on the remaining part of the circle.", ops: ["Double", "Half", "Equal", "Thrice"], ai: 0 }
+                ],
+                high: [
+                    { q: "In a cyclic quadrilateral ABCD, angle A = (2x + 4)° and angle C = (4x - 10)°. Find the value of x.", ops: ["31", "30", "29", "32"], ai: 0 }
+                ],
+                reasoning: [
+                    { q: "Assertion (A): Tangent at any point of a circle is perpendicular to the radius through the point of contact.\nReason (R): The length of tangents drawn from an external point to a circle are equal.", ops: ["Both true but R does not explain A", "Both true and R explains A", "A true", "R true"], ai: 0 }
+                ]
+            },
+            mensuration: {
+                title: "Mensuration",
+                sub: "Set 1: Cones, Cylinders, and Spheres",
+                normal: [
+                    { q: "Find the volume of a cylinder whose radius is 7 cm and height is 10 cm. (Take pi = 22/7)", ops: ["1540 cm³", "154 cm³", "770 cm³", "3080 cm³"], ai: 0 }
+                ],
+                high: [
+                    { q: "A solid sphere of radius 6 cm is melted and recast into a solid right circular cone of height 12 cm. Find the radius of the base of the cone.", ops: ["6 cm", "12 cm", "3 cm", "8 cm"], ai: 0 }
+                ],
+                reasoning: [
+                    { q: "Assertion (A): When a solid object is melted and recast into another shape, its total surface area always remains invariant.\nReason (R): Total volume remains constant during recasting configurations.", ops: ["A is false, R is true", "A is true, R is false", "Both true", "Both false"], ai: 0 }
+                ]
+            },
+            probability: {
+                title: "Probability",
+                sub: "Set 1: Sample Spaces and Card Decks",
+                normal: [
+                    { q: "A card is drawn from a well-shuffled deck of 52 playing cards. Find the probability of getting a black face card.", ops: ["6/52", "3/52", "12/52", "2/52"], ai: 0 }
+                ],
+                high: [
+                    { q: "Two dice are thrown simultaneously. Find the probability that the sum of numbers on the two faces is a prime number.", ops: ["15/36", "5/12", "7/18", "11/36"], ai: 0 }
+                ],
+                reasoning: [
+                    { q: "Assertion (A): The probability of an certain event is always 1.\nReason (R): Probability of any event E always satisfies boundary: 0 <= P(E) <= 1.", ops: ["Both true but R does not explain A", "Both true and R explains A", "A true", "R true"], ai: 0 }
+                ]
+            }
+        };
+
+        let currentChapter = "";
+        let currentLevel = "normal";
+        let currentQIndex = 0;
+        let selectedOption = null;
+        let answeredQuestions = {}; // Tracks states per level to prevent recalculations
+
+        // GENERATE DASHBOARD
+        function initDashboard() {
+            const grid = document.getElementById('chapters-grid');
+            grid.innerHTML = "";
+            for (let key in chaptersDatabase) {
+                const ch = chaptersDatabase[key];
+                const card = document.createElement('div');
+                card.className = "subject-card";
+                card.innerHTML = `
+                    <div>
+                        <h3>${ch.title}</h3>
+                        <p>${ch.sub}</p>
+                    </div>
+                    <button class="practice-btn" onclick="openArena('${key}')">Enter Arena</button>
+                `;
+                grid.appendChild(card);
+            }
+        }
+
+        // NAVIGATION LOGIC
+        function openArena(key) {
+            currentChapter = key;
+            currentLevel = "normal";
+            currentQIndex = 0;
+            answeredQuestions = {}; 
+            
+            document.getElementById('dashboard').style.display = "none";
+            document.getElementById('practice-arena').style.display = "block";
+            
+            document.getElementById('arena-title').innerText = chaptersDatabase[key].title;
+            
+            // Reset active tab UI
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelector('.tab-btn').classList.add('active');
+            
+            loadQuestion();
+        }
+
+        function showDashboard() {
+            document.getElementById('practice-arena').style.display = "none";
+            document.getElementById('dashboard').style.display = "block";
+        }
+
+        function switchLevel(level) {
+            currentLevel = level;
+            currentQIndex = 0;
+            
+            // Update tabs UI
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            loadQuestion();
+        }
+
+        // QUESTIONS LOGIC ENGINE
+        function loadQuestion() {
+            selectedOption = null;
+            const ch = chaptersDatabase[currentChapter];
+            document.getElementById('arena-subtitle').innerText = ch.sub;
+
+            const qList = ch[currentLevel];
+            const q = qList[currentQIndex];
+
+            // Setup Navigation Buttons
+            document.getElementById('prev-btn').disabled = (currentQIndex === 0);
+            document.getElementById('next-btn').disabled = (currentQIndex === qList.length - 1);
+
+            // Print Question Text
+            document.getElementById('q-text').innerText = `Q${currentQIndex + 1}. ${q.q}`;
+
+            // Handle Options
+            const container = document.getElementById('options-container');
+            container.innerHTML = "";
+
+            const stateKey = `${currentLevel}_${currentQIndex}`;
+            const isAnswered = answeredQuestions[stateKey];
+
+            q.ops.forEach((opt, idx) => {
+                const btn = document.createElement('button');
+                btn.className = "option-btn";
+                btn.innerText = opt;
+
+                if (isAnswered) {
+                    btn.disabled = true;
+                    if (idx === q.ai) btn.classList.add('correct');
+                    if (idx === isAnswered.chosen && idx !== q.ai) btn.classList.add('wrong');
+                } else {
+                    btn.onclick = () => selectOption(idx);
+                }
+                container.appendChild(btn);
+            });
+
+            // Action Button config
+            const actionBtn = document.getElementById('action-btn');
+            if (isAnswered) {
+                actionBtn.innerText = "Completed";
+                actionBtn.disabled = true;
+                actionBtn.style.background = "var(--card-bg)";
+            } else {
+                actionBtn.innerText = "Submit Answer";
+                actionBtn.disabled = false;
+                actionBtn.style.background = "var(--success)";
+            }
+        }
+
+        function selectOption(idx) {
+            selectedOption = idx;
+            const btns = document.getElementById('options-container').children;
+            for (let i = 0; i < btns.length; i++) {
+                btns[i].classList.remove('selected');
+            }
+            btns[idx].classList.add('selected');
+        }
+
+        function checkAnswer() {
+            if (selectedOption === null) {
+                alert("Please select an option first!");
+                return;
+            }
+
+            const q = chaptersDatabase[currentChapter][currentLevel][currentQIndex];
+            const stateKey = `${currentLevel}_${currentQIndex}`;
+            answeredQuestions[stateKey] = { chosen: selectedOption };
+
+            const btns = document.getElementById('options-container').children;
+            
+            // Lock options & mark system evaluation
+            for (let i = 0; i < btns.length; i++) {
+                btns[i].disabled = true;
+                if (i === q.ai) btns[i].classList.add('correct');
+                if (i === selectedOption && i !== q.ai) btns[i].classList.add('wrong');
+            }
+
+            const actionBtn = document.getElementById('action-btn');
+            actionBtn.innerText = "Completed";
+            actionBtn.disabled = true;
+            actionBtn.style.background = "var(--card-bg)";
+        }
+
+        function navigateQuestion(dir) {
+            currentQIndex += dir;
+            loadQuestion();
+        }
+
+        // RUN SYSTEM ON LOAD
+        initDashboard();
+    </script>
 </body>
 </html>
