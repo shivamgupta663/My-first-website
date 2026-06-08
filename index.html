@@ -1,10 +1,9 @@
-
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ICSE & ISC Study Portal</title>
+    <title>ICSE & ISC Complete Study Portal</title>
     <style>
         body {
             font-family: 'Segoe UI', Arial, sans-serif;
@@ -14,7 +13,7 @@
             padding: 20px;
         }
         .container {
-            max-width: 600px;
+            max-width: 650px;
             margin: 0 auto;
         }
         h1 {
@@ -37,25 +36,16 @@
             color: #0284c7;
             font-weight: bold;
             margin-bottom: 15px;
-            padding-left: 5px;
             border-left: 4px solid #0284c7;
             padding-left: 10px;
         }
-        .chapter-card {
+        .chapter-box {
             background-color: #ffffff;
             border: 1px solid #e2e8f0;
-            border-radius: 8px;
+            border-radius: 10px;
             padding: 15px 20px;
-            margin-bottom: 12px;
-            text-decoration: none;
-            display: block;
+            margin-bottom: 15px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.02);
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-        .chapter-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            border-color: #cbd5e1;
         }
         .chapter-num {
             font-size: 0.85rem;
@@ -65,190 +55,378 @@
             letter-spacing: 0.5px;
         }
         .chapter-name {
-            font-size: 1.05rem;
-            color: #334155;
+            font-size: 1.1rem;
+            color: #1e293b;
             font-weight: 600;
-            margin: 0;
+            margin: 0 0 15px 0;
         }
+        .level-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+        }
+        .level-link {
+            text-align: center;
+            text-decoration: none;
+            font-size: 0.82rem;
+            font-weight: bold;
+            padding: 8px 5px;
+            border-radius: 6px;
+            transition: background-color 0.2s, transform 0.1s;
+        }
+        .level-link:active {
+            transform: scale(0.95);
+        }
+        .lvl-normal { background-color: #e0f2fe; color: #0369a1; border: 1px solid #bae6fd; }
+        .lvl-normal:hover { background-color: #bae6fd; }
+        .lvl-high { background-color: #fee2e2; color: #b91c1c; border: 1px solid #fca5a5; }
+        .lvl-high:hover { background-color: #fca5a5; }
+        .lvl-reasoning { background-color: #fef3c7; color: #b45309; border: 1px solid #fde68a; }
+        .lvl-reasoning:hover { background-color: #fde68a; }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <h1>📚 Academic Quiz Portal</h1>
-        <p class="subtitle">Select a chapter to start practicing board-level questions</p>
+        <h1>🎓 Board Practice Portal</h1>
+        <p class="subtitle">Complete Chapter-wise Tiered Quiz Dashboard</p>
 
         <div class="class-section">
             <div class="class-title">ICSE - Class 10 Mathematics (Full Syllabus)</div>
             
-            <a href="quiz-gst.html" class="chapter-card">
+            <div class="chapter-box">
                 <div class="chapter-num">Chapter 1</div>
                 <div class="chapter-name">GST (Goods and Services Tax)</div>
-            </a>
+                <div class="level-container">
+                    <a href="gst-normal.html" class="level-link lvl-normal">Normal Level</a>
+                    <a href="gst-high.html" class="level-link lvl-high">High Level</a>
+                    <a href="gst-reasoning.html" class="level-link lvl-reasoning">Assertion</a>
+                </div>
+            </div>
 
-            <a href="quiz-banking.html" class="chapter-card">
+            <div class="chapter-box">
                 <div class="chapter-num">Chapter 2</div>
-                <div class="chapter-name">Banking (Recurring Deposit Accounts)</div>
-            </a>
+                <div class="chapter-name">Banking (Recurring Deposits)</div>
+                <div class="level-container">
+                    <a href="banking-normal.html" class="level-link lvl-normal">Normal Level</a>
+                    <a href="banking-high.html" class="level-link lvl-high">High Level</a>
+                    <a href="banking-reasoning.html" class="level-link lvl-reasoning">Assertion</a>
+                </div>
+            </div>
 
-            <a href="quiz-shares.html" class="chapter-card">
+            <div class="chapter-box">
                 <div class="chapter-num">Chapter 3</div>
                 <div class="chapter-name">Shares and Dividends</div>
-            </a>
+                <div class="level-container">
+                    <a href="shares-normal.html" class="level-link lvl-normal">Normal Level</a>
+                    <a href="shares-high.html" class="level-link lvl-high">High Level</a>
+                    <a href="shares-reasoning.html" class="level-link lvl-reasoning">Assertion</a>
+                </div>
+            </div>
 
-            <a href="quiz-linear.html" class="chapter-card">
+            <div class="chapter-box">
                 <div class="chapter-num">Chapter 4</div>
                 <div class="chapter-name">Linear Inequations (In one variable)</div>
-            </a>
+                <div class="level-container">
+                    <a href="linear-normal.html" class="level-link lvl-normal">Normal Level</a>
+                    <a href="linear-high.html" class="level-link lvl-high">High Level</a>
+                    <a href="linear-reasoning.html" class="level-link lvl-reasoning">Assertion</a>
+                </div>
+            </div>
 
-            <a href="quiz-quadratic.html" class="chapter-card">
+            <div class="chapter-box">
                 <div class="chapter-num">Chapter 5</div>
                 <div class="chapter-name">Quadratic Equations</div>
-            </a>
+                <div class="level-container">
+                    <a href="quadratic-normal.html" class="level-link lvl-normal">Normal Level</a>
+                    <a href="quadratic-high.html" class="level-link lvl-high">High Level</a>
+                    <a href="quadratic-reasoning.html" class="level-link lvl-reasoning">Assertion</a>
+                </div>
+            </div>
 
-            <a href="quiz-quad-problems.html" class="chapter-card">
+            <div class="chapter-box">
                 <div class="chapter-num">Chapter 6</div>
                 <div class="chapter-name">Solving Problems Based on Quadratic Equations</div>
-            </a>
+                <div class="level-container">
+                    <a href="quad-prob-normal.html" class="level-link lvl-normal">Normal Level</a>
+                    <a href="quad-prob-high.html" class="level-link lvl-high">High Level</a>
+                    <a href="quad-prob-reasoning.html" class="level-link lvl-reasoning">Assertion</a>
+                </div>
+            </div>
 
-            <a href="quiz-ratio.html" class="chapter-card">
+            <div class="chapter-box">
                 <div class="chapter-num">Chapter 7</div>
                 <div class="chapter-name">Ratio and Proportion</div>
-            </a>
+                <div class="level-container">
+                    <a href="ratio-normal.html" class="level-link lvl-normal">Normal Level</a>
+                    <a href="ratio-high.html" class="level-link lvl-high">High Level</a>
+                    <a href="ratio-reasoning.html" class="level-link lvl-reasoning">Assertion</a>
+                </div>
+            </div>
 
-            <a href="quiz-factorization.html" class="chapter-card">
+            <div class="chapter-box">
                 <div class="chapter-num">Chapter 8</div>
                 <div class="chapter-name">Factorization of Polynomials</div>
-            </a>
+                <div class="level-container">
+                    <a href="factor-normal.html" class="level-link lvl-normal">Normal Level</a>
+                    <a href="factor-high.html" class="level-link lvl-high">High Level</a>
+                    <a href="factor-reasoning.html" class="level-link lvl-reasoning">Assertion</a>
+                </div>
+            </div>
 
-            <a href="quiz-matrices.html" class="chapter-card">
+            <div class="chapter-box">
                 <div class="chapter-num">Chapter 9</div>
                 <div class="chapter-name">Matrices</div>
-            </a>
+                <div class="level-container">
+                    <a href="matrices-normal.html" class="level-link lvl-normal">Normal Level</a>
+                    <a href="matrices-high.html" class="level-link lvl-high">High Level</a>
+                    <a href="matrices-reasoning.html" class="level-link lvl-reasoning">Assertion</a>
+                </div>
+            </div>
 
-            <a href="quiz-progression.html" class="chapter-card">
+            <div class="chapter-box">
                 <div class="chapter-num">Chapter 10</div>
                 <div class="chapter-name">Arithmetic & Geometric Progression (AP & GP)</div>
-            </a>
+                <div class="level-container">
+                    <a href="progression-normal.html" class="level-link lvl-normal">Normal Level</a>
+                    <a href="progression-high.html" class="level-link lvl-high">High Level</a>
+                    <a href="progression-reasoning.html" class="level-link lvl-reasoning">Assertion</a>
+                </div>
+            </div>
 
-            <a href="quiz-reflection.html" class="chapter-card">
+            <div class="chapter-box">
                 <div class="chapter-num">Chapter 11</div>
                 <div class="chapter-name">Reflection (Coordinate Geometry)</div>
-            </a>
+                <div class="level-container">
+                    <a href="reflection-normal.html" class="level-link lvl-normal">Normal Level</a>
+                    <a href="reflection-high.html" class="level-link lvl-high">High Level</a>
+                    <a href="reflection-reasoning.html" class="level-link lvl-reasoning">Assertion</a>
+                </div>
+            </div>
 
-            <a href="quiz-section-formula.html" class="chapter-card">
+            <div class="chapter-box">
                 <div class="chapter-num">Chapter 12</div>
                 <div class="chapter-name">Section and Mid-Point Formula</div>
-            </a>
+                <div class="level-container">
+                    <a href="section-normal.html" class="level-link lvl-normal">Normal Level</a>
+                    <a href="section-high.html" class="level-link lvl-high">High Level</a>
+                    <a href="section-reasoning.html" class="level-link lvl-reasoning">Assertion</a>
+                </div>
+            </div>
 
-            <a href="quiz-straight-line.html" class="chapter-card">
+            <div class="chapter-box">
                 <div class="chapter-num">Chapter 13</div>
                 <div class="chapter-name">Equation of a Straight Line</div>
-            </a>
+                <div class="level-container">
+                    <a href="line-normal.html" class="level-link lvl-normal">Normal Level</a>
+                    <a href="line-high.html" class="level-link lvl-high">High Level</a>
+                    <a href="line-reasoning.html" class="level-link lvl-reasoning">Assertion</a>
+                </div>
+            </div>
 
-            <a href="quiz-similarity.html" class="chapter-card">
+            <div class="chapter-box">
                 <div class="chapter-num">Chapter 14</div>
                 <div class="chapter-name">Similarity (Geometry)</div>
-            </a>
+                <div class="level-container">
+                    <a href="similarity-normal.html" class="level-link lvl-normal">Normal Level</a>
+                    <a href="similarity-high.html" class="level-link lvl-high">High Level</a>
+                    <a href="similarity-reasoning.html" class="level-link lvl-reasoning">Assertion</a>
+                </div>
+            </div>
 
-            <a href="quiz-circles.html" class="chapter-card">
+            <div class="chapter-box">
                 <div class="chapter-num">Chapter 15</div>
                 <div class="chapter-name">Circles (Theorems & Properties)</div>
-            </a>
+                <div class="level-container">
+                    <a href="circles-normal.html" class="level-link lvl-normal">Normal Level</a>
+                    <a href="circles-high.html" class="level-link lvl-high">High Level</a>
+                    <a href="circles-reasoning.html" class="level-link lvl-reasoning">Assertion</a>
+                </div>
+            </div>
 
-            <a href="quiz-mensuration.html" class="chapter-card">
+            <div class="chapter-box">
                 <div class="chapter-num">Chapter 16</div>
                 <div class="chapter-name">Mensuration (Cylinder, Cone & Sphere)</div>
-            </a>
+                <div class="level-container">
+                    <a href="mensuration-normal.html" class="level-link lvl-normal">Normal Level</a>
+                    <a href="mensuration-high.html" class="level-link lvl-high">High Level</a>
+                    <a href="mensuration-reasoning.html" class="level-link lvl-reasoning">Assertion</a>
+                </div>
+            </div>
 
-            <a href="quiz-trigonometry.html" class="chapter-card">
+            <div class="chapter-box">
                 <div class="chapter-num">Chapter 17</div>
                 <div class="chapter-name">Trigonometric Identities & Tables</div>
-            </a>
+                <div class="level-container">
+                    <a href="trig-normal.html" class="level-link lvl-normal">Normal Level</a>
+                    <a href="trig-high.html" class="level-link lvl-high">High Level</a>
+                    <a href="trig-reasoning.html" class="level-link lvl-reasoning">Assertion</a>
+                </div>
+            </div>
 
-            <a href="quiz-heights.html" class="chapter-card">
+            <div class="chapter-box">
                 <div class="chapter-num">Chapter 18</div>
                 <div class="chapter-name">Heights and Distances</div>
-            </a>
+                <div class="level-container">
+                    <a href="heights-normal.html" class="level-link lvl-normal">Normal Level</a>
+                    <a href="heights-high.html" class="level-link lvl-high">High Level</a>
+                    <a href="heights-reasoning.html" class="level-link lvl-reasoning">Assertion</a>
+                </div>
+            </div>
 
-            <a href="quiz-statistics.html" class="chapter-card">
+            <div class="chapter-box">
                 <div class="chapter-num">Chapter 19</div>
                 <div class="chapter-name">Statistics (Mean, Median, Mode & Ogive)</div>
-            </a>
+                <div class="level-container">
+                    <a href="stats-normal.html" class="level-link lvl-normal">Normal Level</a>
+                    <a href="stats-high.html" class="level-link lvl-high">High Level</a>
+                    <a href="stats-reasoning.html" class="level-link lvl-reasoning">Assertion</a>
+                </div>
+            </div>
 
-            <a href="quiz-probability.html" class="chapter-card">
+            <div class="chapter-box">
                 <div class="chapter-num">Chapter 20</div>
                 <div class="chapter-name">Probability</div>
-            </a>
+                <div class="level-container">
+                    <a href="probability-normal.html" class="level-link lvl-normal">Normal Level</a>
+                    <a href="probability-high.html" class="level-link lvl-high">High Level</a>
+                    <a href="probability-reasoning.html" class="level-link lvl-reasoning">Assertion</a>
+                </div>
+            </div>
         </div>
 
         <div class="class-section">
             <div class="class-title">ISC - Class 11 Computer Science (Full Syllabus)</div>
             
-            <a href="quiz-java-basics.html" class="chapter-card">
+            <div class="chapter-box">
                 <div class="chapter-num">Chapter 1</div>
                 <div class="chapter-name">Java Revision & Basic Data Types</div>
-            </a>
+                <div class="level-container">
+                    <a href="java-normal.html" class="level-link lvl-normal">Normal Level</a>
+                    <a href="java-high.html" class="level-link lvl-high">High Level</a>
+                    <a href="java-reasoning.html" class="level-link lvl-reasoning">Assertion</a>
+                </div>
+            </div>
 
-            <a href="quiz-operators.html" class="chapter-card">
+            <div class="chapter-box">
                 <div class="chapter-num">Chapter 2</div>
                 <div class="chapter-name">Expressions and Operators in Java</div>
-            </a>
+                <div class="level-container">
+                    <a href="operators-normal.html" class="level-link lvl-normal">Normal Level</a>
+                    <a href="operators-high.html" class="level-link lvl-high">High Level</a>
+                    <a href="operators-reasoning.html" class="level-link lvl-reasoning">Assertion</a>
+                </div>
+            </div>
 
-            <a href="quiz-conditionals.html" class="chapter-card">
+            <div class="chapter-box">
                 <div class="chapter-num">Chapter 3</div>
                 <div class="chapter-name">Conditional Statements (if-else, switch)</div>
-            </a>
+                <div class="level-container">
+                    <a href="conditionals-normal.html" class="level-link lvl-normal">Normal Level</a>
+                    <a href="conditionals-high.html" class="level-link lvl-high">High Level</a>
+                    <a href="conditionals-reasoning.html" class="level-link lvl-reasoning">Assertion</a>
+                </div>
+            </div>
 
-            <a href="quiz-loops.html" class="chapter-card">
+            <div class="chapter-box">
                 <div class="chapter-num">Chapter 4</div>
-                <div class="chapter-name">Iterative Constructs (Loops: while, for, do-while)</div>
-            </a>
+                <div class="chapter-name">Iterative Constructs (Loops)</div>
+                <div class="level-container">
+                    <a href="loops-normal.html" class="level-link lvl-normal">Normal Level</a>
+                    <a href="loops-high.html" class="level-link lvl-high">High Level</a>
+                    <a href="loops-reasoning.html" class="level-link lvl-reasoning">Assertion</a>
+                </div>
+            </div>
 
-            <a href="quiz-methods.html" class="chapter-card">
+            <div class="chapter-box">
                 <div class="chapter-num">Chapter 5</div>
                 <div class="chapter-name">User-Defined Methods & Functions</div>
-            </a>
+                <div class="level-container">
+                    <a href="methods-normal.html" class="level-link lvl-normal">Normal Level</a>
+                    <a href="methods-high.html" class="level-link lvl-high">High Level</a>
+                    <a href="methods-reasoning.html" class="level-link lvl-reasoning">Assertion</a>
+                </div>
+            </div>
 
-            <a href="quiz-classes.html" class="chapter-card">
+            <div class="chapter-box">
                 <div class="chapter-num">Chapter 6</div>
                 <div class="chapter-name">Class as the Basis of all Computation</div>
-            </a>
+                <div class="level-container">
+                    <a href="classes-normal.html" class="level-link lvl-normal">Normal Level</a>
+                    <a href="classes-high.html" class="level-link lvl-high">High Level</a>
+                    <a href="classes-reasoning.html" class="level-link lvl-reasoning">Assertion</a>
+                </div>
+            </div>
 
-            <a href="quiz-constructors.html" class="chapter-card">
+            <div class="chapter-box">
                 <div class="chapter-num">Chapter 7</div>
                 <div class="chapter-name">Constructors in Java</div>
-            </a>
+                <div class="level-container">
+                    <a href="constructors-normal.html" class="level-link lvl-normal">Normal Level</a>
+                    <a href="constructors-high.html" class="level-link lvl-high">High Level</a>
+                    <a href="constructors-reasoning.html" class="level-link lvl-reasoning">Assertion</a>
+                </div>
+            </div>
 
-            <a href="quiz-library-classes.html" class="chapter-card">
+            <div class="chapter-box">
                 <div class="chapter-num">Chapter 8</div>
                 <div class="chapter-name">Using Library Classes & Wrapper Classes</div>
-            </a>
+                <div class="level-container">
+                    <a href="library-normal.html" class="level-link lvl-normal">Normal Level</a>
+                    <a href="library-high.html" class="level-link lvl-high">High Level</a>
+                    <a href="library-reasoning.html" class="level-link lvl-reasoning">Assertion</a>
+                </div>
+            </div>
 
-            <a href="quiz-encapsulation.html" class="chapter-card">
+            <div class="chapter-box">
                 <div class="chapter-num">Chapter 9</div>
                 <div class="chapter-name">Encapsulation & Scope of Variables</div>
-            </a>
+                <div class="level-container">
+                    <a href="encap-normal.html" class="level-link lvl-normal">Normal Level</a>
+                    <a href="encap-high.html" class="level-link lvl-high">High Level</a>
+                    <a href="encap-reasoning.html" class="level-link lvl-reasoning">Assertion</a>
+                </div>
+            </div>
 
-            <a href="quiz-arrays-1d.html" class="chapter-card">
+            <div class="chapter-box">
                 <div class="chapter-num">Chapter 10</div>
-                <div class="chapter-name">Single Dimensional Arrays (1D Arrays)</div>
-            </a>
+                <div class="chapter-name">Single Dimensional Arrays (1D)</div>
+                <div class="level-container">
+                    <a href="arrays1d-normal.html" class="level-link lvl-normal">Normal Level</a>
+                    <a href="arrays1d-high.html" class="level-link lvl-high">High Level</a>
+                    <a href="arrays1d-reasoning.html" class="level-link lvl-reasoning">Assertion</a>
+                </div>
+            </div>
 
-            <a href="quiz-arrays-2d.html" class="chapter-card">
+            <div class="chapter-box">
                 <div class="chapter-num">Chapter 11</div>
-                <div class="chapter-name">Double Dimensional Arrays (2D Arrays)</div>
-            </a>
+                <div class="chapter-name">Double Dimensional Arrays (2D)</div>
+                <div class="level-container">
+                    <a href="arrays2d-normal.html" class="level-link lvl-normal">Normal Level</a>
+                    <a href="arrays2d-high.html" class="level-link lvl-high">High Level</a>
+                    <a href="arrays2d-reasoning.html" class="level-link lvl-reasoning">Assertion</a>
+                </div>
+            </div>
 
-            <a href="quiz-string-handling.html" class="chapter-card">
+            <div class="chapter-box">
                 <div class="chapter-num">Chapter 12</div>
                 <div class="chapter-name">String Handling & Manipulation</div>
-            </a>
+                <div class="level-container">
+                    <a href="strings-normal.html" class="level-link lvl-normal">Normal Level</a>
+                    <a href="strings-high.html" class="level-link lvl-high">High Level</a>
+                    <a href="strings-reasoning.html" class="level-link lvl-reasoning">Assertion</a>
+                </div>
+            </div>
 
-            <a href="quiz-error-handling.html" class="chapter-card">
+            <div class="chapter-box">
                 <div class="chapter-num">Chapter 13</div>
-                <div class="chapter-name">Error Handling and Basic Exception Concepts</div>
-            </a>
+                <div class="chapter-name">Error Handling & Exception Concepts</div>
+                <div class="level-container">
+                    <a href="errors-normal.html" class="level-link lvl-normal">Normal Level</a>
+                    <a href="errors-high.html" class="level-link lvl-high">High Level</a>
+                    <a href="errors-reasoning.html" class="level-link lvl-reasoning">Assertion</a>
+                </div>
+            </div>
         </div>
 
     </div>
