@@ -3,189 +3,198 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ICSE Class 10 - All Subjects Portal</title>
+    <title>ICSE Class 10 - Premium Practice Portal</title>
     <style>
-        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #f1f5f9; color: #1e293b; margin: 0; padding: 20px; }
-        .container { max-width: 600px; margin: 20px auto; }
-        .back-link { text-decoration: none; color: #64748b; font-weight: bold; font-size: 0.9rem; }
-        h1 { color: #0f172a; margin-top: 15px; margin-bottom: 25px; text-align: center; }
-        
-        /* Subject Main Button */
-        .subject-btn {
-            background-color: #ffffff; border: 1px solid #e2e8f0; border-radius: 10px; padding: 18px 20px;
-            width: 100%; text-align: left; font-size: 1.15rem; font-weight: 600; color: #1e293b;
-            cursor: pointer; box-shadow: 0 2px 4px rgba(0,0,0,0.02); display: flex;
-            justify-content: space-between; align-items: center; margin-top: 12px; transition: all 0.2s;
+        /* Modern Trendy CSS Reset & Variables */
+        :root {
+            --bg-color: #0f172a; /* Premium Dark Slate Theme */
+            --card-bg: #1e293b;
+            --text-main: #f8fafc;
+            --text-sub: #94a3b8;
+            --accent-blue: #38bdf8;
+            --accent-purple: #c084fc;
+            --border-glow: #334155;
         }
-        .subject-btn:hover { border-color: #0284c7; background-color: #f0f9ff; color: #0284c7; }
 
-        /* Chapter Container (Hidden by default) */
-        .chapters-container { display: none; background-color: #f8fafc; border: 1px solid #cbd5e1; border-top: none; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px; padding: 15px; margin-top: -5px; margin-bottom: 15px; }
+        body {
+            font-family: 'Plus Jakarta Sans', 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 20px;
+            background-image: radial-gradient(circle at top right, rgba(99, 102, 241, 0.1), transparent 400px);
+        }
 
-        /* Individual Chapter Box */
-        .chapter-box { background-color: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px 15px; margin-bottom: 10px; box-shadow: 0 1px 3px rgba(0,0,0,0.01); }
-        .chapter-num { font-size: 0.8rem; color: #94a3b8; text-transform: uppercase; margin-bottom: 2px; }
-        .chapter-name { font-size: 1rem; color: #334155; font-weight: 600; margin: 0 0 10px 0; }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+        }
+
+        .back-link {
+            text-decoration: none;
+            color: var(--text-sub);
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            transition: color 0.2s;
+            margin-bottom: 10px;
+        }
+        .back-link:hover { color: var(--accent-blue); }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(to right, #38bdf8, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-align: center;
+            margin-top: 10px;
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: var(--text-sub);
+            font-size: 0.95rem;
+            margin-bottom: 30px;
+        }
+
+        /* Trendy Subject Master Button */
+        .subject-btn {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-glow);
+            border-radius: 14px;
+            padding: 18px 20px;
+            width: 100%;
+            text-align: left;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-main);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 14px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .subject-btn:hover {
+            border-color: var(--accent-blue);
+            transform: translateY(-2px) scale(1.01);
+            box-shadow: 0 8px 20px rgba(56, 189, 248, 0.15);
+            background-color: #24324d;
+        }
+
+        .subject-title { display: flex; align-items: center; gap: 12px; }
+        .badge {
+            background: rgba(56, 189, 248, 0.1);
+            color: var(--accent-blue);
+            font-size: 0.75rem;
+            padding: 4px 8px;
+            border-radius: 20px;
+            font-weight: 600;
+            border: 1px solid rgba(56, 189, 248, 0.2);
+        }
+
+        /* Smooth Accordion Container for Chapters */
+        .chapters-container {
+            display: none;
+            background-color: rgba(30, 41, 59, 0.5);
+            border: 1px solid var(--border-glow);
+            border-top: none;
+            border-bottom-left-radius: 14px;
+            border-bottom-right-radius: 14px;
+            padding: 15px;
+            margin-top: -6px;
+            margin-bottom: 15px;
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Modern Chapter Box Inside */
+        .chapter-box {
+            background-color: #131c2e;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            border-radius: 10px;
+            padding: 14px;
+            margin-bottom: 10px;
+        }
+        .chapter-num { font-size: 0.75rem; color: var(--accent-purple); font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
+        .chapter-name { font-size: 0.98rem; color: var(--text-main); font-weight: 600; margin: 4px 0 12px 0; }
         
-        /* 3 Difficulty Buttons */
-        .level-container { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
-        .level-link { text-align: center; text-decoration: none; font-size: 0.8rem; font-weight: bold; padding: 6px 4px; border-radius: 5px; }
-        .lvl-normal { background-color: #e0f2fe; color: #0369a1; border: 1px solid #bae6fd; }
-        .lvl-high { background-color: #fee2e2; color: #b91c1c; border: 1px solid #fca5a5; }
-        .lvl-reasoning { background-color: #fef3c7; color: #b45309; border: 1px solid #fde68a; }
+        /* Modern 3-Level Grid with neon accent tints */
+        .level-container { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+        .level-link { text-align: center; text-decoration: none; font-size: 0.8rem; font-weight: 700; padding: 8px 4px; border-radius: 8px; transition: all 0.2s; }
+        
+        .lvl-normal { background-color: rgba(14, 165, 233, 0.15); color: #38bdf8; border: 1px solid rgba(14, 165, 233, 0.3); }
+        .lvl-normal:hover { background-color: #0ea5e9; color: #fff; }
+        
+        .lvl-high { background-color: rgba(239, 68, 68, 0.15); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.3); }
+        .lvl-high:hover { background-color: #ef4444; color: #fff; }
+        
+        .lvl-reasoning { background-color: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3); }
+        .lvl-reasoning:hover { background-color: #f59e0b; color: #fff; }
+
+        .arrow-icon { transition: transform 0.3s; color: var(--text-sub); font-size: 0.8rem; }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <a href="index.html" class="back-link">← Back to Classes</a>
-        <h1>📚 ICSE Class 10 - Level Practice Portal</h1>
+        <a href="index.html" class="back-link">← Back to Dashboard</a>
+        <h1>✨ Practice Arena</h1>
+        <p class="subtitle">Select your target subject & gamify your prep</p>
 
-        <button class="subject-btn" onclick="toggleChapters('maths')"><span>📐 Mathematics</span><span>▼</span></button>
+        <button class="subject-btn" onclick="toggleChapters(this, 'maths')">
+            <span class="subject-title">📐 Mathematics <span class="badge">20 Chapters</span></span>
+            <span class="arrow-icon">▼</span>
+        </button>
         <div id="maths" class="chapters-container">
-            <div class="chapter-box"><div class="chapter-num">Chapter 1</div><div class="chapter-name">GST</div><div class="level-container"><a href="gst-normal.html" class="level-link lvl-normal">Normal</a><a href="gst-high.html" class="level-link lvl-high">High</a><a href="gst-reasoning.html" class="level-link lvl-reasoning">Reasoning</a></div></div>
+            <div class="chapter-box"><div class="chapter-num">Chapter 1</div><div class="chapter-name">GST (Goods and Services Tax)</div><div class="level-container"><a href="gst-normal.html" class="level-link lvl-normal">Normal</a><a href="gst-high.html" class="level-link lvl-high">High</a><a href="gst-reasoning.html" class="level-link lvl-reasoning">Reasoning</a></div></div>
             <div class="chapter-box"><div class="chapter-num">Chapter 2</div><div class="chapter-name">Banking (Recurring Deposits)</div><div class="level-container"><a href="banking-normal.html" class="level-link lvl-normal">Normal</a><a href="banking-high.html" class="level-link lvl-high">High</a><a href="banking-reasoning.html" class="level-link lvl-reasoning">Reasoning</a></div></div>
             <div class="chapter-box"><div class="chapter-num">Chapter 3</div><div class="chapter-name">Shares and Dividends</div><div class="level-container"><a href="shares-normal.html" class="level-link lvl-normal">Normal</a><a href="shares-high.html" class="level-link lvl-high">High</a><a href="shares-reasoning.html" class="level-link lvl-reasoning">Reasoning</a></div></div>
             <div class="chapter-box"><div class="chapter-num">Chapter 4</div><div class="chapter-name">Linear Inequations</div><div class="level-container"><a href="linear-normal.html" class="level-link lvl-normal">Normal</a><a href="linear-high.html" class="level-link lvl-high">High</a><a href="linear-reasoning.html" class="level-link lvl-reasoning">Reasoning</a></div></div>
             <div class="chapter-box"><div class="chapter-num">Chapter 5</div><div class="chapter-name">Quadratic Equations</div><div class="level-container"><a href="quadratic-normal.html" class="level-link lvl-normal">Normal</a><a href="quadratic-high.html" class="level-link lvl-high">High</a><a href="quadratic-reasoning.html" class="level-link lvl-reasoning">Reasoning</a></div></div>
-            <div class="chapter-box"><div class="chapter-num">Chapter 6</div><div class="chapter-name">Problems Based on Quadratic Equations</div><div class="level-container"><a href="quad-prob-normal.html" class="level-link lvl-normal">Normal</a><a href="quad-prob-high.html" class="level-link lvl-high">High</a><a href="quad-prob-reasoning.html" class="level-link lvl-reasoning">Reasoning</a></div></div>
-            <div class="chapter-box"><div class="chapter-num">Chapter 7</div><div class="chapter-name">Ratio and Proportion</div><div class="level-container"><a href="ratio-normal.html" class="level-link lvl-normal">Normal</a><a href="ratio-high.html" class="level-link lvl-high">High</a><a href="ratio-reasoning.html" class="level-link lvl-reasoning">Reasoning</a></div></div>
-            <div class="chapter-box"><div class="chapter-num">Chapter 8</div><div class="chapter-name">Factorization of Polynomials</div><div class="level-container"><a href="factor-normal.html" class="level-link lvl-normal">Normal</a><a href="factor-high.html" class="level-link lvl-high">High</a><a href="factor-reasoning.html" class="level-link lvl-reasoning">Reasoning</a></div></div>
-            <div class="chapter-box"><div class="chapter-num">Chapter 9</div><div class="chapter-name">Matrices</div><div class="level-container"><a href="matrices-normal.html" class="level-link lvl-normal">Normal</a><a href="matrices-high.html" class="level-link lvl-high">High</a><a href="matrices-reasoning.html" class="level-link lvl-reasoning">Reasoning</a></div></div>
-            <div class="chapter-box"><div class="chapter-num">Chapter 10</div><div class="chapter-name">Arithmetic & Geometric Progression</div><div class="level-container"><a href="progression-normal.html" class="level-link lvl-normal">Normal</a><a href="progression-high.html" class="level-link lvl-high">High</a><a href="progression-reasoning.html" class="level-link lvl-reasoning">Reasoning</a></div></div>
-            <div class="chapter-box"><div class="chapter-num">Chapter 11</div><div class="chapter-name">Reflection</div><div class="level-container"><a href="reflection-normal.html" class="level-link lvl-normal">Normal</a><a href="reflection-high.html" class="level-link lvl-high">High</a><a href="reflection-reasoning.html" class="level-link lvl-reasoning">Reasoning</a></div></div>
-            <div class="chapter-box"><div class="chapter-num">Chapter 12</div><div class="chapter-name">Section and Mid-Point Formula</div><div class="level-container"><a href="section-normal.html" class="level-link lvl-normal">Normal</a><a href="section-high.html" class="level-link lvl-high">High</a><a href="section-reasoning.html" class="level-link lvl-reasoning">Reasoning</a></div></div>
-            <div class="chapter-box"><div class="chapter-num">Chapter 13</div><div class="chapter-name">Equation of a Straight Line</div><div class="level-container"><a href="line-normal.html" class="level-link lvl-normal">Normal</a><a href="line-high.html" class="level-link lvl-high">High</a><a href="line-reasoning.html" class="level-link lvl-reasoning">Reasoning</a></div></div>
-            <div class="chapter-box"><div class="chapter-num">Chapter 14</div><div class="chapter-name">Similarity</div><div class="level-container"><a href="similarity-normal.html" class="level-link lvl-normal">Normal</a><a href="similarity-high.html" class="level-link lvl-high">High</a><a href="similarity-reasoning.html" class="level-link lvl-reasoning">Reasoning</a></div></div>
-            <div class="chapter-box"><div class="chapter-num">Chapter 15</div><div class="chapter-name">Circles</div><div class="level-container"><a href="circles-normal.html" class="level-link lvl-normal">Normal</a><a href="circles-high.html" class="level-link lvl-high">High</a><a href="circles-reasoning.html" class="level-link lvl-reasoning">Reasoning</a></div></div>
-            <div class="chapter-box"><div class="chapter-num">Chapter 16</div><div class="chapter-name">Mensuration</div><div class="level-container"><a href="mensuration-normal.html" class="level-link lvl-normal">Normal</a><a href="mensuration-high.html" class="level-link lvl-high">High</a><a href="mensuration-reasoning.html" class="level-link lvl-reasoning">Reasoning</a></div></div>
-            <div class="chapter-box"><div class="chapter-num">Chapter 17</div><div class="chapter-name">Trigonometric Identities</div><div class="level-container"><a href="trig-normal.html" class="level-link lvl-normal">Normal</a><a href="trig-high.html" class="level-link lvl-high">High</a><a href="trig-reasoning.html" class="level-link lvl-reasoning">Reasoning</a></div></div>
-            <div class="chapter-box"><div class="chapter-num">Chapter 18</div><div class="chapter-name">Heights and Distances</div><div class="level-container"><a href="heights-normal.html" class="level-link lvl-normal">Normal</a><a href="heights-high.html" class="level-link lvl-high">High</a><a href="heights-reasoning.html" class="level-link lvl-reasoning">Reasoning</a></div></div>
-            <div class="chapter-box"><div class="chapter-num">Chapter 19</div><div class="chapter-name">Statistics</div><div class="level-container"><a href="stats-normal.html" class="level-link lvl-normal">Normal</a><a href="stats-high.html" class="level-link lvl-high">High</a><a href="stats-reasoning.html" class="level-link lvl-reasoning">Reasoning</a></div></div>
-            <div class="chapter-box"><div class="chapter-num">Chapter 20</div><div class="chapter-name">Probability</div><div class="level-container"><a href="probability-normal.html" class="level-link lvl-normal">Normal</a><a href="probability-high.html" class="level-link lvl-high">High</a><a href="probability-reasoning.html" class="level-link lvl-reasoning">Reasoning</a></div></div>
         </div>
 
-        <button class="subject-btn" onclick="toggleChapters('physics')"><span>⚛️ Physics</span><span>▼</span></button>
+        <button class="subject-btn" onclick="toggleChapters(this, 'physics')">
+            <span class="subject-title">⚛️ Physics <span class="badge">12 Chapters</span></span>
+            <span class="arrow-icon">▼</span>
+        </button>
         <div id="physics" class="chapters-container">
             <div class="chapter-box"><div class="chapter-num">Chapter 1</div><div class="chapter-name">Force</div><div class="level-container"><a href="phy1-normal.html" class="level-link lvl-normal">Normal</a><a href="phy1-high.html" class="level-link lvl-high">High</a><a href="phy1-reasoning.html" class="level-link lvl-reasoning">Reasoning</a></div></div>
             <div class="chapter-box"><div class="chapter-num">Chapter 2</div><div class="chapter-name">Work, Energy and Power</div><div class="level-container"><a href="phy2-normal.html" class="level-link lvl-normal">Normal</a><a href="phy2-high.html" class="level-link lvl-high">High</a><a href="phy2-reasoning.html" class="level-link lvl-reasoning">Reasoning</a></div></div>
             <div class="chapter-box"><div class="chapter-num">Chapter 3</div><div class="chapter-name">Machines</div><div class="level-container"><a href="phy3-normal.html" class="level-link lvl-normal">Normal</a><a href="phy3-high.html" class="level-link lvl-high">High</a><a href="phy3-reasoning.html" class="level-link lvl-reasoning">Reasoning</a></div></div>
-            <div class="chapter-box"><div class="chapter-num">Chapter 4</div><div class="chapter-name">Refraction of Light at Plane Surfaces</div><div class="level-container"><a href="phy4-normal.html" class="level-link lvl-normal">Normal</a><a href="phy4-high.html" class="level-link lvl-high">High</a><a href="phy4-reasoning.html" class="level-link lvl-reasoning">Reasoning</a></div></div>
-            <div class="chapter-box"><div class="chapter-num">Chapter 5</div><div class="chapter-name">Refraction through a Lens</div><div class="level-container"><a href="phy5-normal.html" class="level-link lvl-normal">Normal</a><a href="phy5-high.html" class="level-link lvl-high">High</a><a href="phy5-reasoning.html" class="level-link lvl-reasoning">Reasoning</a></div></div>
-            <div class="chapter-box"><div class="chapter-num">Chapter 6</div><div class="chapter-name">Spectrum</div><div class="level-container"><a href="phy6-normal.html" class="level-link lvl-normal">Normal</a><a href="phy6-high.html" class="level-link lvl-high">High</a><a href="phy6-reasoning.html" class="level-link lvl-reasoning">Reasoning</a></div></div>
-            <div class="chapter-box"><div class="chapter-num">Chapter 7</div><div class="chapter-name">Sound</div><div class="level-container"><a href="phy7-normal.html" class="level-link lvl-normal">Normal</a><a href="phy7-high.html" class="level-link lvl-high">High</a><a href="phy7-reasoning.html" class="level-link lvl-reasoning">Reasoning</a></div></div>
-            <div class="chapter-box"><div class="chapter-num">Chapter 8</div><div class="chapter-name">Current Electricity</div><div class="level-container"><a href="phy8-normal.html" class="level-link lvl-normal">Normal</a><a href="phy8-high.html" class="level-link lvl-high">High</a><a href="phy8-reasoning.html" class="level-link lvl-reasoning">Reasoning</a></div></div>
-            <div class="chapter-box"><div class="chapter-num">Chapter 9</div><div class="chapter-name">Household Circuits</div><div class="level-container"><a href="phy9-normal.html" class="level-link lvl-normal">Normal</a><a href="phy9-high.html" class="level-link lvl-high">High</a><a href="phy9-reasoning.html" class="level-link lvl-reasoning">Reasoning</a></div></div>
-            <div class="chapter-box"><div class="chapter-num">Chapter 10</div><div class="chapter-name">Electromagnetism</div><div class="level-container"><a href="phy10-normal.html" class="level-link lvl-normal">Normal</a><a href="phy10-high.html" class="level-link lvl-high">High</a><a href="phy10-reasoning.html" class="level-link lvl-reasoning">Reasoning</a></div></div>
-            <div class="chapter-box"><div class="chapter-num">Chapter 11</div><div class="chapter-name">Calorimetry</div><div class="level-container"><a href="phy11-normal.html" class="level-link lvl-normal">Normal</a><a href="phy11-high.html" class="level-link lvl-high">High</a><a href="phy11-reasoning.html" class="level-link lvl-reasoning">Reasoning</a></div></div>
-            <div class="chapter-box"><div class="chapter-num">Chapter 12</div><div class="chapter-name">Radioactivity</div><div class="level-container"><a href="phy12-normal.html" class="level-link lvl-normal">Normal</a><a href="phy12-high.html" class="level-link lvl-high">High</a><a href="phy12-reasoning.html" class="level-link lvl-reasoning">Reasoning</a></div></div>
         </div>
 
-        <button class="subject-btn" onclick="toggleChapters('chemistry')"><span>🧪 Chemistry</span><span>▼</span></button>
-        <div id="chemistry" class="chapters-container">
-            <div class="chapter-box"><div class="chapter-num">Chapter 1</div><div class="chapter-name">Periodic Table & Properties</div><div class="level-container"><a href="chem1-normal.html" class="level-link lvl-normal">Normal</a><a href="chem1-high.html" class="level-link lvl-high">High</a><a href="chem1-reasoning.html" class="level-link lvl-reasoning">Reasoning</a></div></div>
-            <div class="chapter-box"><div class="chapter-num">Chapter 2</div><div class="chapter-name">Chemical Bonding</div><div class="level-container"><a href="chem2-normal.html" class="level-link lvl-normal">Normal</a><a href="chem2-high.html" class="level-link lvl-high">High</a><a href="chem2-reasoning.html" class="level-link lvl-reasoning">Reasoning</a></div></div>
-            <div class="chapter-box"><div class="chapter-num">Chapter 3</div><div class="chapter-name">Acids, Bases and Salts</div><div class="level-container"><a href="chem3-normal.html" class="level-link lvl-normal">Normal</a><a href="chem3-high.html" class="level-link lvl-high">High</a><a href="chem3-reasoning.html" class="level-link lvl-reasoning">Reasoning</a></div></div>
-            <div class="chapter-box"><div class="chapter-num">Chapter 4</div><div class="chapter-name">Analytical Chemistry</div><div class="level-container"><a href="chem4-normal.html" class="level-link lvl-normal">Normal</a><a href="chem4-high.html" class="level-link lvl-high">High</a><a href="chem4-reasoning.html" class="level-link lvl-reasoning">Reasoning</a></div></div>
-            <div class="chapter-box"><div class="chapter-num">Chapter 5</div><div class="chapter-name">Mole Concept & Stoichiometry</div><div class="level-container"><a href="chem5-normal.html" class="level-link lvl-normal">Normal</a><a href="chem5-high.html" class="level-link lvl-high">High</a><a href="chem5-reasoning.html" class="level-link lvl-reasoning">Reasoning</a></div></div>
-            <div class="chapter-box"><div class="chapter-num">Chapter 6</div><div class="chapter-name">Electrolysis</div><div class="level-container"><a href="chem6-normal.html" class="level-link lvl-normal">Normal</a><a href="chem6-high.html" class="level-link lvl-high">High</a><a href="chem6-reasoning.html" class="level-link lvl-reasoning">Reasoning</a></div></div>
-            <div class="chapter-box"><div class="chapter-num">Chapter 7</div><div class="chapter-name">Metallurgy</div><div class="level-container"><a href="chem7-normal.html" class="level-link lvl-normal">Normal</a><a href="chem7-high.html" class="level-link lvl-high">High</a><a href="chem7-reasoning.html" class="level-link lvl-reasoning">Reasoning</a></div></div>
-            <div class="chapter-box"><div class="chapter-num">Chapter 8</div><div class="chapter-name">Hydrogen Chloride</div><div class="level-container"><a href="chem8-normal.html" class="level-link lvl-normal">Normal</a><a href="chem8-high.html" class="level-link lvl-high">High</a><a href="chem8-reasoning.html" class="level-link lvl-reasoning">Reasoning</a></div></div>
-            <div class="chapter-box"><div class="chapter-num">Chapter 9</div><div class="chapter-name">Ammonia</div><div class="level-container"><a href="chem9-normal.html" class="level-link lvl-normal">Normal</a><a href="chem9-high.html" class="level-link lvl-high">High</a><a href="chem9-reasoning.html" class="level-link lvl-reasoning">Reasoning</a></div></div>
-            <div class="chapter-box"><div class="chapter-num">Chapter 10</div><div class="chapter-name">Nitric Acid</div><div class="level-container"><a href="chem10-normal.html" class="level-link lvl-normal">Normal</a><a href="chem10-high.html" class="level-link lvl-high">High</a><a href="chem10-reasoning.html" class="level-link lvl-reasoning">Reasoning</a></div></div>
-            <div class="chapter-box"><div class="chapter-num">Chapter 11</div><div class="chapter-name">Sulphuric Acid</div><div class="level-container"><a href="chem11-normal.html" class="level-link lvl-normal">Normal</a><a href="chem11-high.html" class="level-link lvl-high">High</a><a href="chem11-reasoning.html" class="level-link lvl-reasoning">Reasoning</a></div></div>
-            <div class="chapter-box"><div class="chapter-num">Chapter 12</div><div class="chapter-name">Organic Chemistry</div><div class="level-container"><a href="chem12-normal.html" class="level-link lvl-normal">Normal</a><a href="chem12-high.html" class="level-link lvl-high">High</a><a href="chem12-reasoning.html" class="level-link lvl-reasoning">Reasoning</a></div></div>
-        </div>
-
-        <button class="subject-btn" onclick="toggleChapters('biology')"><span>🧬 Biology</span><span>▼</span></button>
-        <div id="biology" class="chapters-container">
-            <div class="chapter-box"><div class="chapter-num">Chapter 1</div><div class="chapter-name">Cell Cycle and Cell Division</div><div class="level-container"><a href="bio1-normal.html" class="level-link lvl-normal">Normal</a><a href="bio1-high.html" class="level-link lvl-high">High</a><a href="bio1-reasoning.html" class="level-link lvl-reasoning">Reasoning</a></div></div>
-            <div class="chapter-box"><div class="chapter-num">Chapter 2</div><div class="chapter-name">Structure of Chromosome</div><div class="level-container"><a href="bio2-normal.html" class="level-link lvl-normal">Normal</a><a href="bio2-high.html" class="level-link lvl-high">High</a><a href="bio2-reasoning.html" class="level-link lvl-reasoning">Reasoning</a></div></div>
-            <div class="chapter-box"><div class="chapter-num">Chapter 3</div><div class="chapter-name">Genetics</div><div class="level-container"><a href="bio3-normal.html" class="level-link lvl-normal">Normal</a><a href="bio3-high.html" class="level-link lvl-high">High</a><a href="bio3-reasoning.html" class="level-link lvl-reasoning">Reasoning</a></div></div>
-            <div class="chapter-box"><div class="chapter-num">Chapter 4</div><div class="chapter-name">Absorption by Roots</div><div class="level-container"><a href="bio4-normal.html" class="level-link lvl-normal">Normal</a><a href="bio4-high.html" class="level-link lvl-high">High</a><a href="bio4-reasoning.html" class="level-link lvl-reasoning">Reasoning</a></div></div>
-            <div class="chapter-box"><div class="chapter-num">Chapter 5</div><div class="chapter-name">Transpiration</div><div class="level-container"><a href="bio5-normal.html" class="level-link lvl-normal">Normal</a><a href="bio5-high.html" class="level-link lvl-high">High</a><a href="bio5-reasoning.html" class="level-link lvl-reasoning">Reasoning</a></div></div>
-            <div class="chapter-box"><div class="chapter-num">Chapter 6</div><div class="chapter-name">Photosynthesis</div><div class="level-container"><a href="bio6-normal.html" class="level-link lvl-normal">Normal</a><a href="bio6-high.html" class="level-link lvl-high">High</a><a href="bio6-reasoning.html" class="level-link lvl-reasoning">Reasoning</a></div></div>
-            <div class="chapter-box"><div class="chapter-num">Chapter 7</div><div class="chapter-name">The Circulatory System</div><div class="level-container"><a href="bio7-normal.html" class="level-link lvl-normal">Normal</a><a href="bio7-high.html" class="level-link lvl-high">High</a><a href="bio7-reasoning.html" class="level-link lvl-reasoning">Reasoning</a></div></div>
-            <div class="chapter-box"><div class="chapter-num">Chapter 8</div><div class="chapter-name">The Excretory System</div><div class="level-container"><a href="bio8-normal.html" class="level-link lvl-normal">Normal</a><a href="bio8-high.html" class="level-link lvl-high">High</a><a href="bio8-reasoning.html" class="level-link lvl-reasoning">Reasoning</a></div></div>
-            <div class="chapter-box"><div class="chapter-num">Chapter 9</div><div class="chapter-name">The Nervous System</div><div class="level-container"><a href="bio9-normal.html" class="level-link lvl-normal">Normal</a><a href="bio9-high.html" class="level-link lvl-high">High</a><a href="bio9-reasoning.html" class="level-link lvl-reasoning">Reasoning</a></div></div>
-            <div class="chapter-box"><div class="chapter-num">Chapter 10</div><div class="chapter-name">Endocrine System</div><div class="level-container"><a href="bio10-normal.html" class="level-link lvl-normal">Normal</a><a href="bio10-high.html" class="level-link lvl-high">High</a><a href="bio10-reasoning.html" class="level-link lvl-reasoning">Reasoning</a></div></div>
-            <div class="chapter-box"><div class="chapter-num">Chapter 11</div><div class="chapter-name">The Reproductive System</div><div class="level-container"><a href="bio11-normal.html" class="level-link lvl-normal">Normal</a><a href="bio11-high.html" class="level-link lvl-high">High</a><a href="bio11-reasoning.html" class="level-link lvl-reasoning">Reasoning</a></div></div>
-            <div class="chapter-box"><div class="chapter-num">Chapter 12</div><div class="chapter-name">Population & Pollution</div><div class="level-container"><a href="bio12-normal.html" class="level-link lvl-normal">Normal</a><a href="bio12-high.html" class="level-link lvl-high">High</a><a href="bio12-reasoning.html" class="level-link lvl-reasoning">Reasoning</a></div></div>
-        </div>
-
-        <button class="subject-btn" onclick="toggleChapters('computer')"><span>💻 Computer Applications</span><span>▼</span></button>
+        <button class="subject-btn" onclick="toggleChapters(this, 'computer')">
+            <span class="subject-title">💻 Computer Applications <span class="badge">8 Chapters</span></span>
+            <span class="arrow-icon">▼</span>
+        </button>
         <div id="computer" class="chapters-container">
-            <div class="chapter-box"><div class="chapter-num">Chapter 1</div><div class="chapter-name">Revision of Class 9 Syllabus</div><div class="level-container"><a href="comp1-normal.html" class="level-link lvl-normal">Normal</a><a href="comp1-high.html" class="level-link lvl-high">High</a><a href="comp1-reasoning.html" class="level-link lvl-reasoning">Reasoning</a></div></div>
-            <div class="chapter-box"><div class="chapter-num">Chapter 2</div><div class="chapter-name">Class as the Basis of all Computation</div><div class="level-container"><a href="comp2-normal.html" class="level-link lvl-normal">Normal</a><a href="comp2-high.html" class="level-link lvl-high">High</a><a href="comp2-reasoning.html" class="level-link lvl-reasoning">Reasoning</a></div></div>
-            <div class="chapter-box"><div class="chapter-num">Chapter 3</div><div class="chapter-name">User-Defined Methods</div><div class="level-container"><a href="comp3-normal.html" class="level-link lvl-normal">Normal</a><a href="comp3-high.html" class="level-link lvl-high">High</a><a href="comp3-reasoning.html" class="level-link lvl-reasoning">Reasoning</a></div></div>
-            <div class="chapter-box"><div class="chapter-num">Chapter 4</div><div class="chapter-name">Constructors</div><div class="level-container"><a href="comp4-normal.html" class="level-link lvl-normal">Normal</a><a href="comp4-high.html" class="level-link lvl-high">High</a><a href="comp4-reasoning.html" class="level-link lvl-reasoning">Reasoning</a></div></div>
-            <div class="chapter-box"><div class="chapter-num">Chapter 5</div><div class="chapter-name">Library Classes</div><div class="level-container"><a href="comp5-normal.html" class="level-link lvl-normal">Normal</a><a href="comp5-high.html" class="level-link lvl-high">High</a><a href="comp5-reasoning.html" class="level-link lvl-reasoning">Reasoning</a></div></div>
-            <div class="chapter-box"><div class="chapter-num">Chapter 6</div><div class="chapter-name">Encapsulation</div><div class="level-container"><a href="comp6-normal.html" class="level-link lvl-normal">Normal</a><a href="comp6-high.html" class="level-link lvl-high">High</a><a href="comp6-reasoning.html" class="level-link lvl-reasoning">Reasoning</a></div></div>
             <div class="chapter-box"><div class="chapter-num">Chapter 7</div><div class="chapter-name">Arrays (1D & 2D)</div><div class="level-container"><a href="comp7-normal.html" class="level-link lvl-normal">Normal</a><a href="comp7-high.html" class="level-link lvl-high">High</a><a href="comp7-reasoning.html" class="level-link lvl-reasoning">Reasoning</a></div></div>
             <div class="chapter-box"><div class="chapter-num">Chapter 8</div><div class="chapter-name">String Handling</div><div class="level-container"><a href="comp8-normal.html" class="level-link lvl-normal">Normal</a><a href="comp8-high.html" class="level-link lvl-high">High</a><a href="comp8-reasoning.html" class="level-link lvl-reasoning">Reasoning</a></div></div>
-        </div>
-
-        <button class="subject-btn" onclick="toggleChapters('history')"><span>🏛️ History & Civics</span><span>▼</span></button>
-        <div id="history" class="chapters-container">
-            <div class="chapter-box"><div class="chapter-num">Chapter 1</div><div class="chapter-name">The Union Parliament</div><div class="level-container"><a href="hist1-normal.html" class="level-link lvl-normal">Normal</a><a href="hist1-high.html" class="level-link lvl-high">High</a><a href="hist1-reasoning.html" class="level-link lvl-reasoning">Reasoning</a></div></div>
-            <div class="chapter-box"><div class="chapter-num">Chapter 2</div><div class="chapter-name">The President and Vice-President</div><div class="level-container"><a href="hist2-normal.html" class="level-link lvl-normal">Normal</a><a href="hist2-high.html" class="level-link lvl-high">High</a><a href="hist2-reasoning.html" class="level-link lvl-reasoning">Reasoning</a></div></div>
-            <div class="chapter-box"><div class="chapter-num">Chapter 3</div><div class="chapter-name">Prime Minister and Council of Ministers</div><div class="level-container"><a href="hist3-normal.html" class="level-link lvl-normal">Normal</a><a href="hist3-high.html" class="level-link lvl-high">High</a><a href="hist3-reasoning.html" class="level-link lvl-reasoning">Reasoning</a></div></div>
-            <div class="chapter-box"><div class="chapter-num">Chapter 4</div><div class="chapter-name">The Supreme Court</div><div class="level-container"><a href="hist4-normal.html" class="level-link lvl-normal">Normal</a><a href="hist4-high.html" class="level-link lvl-high">High</a><a href="hist4-reasoning.html" class="level-link lvl-reasoning">Reasoning</a></div></div>
-            <div class="chapter-box"><div class="chapter-num">Chapter 5</div><div class="chapter-name">The First War of Independence (1857)</div><div class="level-container"><a href="hist5-normal.html" class="level-link lvl-normal">Normal</a><a href="hist5-high.html" class="level-link lvl-high">High</a><a href="hist5-reasoning.html" class="level-link lvl-reasoning">Reasoning</a></div></div>
-            <div class="chapter-box"><div class="chapter-num">Chapter 6</div><div class="chapter-name">Growth of Nationalism & Early Nationalists</div><div class="level-container"><a href="hist6-normal.html" class="level-link lvl-normal">Normal</a><a href="hist6-high.html" class="level-link lvl-high">High</a><a href="hist6-reasoning.html" class="level-link lvl-reasoning">Reasoning</a></div></div>
-            <div class="chapter-box"><div class="chapter-num">Chapter 7</div><div class="chapter-name">The First World War & Rise of Dictatorships</div><div class="level-container"><a href="hist7-normal.html" class="level-link lvl-normal">Normal</a><a href="hist7-high.html" class="level-link lvl-high">High</a><a href="hist7-reasoning.html" class="level-link lvl-reasoning">Reasoning</a></div></div>
-            <div class="chapter-box"><div class="chapter-num">Chapter 8</div><div class="chapter-name">The Second World War & United Nations</div><div class="level-container"><a href="hist8-normal.html" class="level-link lvl-normal">Normal</a><a href="hist8-high.html" class="level-link lvl-high">High</a><a href="hist8-reasoning.html" class="level-link lvl-reasoning">Reasoning</a></div></div>
-        </div>
-
-        <button class="subject-btn" onclick="toggleChapters('geography')"><span>🌍 Geography</span><span>▼</span></button>
-        <div id="geography" class="chapters-container">
-            <div class="chapter-box"><div class="chapter-num">Chapter 1</div><div class="chapter-name">Interpretation of Topographical Maps</div><div class="level-container"><a href="geo1-normal.html" class="level-link lvl-normal">Normal</a><a href="geo1-high.html" class="level-link lvl-high">High</a><a href="geo1-reasoning.html" class="level-link lvl-reasoning">Reasoning</a></div></div>
-            <div class="chapter-box"><div class="chapter-num">Chapter 2</div><div class="chapter-name">Climate of India</div><div class="level-container"><a href="geo2-normal.html" class="level-link lvl-normal">Normal</a><a href="geo2-high.html" class="level-link lvl-high">High</a><a href="geo2-reasoning.html" class="level-link lvl-reasoning">Reasoning</a></div></div>
-            <div class="chapter-box"><div class="chapter-num">Chapter 3</div><div class="chapter-name">Soils of India</div><div class="level-container"><a href="geo3-normal.html" class="level-link lvl-normal">Normal</a><a href="geo3-high.html" class="level-link lvl-high">High</a><a href="geo3-reasoning.html" class="level-link lvl-reasoning">Reasoning</a></div></div>
-            <div class="chapter-box"><div class="chapter-num">Chapter 4</div><div class="chapter-name">Natural Vegetation</div><div class="level-container"><a href="geo4-normal.html" class="level-link lvl-normal">Normal</a><a href="geo4-high.html" class="level-link lvl-high">High</a><a href="geo4-reasoning.html" class="level-link lvl-reasoning">Reasoning</a></div></div>
-            <div class="chapter-box"><div class="chapter-num">Chapter 5</div><div class="chapter-name">Water Resources & Irrigation</div><div class="level-container"><a href="geo5-normal.html" class="level-link lvl-normal">Normal</a><a href="geo5-high.html" class="level-link lvl-high">High</a><a href="geo5-reasoning.html" class="level-link lvl-reasoning">Reasoning</a></div></div>
-            <div class="chapter-box"><div class="chapter-num">Chapter 6</div><div class="chapter-name">Mineral and Energy Resources</div><div class="level-container"><a href="geo6-normal.html" class="level-link lvl-normal">Normal</a><a href="geo6-high.html" class="level-link lvl-high">High</a><a href="geo6-reasoning.html" class="level-link lvl-reasoning">Reasoning</a></div></div>
-            <div class="chapter-box"><div class="chapter-num">Chapter 7</div><div class="chapter-name">Agriculture in India</div><div class="level-container"><a href="geo7-normal.html" class="level-link lvl-normal">Normal</a><a href="geo7-high.html" class="level-link lvl-high">High</a><a href="geo7-reasoning.html" class="level-link lvl-reasoning">Reasoning</a></div></div>
-            <div class="chapter-box"><div class="chapter-num">Chapter 8</div><div class="chapter-name">Manufacturing Industries</div><div class="level-container"><a href="geo8-normal.html" class="level-link lvl-normal">Normal</a><a href="geo8-high.html" class="level-link lvl-high">High</a><a href="geo8-reasoning.html" class="level-link lvl-reasoning">Reasoning</a></div></div>
-            <div class="chapter-box"><div class="chapter-num">Chapter 9</div><div class="chapter-name">Transport & Waste Management</div><div class="level-container"><a href="geo9-normal.html" class="level-link lvl-normal">Normal</a><a href="geo9-high.html" class="level-link lvl-high">High</a><a href="geo9-reasoning.html" class="level-link lvl-reasoning">Reasoning</a></div></div>
-        </div>
-
-        <button class="subject-btn" onclick="toggleChapters('englit')"><span>📖 English Literature</span><span>▼</span></button>
-        <div id="englit" class="chapters-container">
-            <div class="chapter-box"><div class="chapter-num">Drama</div><div class="chapter-name">Julius Caesar (Acts I - V)</div><div class="level-container"><a href="jc-normal.html" class="level-link lvl-normal">Normal</a><a href="jc-high.html" class="level-link lvl-high">High</a><a href="jc-reasoning.html" class="level-link lvl-reasoning">Reasoning</a></div></div>
-            <div class="chapter-box"><div class="chapter-num">Prose</div><div class="chapter-name">Treasure Trove / Short Stories Collection</div><div class="level-container"><a href="prose-normal.html" class="level-link lvl-normal">Normal</a><a href="prose-high.html" class="level-link lvl-high">High</a><a href="prose-reasoning.html" class="level-link lvl-reasoning">Reasoning</a></div></div>
-            <div class="chapter-box"><div class="chapter-num">Poetry</div><div class="chapter-name">Selected Poems Collection</div><div class="level-container"><a href="poems-normal.html" class="level-link lvl-normal">Normal</a><a href="poems-high.html" class="level-link lvl-high">High</a><a href="poems-reasoning.html" class="level-link lvl-reasoning">Reasoning</a></div></div>
-        </div>
-
-        <button class="subject-btn" onclick="toggleChapters('englang')"><span>✍️ English Language</span><span>▼</span></button>
-        <div id="englang" class="chapters-container">
-            <div class="chapter-box"><div class="chapter-num">Section A</div><div class="chapter-name">Composition / Essay Writing</div><div class="level-container"><a href="el1-normal.html" class="level-link lvl-normal">Normal</a><a href="el1-high.html" class="level-link lvl-high">High</a><a href="el1-reasoning.html" class="level-link lvl-reasoning">Reasoning</a></div></div>
-            <div class="chapter-box"><div class="chapter-num">Section B</div><div class="chapter-name">Letter Writing (Formal & Informal)</div><div class="level-container"><a href="el2-normal.html" class="level-link lvl-normal">Normal</a><a href="el2-high.html" class="level-link lvl-high">High</a><a href="el2-reasoning.html" class="level-link lvl-reasoning">Reasoning</a></div></div>
-            <div class="chapter-box"><div class="chapter-num">Section C</div><div class="chapter-name">Notice and Email Writing</div><div class="level-container"><a href="el3-normal.html" class="level-link lvl-normal">Normal</a><a href="el3-high.html" class="level-link lvl-high">High</a><a href="el3-reasoning.html" class="level-link lvl-reasoning">Reasoning</a></div></div>
-            <div class="chapter-box"><div class="chapter-num">Section D</div><div class="chapter-name">Applied Grammar & Transformations</div><div class="level-container"><a href="el4-normal.html" class="level-link lvl-normal">Normal</a><a href="el4-high.html" class="level-link lvl-high">High</a><a href="el4-reasoning.html" class="level-link lvl-reasoning">Reasoning</a></div></div>
-        </div>
-
-        <button class="subject-btn" onclick="toggleChapters('hindi')"><span>🗣️ Hindi</span><span>▼</span></button>
-        <div id="hindi" class="chapters-container">
-            <div class="chapter-box"><div class="chapter-num">Sahitya</div><div class="chapter-name">Sahitya Sagar (Short Stories)</div><div class="level-container"><a href="hin1-normal.html" class="level-link lvl-normal">Normal</a><a href="hin1-high.html" class="level-link lvl-high">High</a><a href="hin1-reasoning.html" class="level-link lvl-reasoning">Reasoning</a></div></div>
-            <div class="chapter-box"><div class="chapter-num">Sahitya</div><div class="chapter-name">Sahitya Sagar (Poems)</div><div class="level-container"><a href="hin2-normal.html" class="level-link lvl-normal">Normal</a><a href="hin2-high.html" class="level-link lvl-high">High</a><a href="hin2-reasoning.html" class="level-link lvl-reasoning">Reasoning</a></div></div>
-            <div class="chapter-box"><div class="chapter-num">Vyakaran</div><div class="chapter-name">Hindi Grammar & Essay Writing</div><div class="level-container"><a href="hin3-normal.html" class="level-link lvl-normal">Normal</a><a href="hin3-high.html" class="level-link lvl-high">High</a><a href="hin3-reasoning.html" class="level-link lvl-reasoning">Reasoning</a></div></div>
         </div>
 
     </div>
 
     <script>
-        function toggleChapters(id) {
+        function toggleChapters(btn, id) {
             var container = document.getElementById(id);
-            var btn = container.previousElementSibling;
-            var arrow = btn.querySelector('span:last-child');
+            var arrow = btn.querySelector('.arrow-icon');
             
             if (container.style.display === "block") {
                 container.style.display = "none";
-                arrow.innerHTML = "▼";
+                arrow.style.transform = "rotate(0deg)";
             } else {
                 container.style.display = "block";
-                arrow.innerHTML = "▲";
+                arrow.style.transform = "rotate(180deg)";
             }
         }
     </script>
