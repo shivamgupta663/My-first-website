@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Quiz Competition</title>
+    <style>
+        body {
+            font-family: 'Poppins', Arial, sans-serif;
+            background-color: #f0f7ff;
+            color: #333;
+            text-align: center;
+            padding: 20px;
+            margin: 0;
+        }
+        .quiz-container {
+            max-width: 600px;
+            margin: 30px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+        h1 { color: #0284c7; }
+        .question-box {
+            text-align: left;
+            margin-bottom: 25px;
+            background: #f8fafc;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 5px solid #0284c7;
+        }
+        h3 { margin-top: 0; color: #1e293b; }
+        label {
+            display: block;
+            margin: 10px 0;
+            cursor: pointer;
+            padding: 8px;
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+        }
+        label:hover { background: #e0f2fe; }
+        .submit-btn {
+            background-color: #22c55e;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 25px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+        .submit-btn:hover { background-color: #16a34a; }
+        #result {
+            margin-top: 20px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #0284c7;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="quiz-container">
+        <h1>🧠 Kids Mega Quiz!</h1>
+        <p>Apne answers select karein aur check karein aapko kitne points milte hain!</p>
+        <hr style="border: 1px solid #e2e8f0; margin-bottom: 20px;">
+
+        <form id="quizForm">
+            <div class="question-box">
+                <h3>Q1. India ki Capital (Rajdhani) kya hai?</h3>
+                <label><input type="radio" name="q1" value="wrong"> Mumbai</label>
+                <label><input type="radio" name="q1" value="correct"> New Delhi</label>
+                <label><input type="radio" name="q1" value="wrong"> Kolkata</label>
+            </div>
+
+            <div class="question-box">
+                <h3>Q2. Ek saal (Year) mein kitne din hote hain?</h3>
+                <label><input type="radio" name="q2" value="wrong"> 360</label>
+                <label><input type="radio" name="q2" value="wrong"> 355</label>
+                <label><input type="radio" name="q2" value="correct"> 365</label>
+            </div>
+
+            <div class="question-box">
+                <h3>Q3. Hamare Solar System mein sabse bada Planet kaun sa hai?</h3>
+                <label><input type="radio" name="q3" value="correct"> Jupiter (Brihaspati)</label>
+                <label><input type="radio" name="q3" value="wrong"> Earth (Prithvi)</label>
+                <label><input type="radio" name="q3" value="wrong"> Mars (Mangal)</label>
+            </div>
+
+            <button type="button" class="submit-btn" onclick="checkAnswers()">Check My Score! 🎉</button>
+        </form>
+
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function checkAnswers() {
+            let score = 0;
+            let totalQuestions = 3;
+
+            // Form se saare answers nikalna
+            let form = document.getElementById('quizForm');
+            
+            // Q1 Check
+            let q1Answer = form.elements['q1'].value;
+            if(q1Answer === "correct") { score++; }
+
+            // Q2 Check
+            let q2Answer = form.elements['q2'].value;
+            if(q2Answer === "correct") { score++; }
+
+            // Q3 Check
+            let q3Answer = form.elements['q3'].value;
+            if(q3Answer === "correct") { score++; }
+
+            // Result screen par dikhane ke liye
+            let resultDiv = document.getElementById('result');
+            
+            if(score === totalQuestions) {
+                resultDiv.innerHTML = "🎉 Mind-blowing! Aapka score hai: " + score + "/" + totalQuestions + " (Excellent!)";
+                resultDiv.style.color = "#22c55e"; // Green color for full marks
+            } else if (score > 0) {
+                resultDiv.innerHTML = "👍 Good Job! Aapka score hai: " + score + "/" + totalQuestions + ". Thodi aur mehnat karo!";
+                resultDiv.style.color = "#eab308"; // Yellow/Orange
+            } else {
+                resultDiv.innerHTML = "🥺 Oh no! Aapka score hai: " + score + "/" + totalQuestions + ". Dubara koshish karo!";
+                resultDiv.style.color = "#ef4444"; // Red
+            }
+        }
+    </script>
+
+</body>
+</html>
