@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banking (RD) Practice Arena - Master Sets</title>
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-main: #f8fafc;
+            --text-sub: #94a3b8;
+            --accent-blue: #38bdf8;
+            --accent-green: #4ade80;
+            --accent-red: #f87171;
+            --border-glow: #334155;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 650px;
+            margin: 20px auto;
+        }
+
+        .back-btn {
+            text-decoration: none;
+            color: var(--text-sub);
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+        .back-btn:hover { color: var(--accent-blue); }
+
+        h1 {
+            font-size: 2rem;
+            background: linear-gradient(to right, #38bdf8, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 5px;
+            text-align: center;
+        }
+
+        .subtitle {
+            color: var(--text-sub);
+            margin-bottom: 30px;
+            font-size: 0.95rem;
+            text-align: center;
+        }
+
+        /* Mode Switcher Tabs */
+        .tabs-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-bottom: 30px;
+            background: rgba(255,255,255,0.03);
+            padding: 6px;
+            border-radius: 12px;
+            border: 1px solid var(--border-glow);
+        }
+
+        .tab-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-sub);
+            padding: 12px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+
+        .tab-btn:hover { color: var(--text-main); }
+
+        /* Active Tab Status Tints */
+        .tab-btn.active[data-mode="normal"] { background: rgba(14, 165, 233, 0.2); color: #38bdf8; border: 1px solid rgba(14, 165, 233, 0.4); }
+        .tab-btn.active[data-mode="high"] { background: rgba(239, 68, 68, 0.2); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.4); }
+        .tab-btn.active[data-mode="reasoning"] { background: rgba(245, 158, 11, 0.2); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.4); }
+
+        /* Quiz Cards */
+        .quiz-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-glow);
+            border-radius: 14px;
+            padding: 22px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            animation: fadeIn 0.4s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .q-text {
+            font-size: 1.05rem;
+            font-weight: 600;
+            line-height: 1.5;
+            margin-bottom: 18px;
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+
+        .option-btn {
+            background-color: #131c2e;
+            border: 1px solid var(--border-glow);
+            color: var(--text-main);
+            padding: 14px 16px;
+            border-radius: 10px;
+            text-align: left;
+            font-size: 0.95rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .option-btn:hover {
+            border-color: var(--accent-blue);
+            background-color: #1b2640;
+        }
+
+        .option-btn.correct {
+            background-color: rgba(74, 222, 128, 0.15) !important;
+            border-color: var(--accent-green) !important;
+            color: var(--accent-green);
+        }
+
+        .option-btn.wrong {
+            background-color: rgba(248, 113, 113, 0.15) !important;
+            border-color: var(--accent-red) !important;
+            color: var(--accent-red);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <a href="class10.html" class="back-btn">← Back to Arena</a>
+        <h1>🏦 Banking (Recurring Deposits)</h1>
+        <p class="subtitle">Master formulas, interest rates, and maturity values</p>
+
+        <div class="tabs-container">
+            <button class="tab-btn active" data-mode="normal" onclick="switchMode('normal')">Normal Level</button>
+            <button class="tab-btn" data-mode="high" onclick="switchMode('high')">High Level</button>
+            <button class="tab-btn" data-mode="reasoning" onclick="switchMode('reasoning')">Assertion & Reason</button>
+        </div>
+
+        <div id="quiz-arena"></div>
+    </div>
+
+    <script>
+        const masterQuestions = {
+            normal: [
+                { q: "Karan deposits ₹600 per month in a Recurring Deposit Account for 20 months. Find the total principal deposited by him.", ops: ["₹12,000", "₹6,000", "₹14,400", "₹10,000"], ai: 0 },
+                { q: "A man deposits ₹400 per month for 1 year at 10% p.a. simple interest. Calculate the equivalent principal for one month ($[n(n+1)]/2 \\times P$).", ops: ["₹4,800", "₹31,200", "₹2,600", "₹400"], ai: 1 },
+                { q: "If the total interest earned in an RD account over 2 years is ₹1,200 and the total amount deposited is ₹24,000, find the Maturity Value.", ops: ["₹22,800", "₹25,200", "₹24,000", "₹26,400"], ai: 1 },
+                { q: "Sonia opened an RD account and deposited ₹150 per month for 24 months. If she received ₹300 as interest at maturity, what is the maturity value?", ops: ["₹3,600", "₹3,900", "₹4,200", "₹3,300"], ai: 1 },
+                { q: "An RD account of ₹500 per month for 10 months earns a simple interest of ₹110. Find the rate of interest per annum.", ops: ["6%", "8%", "10%", "12%"], ai: 0 },
+                { q: "Rohan deposits ₹1,000 monthly for 3 years. What is the total number of monthly installments (n) used in the formula?", ops: ["3", "12", "36", "24"], ai: 2 },
+                { q: "Find the interest earned on a monthly deposit of ₹200 for 6 months at 12% per annum.", ops: ["₹14", "₹42", "₹84", "₹21"], ai: 1 },
+                { q: "If the Maturity Value of an RD account is ₹16,550 and the total interest earned is ₹1,550, what was the total sum deposited?", ops: ["₹15,000", "₹18,100", "₹16,000", "₹14,500"], ai: 0 },
+                { q: "A student deposits ₹50 per month for 2 years. What will be the value of $n(n+1)$ in the interest formula?", ops: ["552", "600", "48", "50"], ai: 0 },
+                { q: "An RD account gets ₹600 interest on a total deposit of ₹12,000 over 20 months. Find the monthly installment amount.", ops: ["₹500", "₹600", "₹400", "₹1,000"], ai: 1 }
+            ],
+            high: [
+                { q: "Amit opened a Recurring Deposit Account in a bank and deposited ₹300 per month for 2 years. If he received ₹7,926 at the time of maturity, find the rate of interest per annum.", ops: ["10%", "9%", "8%", "11%"], ai: 0 },
+                { q: "Mr. Bajaj has an RD account of ₹1,200 per month for 3 years. If the bank pays interest at 11% p.a., calculate the total interest he will receive at maturity.", ops: ["₹7,326", "₹6,840", "₹8,112", "₹7,128"], ai: 0 },
+                { q: "A person deposits ₹x per month for 18 months at 12% p.a. simple interest. If the total interest accumulated is ₹1,026, find the value of x (Monthly Deposit).", ops: ["₹400", "₹500", "₹600", "₹450"], ai: 2 },
+                { q: "Deepak has an RD account of ₹800 per month for a certain period. If the rate of interest is 10% p.a. and he gets ₹1,160 as interest at maturity, find the time period in months.", ops: ["12 months", "15 months", "18 months", "24 months"], ai: 1 },
+                { q: "Mrs. Matthew opened an RD account of ₹2,000 monthly for 2 years. The bank pays 9% p.a. Calculate the percentage of interest earned relative to her total core investment.", ops: ["8.55%", "9.375%", "9.0%", "7.25%"], ai: 1 },
+                { q: "An RD maturity value is ₹29,640 over 24 months. If the interest rate is 10% p.a., solve the quadratic relationship to find the monthly deposit.", ops: ["₹1,000", "₹1,200", "₹1,100", "₹950"], ai: 2 },
+                { q: "A shopkeeper deposits ₹1,500 monthly for 1 year. The maturity value is ₹18,845. If the tax on interest is 0%, what was the compounding equivalent rate?", ops: ["11%", "10.5%", "11.5%", "13%"], ai: 3 },
+                { q: "Calculate the difference in interest earned if ₹1,000 per month is deposited for 1 year at 12% p.a. versus ₹2,000 per month deposited for 6 months at 12% p.a.", ops: ["₹540", "₹390", "₹650", "₹410"], ai: 1 }
+            ],
+            reasoning: [
+                { q: "Assertion (A): For a constant monthly deposit, the interest earned in the 2nd year is higher than the 1st year.\nReason (R): The principal for interest calculation grows cumulatively every single month in a Recurring Deposit.", ops: ["Both A and R are true and R is correct explanation", "Both A and R are true but R is not correct explanation", "A is true but R is false", "A is false but R is true"], ai: 0 },
+                { q: "Assertion (A): If the time period of an RD account is doubled, the total interest earned becomes exactly double.\nReason (R): The formula for RD interest is directly proportional to the quadratic factor $n(n+1)$, not just a linear $n$.", ops: ["A is false but R is true", "Both A and R are true and R is correct explanation", "Both A and R are true but R is not correct explanation", "A is true but R is false"], ai: 0 },
+                { q: "Assertion (A): A savings bank account always yields more interest than a Recurring Deposit account for the same monthly savings.\nReason (R): Recurring deposits lock money progressively, offering a higher structured rate of interest than regular savings accounts.", ops: ["A is false but R is true", "Both A and R are true and R is correct explanation", "A is true but R is false", "Both A and R are true but R is not correct explanation"], ai: 0 },
+                { q: "Assertion (A): The maturity value is always greater than the total amount deposited by the account holder.\nReason (R): Maturity Value is the summation of the total principal deposited and the interest accumulated over the tenure.", ops: ["Both A and R are true and R is correct explanation", "Both A and R are true but R is not correct explanation", "A is true but R is false", "A is false but R is true"], ai: 0 }
+            ]
+        };
+
+        function renderQuestions(mode) {
+            const arena = document.getElementById('quiz-arena');
+            arena.innerHTML = ''; 
+            
+            const list = masterQuestions[mode];
+            list.forEach((item, idx) => {
+                const card = document.createElement('div');
+                card.className = 'quiz-card';
+
+                const qText = document.createElement('div');
+                qText.className = 'q-text';
+                qText.innerText = `Q${idx + 1}. ${item.q}`;
+                card.appendChild(qText);
+
+                const grid = document.createElement('div');
+                grid.className = 'options-grid';
+
+                item.ops.forEach((opt, oIdx) => {
+                    const btn = document.createElement('button');
+                    btn.className = 'option-btn';
+                    btn.innerText = opt;
+                    
+                    btn.onclick = () => {
+                        const buttons = grid.querySelectorAll('.option-btn');
+                        buttons.forEach(b => b.disabled = true);
+                        
+                        if(oIdx === item.ai) {
+                            btn.classList.add('correct');
+                        } else {
+                            btn.classList.add('wrong');
+                            buttons[item.ai].classList.add('correct');
+                        }
+                    };
+                    grid.appendChild(btn);
+                });
+
+                card.appendChild(grid);
+                arena.appendChild(card);
+            });
+        }
+
+        function switchMode(mode) {
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelector(`.tab-btn[data-mode="${mode}"]`).classList.add('active');
+            renderQuestions(mode);
+        }
+
+        // Initial default load
+        renderQuestions('normal');
+    </script>
+</body>
+</html>
