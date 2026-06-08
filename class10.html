@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Class 10 Subjects</title>
+    <title>ICSE Class 10 - All Subjects</title>
     <style>
         body {
             font-family: 'Segoe UI', Arial, sans-serif;
@@ -12,27 +12,38 @@
             margin: 0;
             padding: 20px;
         }
-        .container { max-width: 500px; margin: 30px auto; }
+        .container { max-width: 550px; margin: 20px auto; }
         .back-link { text-decoration: none; color: #64748b; font-weight: bold; font-size: 0.9rem; }
-        h1 { color: #0f172a; margin-top: 15px; }
+        h1 { color: #0f172a; margin-top: 15px; margin-bottom: 5px; }
+        .subtitle { color: #64748b; margin-bottom: 25px; font-size: 0.95rem; }
+        
+        /* Grid Layout for Subjects */
+        .subject-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
         .subject-card {
             background-color: #ffffff;
             border: 1px solid #e2e8f0;
             border-radius: 10px;
-            padding: 20px;
-            margin-top: 15px;
+            padding: 18px 20px;
             text-decoration: none;
-            display: block;
-            font-size: 1.15rem;
+            display: flex;
+            align-items: center;
+            font-size: 1.1rem;
             font-weight: 600;
             color: #1e293b;
             box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+            transition: all 0.2s;
         }
         .subject-card:hover {
             border-color: #0284c7;
             background-color: #f0f9ff;
             color: #0284c7;
+            transform: translateX(4px);
         }
+        .icon { font-size: 1.4rem; margin-right: 15px; }
     </style>
 </head>
 <body>
@@ -40,10 +51,49 @@
     <div class="container">
         <a href="index.html" class="back-link">← Back to Classes</a>
         <h1>📚 Class 10 Subjects</h1>
-        <p style="color: #64748b;">Select a subject to view chapters</p>
+        <p class="subtitle">Select any subject to start chapter-wise level practice</p>
 
-        <a href="class10-maths.html" class="subject-card">📐 Mathematics</a>
-        <a href="#" class="subject-card" style="opacity: 0.6; cursor: not-allowed;">💻 Computer Applications (Coming Soon)</a>
+        <div class="subject-grid">
+            <a href="class10-maths.html" class="subject-card">
+                <span class="icon">📐</span> Mathematics
+            </a>
+
+            <a href="class10-physics.html" class="subject-card">
+                <span class="icon">⚛️</span> Physics
+            </a>
+
+            <a href="class10-chemistry.html" class="subject-card">
+                <span class="icon">🧪</span> Chemistry
+            </a>
+
+            <a href="class10-biology.html" class="subject-card">
+                <span class="icon">🧬</span> Biology
+            </a>
+
+            <a href="class10-computer.html" class="subject-card">
+                <span class="icon">💻</span> Computer Applications
+            </a>
+
+            <a href="class10-history.html" class="subject-card">
+                <span class="icon">🏛️</span> History & Civics
+            </a>
+
+            <a href="class10-geography.html" class="subject-card">
+                <span class="icon">🌍</span> Geography
+            </a>
+
+            <a href="class10-eng-lit.html" class="subject-card">
+                <span class="icon">📖</span> English Literature
+            </a>
+
+            <a href="class10-eng-lang.html" class="subject-card">
+                <span class="icon">✍️</span> English Language
+            </a>
+
+            <a href="class10-hindi.html" class="subject-card">
+                <span class="icon">🗣️</span> Hindi
+            </a>
+        </div>
     </div>
 
 </body>
