@@ -454,3 +454,123 @@
                     { q: "Assertion (A): If A is of order 2×2, then A + Aᵀ is always a symmetric structural matrix.\nReason (R): Transpose elements swap symmetrical positions maintaining perfect diagonal reflection.", ops: ["Both A and R are true and R is correct explanation", "Both true but R is not explanation", "A is true", "R is false"], ai: 0 }
                 ]
             },
+                        ap: {
+                title: "Arithmetic Progression (A.P.)",
+                sub: "Set 1: Common Difference, nth Term, and Sum of Series",
+                normal: [
+                    { q: "Find the common difference (d) of the A.P.: 3, 7, 11, 15...", ops: ["4", "3", "-4", "2"], ai: 0 },
+                    { q: "Find the 10th term of the A.P.: 2, 5, 8, 11...", ops: ["29", "27", "32", "30"], ai: 0 },
+                    { q: "What is the first term (a) of an A.P. whose 5th term is 18 and common difference is 3?", ops: ["6", "9", "12", "3"], ai: 0 },
+                    { q: "If the first term of an A.P. is 5 and the common difference is 0, what is the 100th term?", ops: ["5", "105", "0", "500"], ai: 0 },
+                    { q: "Find the sum of the first 5 terms of the A.P.: 1, 3, 5, 7, 9.", ops: ["25", "20", "15", "30"], ai: 0 },
+                    { q: "Which term of the A.P. 5, 9, 13... is 41?", ops: ["10th", "11th", "9th", "12th"], ai: 0 },
+                    { q: "If a = 10 and d = -2, find the 4th term of this A.P.", ops: ["4", "6", "8", "2"], ai: 0 },
+                    { q: "What is the formula for the nth term ($a_n$) of an A.P.?", ops: ["a + (n-1)d", "a + nd", "a - (n-1)d", "n(a + d)"], ai: 0 },
+                    { q: "Find the common difference if the first term is 2 and the 3rd term is 8.", ops: ["3", "2", "4", "6"], ai: 0 },
+                    { q: "Is the sequence 2, 4, 8, 16... an Arithmetic Progression?", ops: ["No, common difference is not constant", "Yes, it is an A.P.", "Yes, because it increases", "Cannot be determined"], ai: 0 }
+                ],
+                high: [
+                    { q: "The sum of the first 10 terms of an A.P. is 210. If its first term is 3, find the common difference.", ops: ["4", "3", "2", "5"], ai: 0 },
+                    { q: "The 4th term of an A.P. is three times the 1st term, and the 7th term exceeds twice the 3rd term by 1. Find the first term.", ops: ["3", "2", "4", "5"], ai: 0 },
+                    { q: "Find the sum of all two-digit natural numbers which are divisible by 3.", ops: ["1665", "1700", "1550", "1620"], ai: 0 },
+                    { q: "If the mth term of an A.P. is 1/n and nth term is 1/m, find the sum of its first (mn) terms.", ops: ["(mn + 1)/2", "(mn - 1)/2", "mn/2", "1"], ai: 0 },
+                    { q: "Divide 32 into four parts which are in A.P. such that the product of extremes is to the product of means as 7:15. Find the smallest part.", ops: ["2", "4", "6", "8"], ai: 0 },
+                    { q: "If the sum of first n terms of an A.P. is given by $S_n = 3n^2 + 5n$, find its 15th term.", ops: ["92", "86", "98", "104"], ai: 0 },
+                    { q: "The 11th term of an A.P. is 38 and the 16th term is 73. Find the 31st term.", ops: ["178", "150", "168", "185"], ai: 0 },
+                    { q: "An individual saves ₹320 in the first month, ₹360 in the second month, and ₹400 in the third month. In how many months will his total savings reach ₹20,000?", ops: ["25 months", "20 months", "30 months", "22 months"], ai: 0 },
+                    { q: "Determine k so that (4k+8), (2k²+3k+6) and (3k²+4k+4) are three consecutive terms of an A.P.", ops: ["0 or 2", "1 or -1", "2 or -1", "0 or -2"], ai: 0 },
+                    { q: "The sum of three numbers in A.P. is 21 and their product is 280. Find the maximum number among them.", ops: ["10", "8", "7", "12"], ai: 0 }
+                ],
+                reasoning: [
+                    { q: "Assertion (A): The sequence 5, 10, 20, 40... forms an Arithmetic Progression.\nReason (R): In an A.P., the difference between any two consecutive terms remains constant.", ops: ["A is false but R is true", "Both A and R are true and R is correct explanation", "Both A and R are true but R is not correct explanation", "A is true but R is false"], ai: 0 },
+                    { q: "Assertion (A): The sum of the first n natural numbers is given by $n(n+1)/2$.\nReason (R): Natural numbers 1, 2, 3... form an A.P. with first term a=1 and common difference d=1.", ops: ["Both A and R are true and R is correct explanation", "Both true but R is not explanation", "A is true", "R is false"], ai: 0 },
+                    { q: "Assertion (A): If each term of an A.P. is multiplied by 2, the resulting sequence is also an A.P.\nReason (R): Multiplying an A.P. by a non-zero scalar changes the common difference but preserves the progressive sequence layout.", ops: ["Both A and R are true and R is correct explanation", "Both true but R is not explanation", "A is false", "R is false"], ai: 0 },
+                    { q: "Assertion (A): The 20th term of the A.P. 10, 7, 4... is negative.\nReason (R): Since the common difference d is negative (d = -3), the terms will eventually become negative as n increases.", ops: ["Both A and R are true and R is correct explanation", "Both true but R is not explanation", "A is true", "R is false"], ai: 0 },
+                    { q: "Assertion (A): The sequence of even numbers 2, 4, 6, 8... has a common difference of 2.\nReason (R): Consecutive even integers always have a uniform structural step spacing of 2 units.", ops: ["Both A and R are true and R is correct explanation", "Both true but R is not explanation", "A is true", "R is false"], ai: 0 },
+                    { q: "Assertion (A): The sum of an A.P. can be negative.\nReason (R): If the first term and common difference are highly negative, the cumulative sum will be negative.", ops: ["Both A and R are true and R is correct explanation", "Both true but R is not explanation", "A is true", "R is false"], ai: 0 },
+                    { q: "Assertion (A): If the nth term of a sequence is linear ($a_n = 2n + 3$), it is always an A.P.\nReason (R): Linear expressions in 'n' always produce a constant difference between consecutive terms.", ops: ["Both A and R are true and R is correct explanation", "Both true but R is not explanation", "A is true", "R is false"], ai: 0 },
+                    { q: "Assertion (A): If $S_n$ is given, the nth term can be found using $a_n = S_n - S_{n-1}$.\nReason (R): The sum of n terms minus the sum of the first (n-1) terms leaves exactly the last nth term.", ops: ["Both A and R are true and R is correct explanation", "Both true but R is not explanation", "A is true", "R is false"], ai: 0 },
+                    { q: "Assertion (A): If a, b, c are in A.P., then 2b = a + c.\nReason (R): The common difference constraint implies b - a = c - b, which simplifies to 2b = a + c.", ops: ["Both A and R are true and R is correct explanation", "Both true but R is not explanation", "A is true", "R is false"], ai: 0 },
+                    { q: "Assertion (A): The number of terms (n) in an A.P. can be a fractional value like 10.5.\nReason (R): Term positions must strictly be positive integers as they represent sequential item counts.", ops: ["A is false but R is true", "Both true with explanation", "A is true but R is false", "Both false"], ai: 0 }
+                ]
+            },
+            coordinate: {
+                title: "Reflection & Coordinate Geometry",
+                sub: "Set 1: Midpoints, Reflection Rules, and Section Formula",
+                normal: [
+                    { q: "Find the reflection of the point P(3, -4) in the x-axis.", ops: ["(3, 4)", "(-3, -4)", "(-3, 4)", "(4, 3)"], ai: 0 },
+                    { q: "Find the reflection of the point Q(-2, 5) in the y-axis.", ops: ["(2, 5)", "(-2, -5)", "(2, -5)", "(5, -2)"], ai: 0 },
+                    { q: "What is the reflection of point (6, 2) in the origin?", ops: ["(-6, -2)", "(-6, 2)", "(6, -2)", "(2, 6)"], ai: 0 },
+                    { q: "Find the midpoint of the line segment joining A(2, 4) and B(6, 8).", ops: ["(4, 6)", "(3, 5)", "(4, 8)", "(5, 6)"], ai: 0 },
+                    { q: "What is the slope of a line parallel to the x-axis?", ops: ["0", "1", "Undefined", "-1"], ai: 0 },
+                    { q: "If the slope of two perpendicular lines are m₁ and m₂, then which relation is true?", ops: ["m₁ × m₂ = -1", "m₁ = m₂", "m₁ + m₂ = 0", "m₁ × m₂ = 1"], ai: 0 },
+                    { q: "Find the distance of the point (3, 4) from the origin.", ops: ["5 units", "7 units", "25 units", "1 unit"], ai: 0 },
+                    { q: "The coordinate point (0, -5) lies on which axis?", ops: ["y-axis", "x-axis", "Origin", "First Quadrant"], ai: 0 },
+                    { q: "Find the y-intercept of the line given by equation: y = 3x + 7.", ops: ["7", "3", "-7", "0"], ai: 0 },
+                    { q: "What are the coordinates of the origin?", ops: ["(0, 0)", "(1, 1)", "(0, 1)", "(1, 0)"], ai: 0 }
+                ],
+                high: [
+                    { q: "Find the coordinates of the point which divides the line segment joining (1, 3) and (4, 6) internally in the ratio 2:1.", ops: ["(3, 5)", "(2, 4)", "(3, 4)", "(2.5, 4.5)"], ai: 0 },
+                    { q: "A point P(a, b) is reflected in the x-axis to P'(5, -3). Find the value of a and b.", ops: ["a = 5, b = 3", "a = -5, b = 3", "a = 5, b = -3", "a = 3, b = 5"], ai: 0 },
+                    { q: "The midpoint of the line segment joining (3m, 6) and (-4, 2n) is (1, 5). Find the values of m and n.", ops: ["m = 2, n = 2", "m = 1, n = 3", "m = 2, n = 4", "m = 3, n = 2"], ai: 0 },
+                    { q: "Find the equation of a line passing through (2, 3) and perpendicular to the line 2x + 3y = 7.", ops: ["3x - 2y = 0", "3x - 2y = 6", "2x - 3y = -5", "3x + 2y = 12"], ai: 0 },
+                    { q: "The line segment joining A(-1, 5) and B(4, -5) is divided by the x-axis in a certain ratio. Find that ratio.", ops: ["1:1", "2:1", "1:2", "3:2"], ai: 0 },
+                    { q: "Find the coordinates of the centroid of a triangle whose vertices are (1, 4), (3, 9), and (5, 2).", ops: ["(3, 5)", "(3, 6)", "(4, 5)", "(2, 4)"], ai: 0 },
+                    { q: "If the points A(1, 2), B(4, 6), and C(7, k) are collinear, find the value of k.", ops: ["10", "8", "9", "12"], ai: 0 },
+                    { q: "A line passes through points (3, 4) and (x, 8). If the slope of the line is 2, find the value of x.", ops: ["5", "4", "6", "7"], ai: 0 },
+                    { q: "Point A(-2, 3) is reflected in the line x = 2. Find the coordinates of its image A'.", ops: ["(6, 3)", "(2, 3)", "(4, 3)", "(0, 3)"], ai: 0 },
+                    { q: "Find the equation of the line whose inclination is $45^\circ$ and passes through the point (0, -2).", ops: ["x - y = 2", "x + y = 2", "y - x = 2", "x - y = -2"], ai: 0 }
+                ],
+                reasoning: [
+                    { q: "Assertion (A): The slope of any line parallel to the x-axis is always 0.\nReason (R): The angle of inclination $\\theta$ for a horizontal line is $0^\circ$, and $\\tan(0^\circ) = 0$.", ops: ["Both A and R are true and R is correct explanation", "Both true but R is not explanation", "A is true", "R is true"], ai: 0 },
+                    { q: "Assertion (A): Reflection of point (2, 3) in the line y = 0 is (2, -3).\nReason (R): The line y = 0 represents the x-axis, and reflecting across it negates the y-coordinate.", ops: ["Both A and R are true and R is correct explanation", "Both true but R is not explanation", "A is true", "R is false"], ai: 0 },
+                    { q: "Assertion (A): The distance between points (1, 2) and (1, 7) is 5 units.\nReason (R): Since the x-coordinates are identical, the distance is simply the absolute difference between y-coordinates.", ops: ["Both A and R are true and R is correct explanation", "Both true but R is not explanation", "A is true", "R is false"], ai: 0 },
+                    { q: "Assertion (A): The lines y = 2x + 3 and y = 2x - 5 are perpendicular to each other.\nReason (R): Parallel lines always share identical slope values ($m_1 = m_2$).", ops: ["A is false but R is true", "Both true", "A is true but R is false", "Both false"], ai: 0 },
+                    { q: "Assertion (A): Centroid divides the median of a triangle internally in the ratio 2:1.\nReason (R): This is a standard geometric structural property verified across coordinate derivations.", ops: ["Both A and R are true and R is correct explanation", "Both true but R is not explanation", "A is true", "R is false"], ai: 0 },
+                    { q: "Assertion (A): The point (-3, -4) lies completely within the third quadrant.\nReason (R): In the third quadrant, both x and y coordinate values are strictly negative.", ops: ["Both A and R are true and R is correct explanation", "Both true but R is not explanation", "A is true", "R is false"], ai: 0 },
+                    { q: "Assertion (A): The line equation Ax + By + C = 0 has a slope of -A/B.\nReason (R): Rearranging the standard equation into slope-intercept form ($y = mx + c$) establishes $m = -A/B$.", ops: ["Both A and R are true and R is correct explanation", "Both true but R is not explanation", "A is true", "R is false"], ai: 0 },
+                    { q: "Assertion (A): If three points are collinear, the area of the triangle formed by them is zero.\nReason (R): Collinear points lie on a straight line, hence they cannot form a closed 3-sided triangle shape.", ops: ["Both A and R are true and R is correct explanation", "Both true but R is not explanation", "A is true", "R is false"], ai: 0 },
+                    { q: "Assertion (A): Reflection of point (x, y) in the origin changes the signs of both coordinates to (-x, -y).\nReason (R): Origin reflection is mathematically equivalent to a successive reflection in the x-axis followed by the y-axis.", ops: ["Both A and R are true and R is correct explanation", "Both true but R is not explanation", "A is true", "R is false"], ai: 0 },
+                    { q: "Assertion (A): The midpoint formula works uniquely for positive coordinate values only.\nReason (R): The algebraic average $\\frac{x_1+x_2}{2}$ applies universally across all positive, negative, and zero real limits.", ops: ["A is false but R is true", "Both true", "A is true but R is false", "Both false"], ai: 0 }
+                ]
+            },
+            trigo: {
+                title: "Trigonometry Mastery",
+                sub: "Set 1: Identities, Complementary Angles, Heights & Distances",
+                normal: [
+                    { q: "Evaluate the identity value: $\\sin^2(35^\circ) + \\cos^2(35^\circ)$.", ops: ["1", "0", "2", "0.5"], ai: 0 },
+                    { q: "If $\\tan\\theta = 4/3$, find the value of $\\sin\\theta$.", ops: ["4/5", "3/5", "5/4", "1"], ai: 0 },
+                    { q: "What is the value of $\\sec^2\\theta - \\tan^2\\theta$?", ops: ["1", "0", "-1", "2"], ai: 0 },
+                    { q: "Evaluate: $\\sin(30^\circ) \\times \\cos(60^\circ) + \\cos(30^\circ) \\times \\sin(60^\circ)$.", ops: ["1", "0.5", "0", "2"], ai: 0 },
+                    { q: "Express $\\cot\\theta$ in terms of $\\sin\\theta$ and $\\cos\\theta$.", ops: ["\\cos\\theta / \\sin\\theta", "\\sin\\theta / \\cos\\theta", "1 / \\sin\\theta", "1 / \\cos\\theta"], ai: 0 },
+                    { q: "Find the value of $\\tan(45^\circ) + \\cot(45^\circ)$.", ops: ["2", "1", "0", "√2"], ai: 0 },
+                    { q: "What is $1 - \\sin^2\\theta$ equivalent to?", ops: ["\\cos^2\\theta", "\\单^2\\theta", "\\sec^2\\theta", "1"], ai: 0 },
+                    { q: "If $\\cos\\theta = 0$, what is the value of angle $\\theta$ within $90^\circ$ bounds?", ops: ["90°", "0°", "45°", "60°"], ai: 0 },
+                    { q: "Simplify expression: $\\sin\\theta \\times \\csc\\theta$.", ops: ["1", "0", "\\sin²\\theta", "\\csc²\\theta"], ai: 0 },
+                    { q: "What is the numerical value of $\\tan(30^\circ) \\times \\tan(60^\circ)$?", ops: ["1", "√3", "1/√3", "0"], ai: 0 }
+                ],
+                high: [
+                    { q: "An observer from a cliff 100m high looks at a boat at an angle of depression of $30^\circ$. Find the distance of the boat from the foot of the cliff.", ops: ["100√3 m", "100/3 m", "200 m", "50√3 m"], ai: 0 },
+                    { q: "Prove or evaluate the simplified expression value of: $(\\sec\\theta - \\tan\\theta)^2 \\times (1 + \\sin\\theta) / (1 - \\sin\\theta)$.", ops: ["1", "0", "\\sec\\theta", "\\tan\\theta"], ai: 0 },
+                    { q: "A vertical pole stands on level ground. From a point on the ground 25m away from the foot of the pole, the angle of elevation of its top is found to be $60^\circ$. Find the exact height of the pole.", ops: ["25√3 m", "25 m", "25/√3 m", "50 m"], ai: 0 },
+                    { q: "If $\\sin\\theta + \\cos\\theta = \\sqrt{2}\\sin(90^\circ-\\theta)$, find the value of $\\cot\\theta$.", ops: ["\\sqrt{2} + 1", "\\sqrt{2} - 1", "1", "\\sqrt{2}"], ai: 0 },
+                    { q: "Two vertical towers stand on a horizontal plane. From the foot of the first tower, the angle of elevation of the top of the second tower is $60^\circ$ and from the foot of the second tower, the angle of elevation of the top of the first tower is $30^\circ$. If the first tower is 50m high, find the height of the second tower.", ops: ["150m", "100m", "75m", "200m"], ai: 0 },
+                    { q: "Simplify the complex identity layout: $\\frac{\\sin\\theta}{1 + \\cos\\theta} + \\frac{1 + \\cos\\theta}{\\sin\\theta}$.", ops: ["2\\csc\\theta", "2\\sec\\theta", "2\\sin\\theta", "2\\cos\\theta"], ai: 0 },
+                    { q: "An airplane flying horizontally 1 km above the ground is observed at an elevation of $60^\circ$. After 10 seconds, its elevation changes to $30^\circ$. Find the speed of the airplane in km/h.", ops: ["415.68 km/h", "240 km/h", "360 km/h", "400 km/h"], ai: 0 },
+                    { q: "If $\\tan\\theta + \\sin\\theta = m$ and $\\tan\\theta - \\sin\\theta = n$, evaluate the value of $m^2 - n^2$.", ops: ["4\\sqrt{mn}", "2\\sqrt{mn}", "mn", "4mn"], ai: 0 },
+                    { q: "A shadow of a vertical tower standing on a level ground increases by 40m when the altitude of the sun changes from $60^\circ$ to $30^\circ$. Find the height of the tower.", ops: ["20√3 m", "40√3 m", "20 m", "30 m"], ai: 0 },
+                    { q: "Evaluate the given multi-angle sequence: $\\frac{\\cos(70^\circ)}{\\sin(20^\circ)} + \\frac{\\cos(55^\circ)\\csc(35^\circ)}{\\tan(5^\circ)\\tan(25^\circ)\\tan(45^\circ)\\tan(65^\circ)\\tan(85^\circ)}$.", ops: ["2", "1", "0", "3"], ai: 0 }
+                ],
+                reasoning: [
+                    { q: "Assertion (A): The value of $\\sin\\theta$ can never exceed 1 for real angles.\nReason (R): In a right-angled triangle, the perpendicular can never be greater than the hypotenuse.", ops: ["Both A and R are true and R is correct explanation", "Both true but R is not explanation", "A is true", "R is false"], ai: 0 },
+                    { q: "Assertion (A): As the angle of elevation of the sun increases from $30^\circ$ to $60^\circ$, the length of the shadow of a straight tower decreases.\nReason (R): Larger elevation angles imply the light source is more vertical, casting smaller projection shadows.", ops: ["Both A and R are true and R is correct explanation", "Both true but R is not explanation", "A is true", "R is false"], ai: 0 },
+                    { q: "Assertion (A): $\\tan\\theta$ is the product of 'tan' and '$\\theta$'.\nReason (R): 'tan' without an angle parameter argument has no mathematical interpretation or structural value.", ops: ["A is false but R is true", "Both true", "A is true but R is false", "Both false"], ai: 0 },
+                    { q: "Assertion (A): The value of $\\sin(60^\circ)$ is identical to $\\cos(30^\circ)$.\nReason (R): Complementary angle properties validate that $\\sin(90^\circ-\\theta) = \\cos\\theta$.", ops: ["Both A and R are true and R is correct explanation", "Both true but R is not explanation", "A is true", "R is false"], ai: 0 },
+                    { q: "Assertion (A): $\\sec^2\\theta - \\tan^2\\theta = 1$ is true only for acute angles where $\\theta = 45^\circ$.\nReason (R): Trigonometric identities are universal equations satisfying all domain limits where expressions are defined.", ops: ["A is false but R is true", "Both true", "A is true but R is false", "Both false"], ai: 0 },
+                    { q: "Assertion (A): The angle of elevation of an object viewed is identical in magnitude to the angle of depression of the eye when viewed from the object.\nReason (R): Alternate interior angles are equal when horizontal baseline references are parallel lines.", ops: ["Both A and R are true and R is correct explanation", "Both true but R is not explanation", "A is true", "R is false"], ai: 0 },
+                    { q: "Assertion (A): $\\sin\\theta$ increases uniformly as $\\theta$ increases from $0^\circ$ to $90^\circ$.\nReason (R): Value moves continuously from baseline 0 up to maximum scale 1 along the first quadrant arc loop.", ops: ["Both A and R are true and R is correct explanation", "Both true but R is not explanation", "A is true", "R is false"], ai: 0 },
+                    { q: "Assertion (A): If a tree breaks due to a storm and the broken part bends so that the top touches the ground making an angle of $30^\circ$, the system forms a right triangle.\nReason (R): Gravity ensures trees grow straight up, naturally maintaining a $90^\circ$ angle relative to flat horizontal ground.", ops: ["Both A and R are true and R is correct explanation", "Both true but R is not explanation", "A is true", "R is false"], ai: 0 },
+                    { q: "Assertion (A): $\\cos\\theta$ decreases uniformly as $\\theta$ increases from $0^\circ$ to $90^\circ$.\nReason (R): Value drops from initial maximum 1 down to zero boundary limit at the perpendicular spot.", ops: ["Both A and R are true and R is correct explanation", "Both true but R is not explanation", "A is true", "R is false"], ai: 0 },
+                    { q: "Assertion (A): $\\tan(90^\circ)$ evaluates to a precise absolute integer value of 90.\nReason (R): $\\tan(90^\circ) = \\sin(90^\circ)/\\cos(90^\circ) = 1/0$, which yields an undefined/infinite value map.", ops: ["A is false but R is true", "Both true", "A is true but R is false", "Both false"], ai: 0 }
+                ]
+            },
