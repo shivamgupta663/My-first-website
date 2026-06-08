@@ -334,6 +334,123 @@
         }
 
         renderQuestions('normal');
-    </script>
-</body>
-</html>
+            quadratic: {
+                title: "Quadratic Equations",
+                sub: "Set 1: Roots, Discriminant, and Nature of Equations",
+                normal: [
+                    { q: "Find the discriminant (D) of the quadratic equation: x² - 5x + 6 = 0.", ops: ["1", "0", "25", "-1"], ai: 0 },
+                    { q: "What are the roots of the quadratic equation x² - 9 = 0?", ops: ["3 and -3", "3 and 0", "9 and -9", "Only 3"], ai: 0 },
+                    { q: "If one root of the equation 2x² + kx - 6 = 0 is 2, find the value of k.", ops: ["-1", "1", "2", "-2"], ai: 0 },
+                    { q: "Find the roots of the equation x² - 3x - 10 = 0.", ops: ["5, -2", "-5, 2", "5, 2", "-5, -2"], ai: 0 },
+                    { q: "What is the nature of the roots if the discriminant D is equal to 0?", ops: ["Real and Equal", "Real and Distinct", "Imaginary/No Real Roots", "Constant"], ai: 0 },
+                    { q: "Form a quadratic equation whose roots are 2 and 3.", ops: ["x² - 5x + 6 = 0", "x² + 5x + 6 = 0", "x² - 5x - 6 = 0", "x² + 6x + 5 = 0"], ai: 0 },
+                    { q: "Find the value of discriminant for the equation 3x² - 2x + 1/3 = 0.", ops: ["0", "4", "-4", "1"], ai: 0 },
+                    { q: "If the roots of ax² + bx + c = 0 are reciprocal to each other, then which condition is true?", ops: ["a = c", "a = b", "b = c", "a + c = 0"], ai: 0 },
+                    { q: "Solve for x: x(x + 1) = 0.", ops: ["0, -1", "0, 1", "1, -1", "Only 0"], ai: 0 },
+                    { q: "What is the maximum number of real roots a quadratic equation can possess?", ops: ["2", "1", "Infinite", "0"], ai: 0 }
+                ],
+                high: [
+                    { q: "If the quadratic equation px² - 4x + 2 = 0 has real and equal roots, calculate the exact value of p.", ops: ["2", "1", "4", "8"], ai: 0 },
+                    { q: "Solve the following quadratic equation for x, giving your answer correct to two decimal places: x² - 4x - 8 = 0.", ops: ["5.46 or -1.46", "5.24 or -1.24", "4.86 or -0.86", "6.12 or -2.12"], ai: 0 },
+                    { q: "A car covers a distance of 400 km at a certain speed. If the speed is increased by 10 km/h, it takes 2 hours less. Formulate the equation and find the original speed.", ops: ["40 km/h", "50 km/h", "60 km/h", "45 km/h"], ai: 0 },
+                    { q: "Find the values of m for which the equation (m + 1)x² - 2(m - 1)x + 1 = 0 has equal roots.", ops: ["0 or 3", "1 or 4", "0 or 4", "2 or 5"], ai: 0 },
+                    { q: "The sum of the ages of a boy and his brother is 25 years, and the product of their ages in years is 150. Find their current ages.", ops: ["15 and 10", "12 and 13", "18 and 7", "16 and 9"], ai: 0 },
+                    { q: "Solve for x using the quadratic formula: 4x² - 4a²x + (a⁴ - b⁴) = 0.", ops: ["(a²+b²)/2 and (a²-b²)/2", "(a²-b²)/4 and (a²+b²)/4", "a² and b²", "a²/2 and b²/2"], ai: 0 },
+                    { q: "Two water taps together can fill a tank in 9(3/8) hours. The tap of larger diameter takes 10 hours less than the smaller one. Find the time taken by the smaller tap alone.", ops: ["25 hours", "15 hours", "20 hours", "30 hours"], ai: 0 },
+                    { q: "If the product of two consecutive positive even integers is 168, find the sum of these two numbers.", ops: ["26", "24", "28", "22"], ai: 0 },
+                    { q: "Find the value of k if the equation x² - 2k(x - 1) - 1 = 0 has real and equal roots.", ops: ["All real values of k", "Only k = 1", "Only k = 0", "No real value of k"], ai: 0 },
+                    { q: "A person bought a certain number of books for ₹80. If he had bought 4 more books for the same amount, each book would have cost ₹1 less. Find the number of books he bought originally.", ops: ["16", "20", "12", "15"], ai: 0 }
+                ],
+                reasoning: [
+                    { q: "Assertion (A): The equation x² + x + 1 = 0 has no real roots.\nReason (R): The discriminant of this equation is negative (D = -3).", ops: ["Both A and R are true and R is correct explanation", "Both A and R are true but R is not correct explanation", "A is true but R is false", "A is false but R is true"], ai: 0 },
+                    { q: "Assertion (A): The equation (x - 2)² + 1 = 0 has two real roots.\nReason (R): A quadratic equation always has two real roots irrespective of its configuration.", ops: ["Both A and R are false", "A is true but R is false", "A is false but R is true", "Both true"], ai: 0 },
+                    { q: "Assertion (A): If the coefficient of x² and the constant term have opposite signs, the quadratic equation always has real roots.\nReason (R): In ax² + bx + c = 0, if 'a' and 'c' have opposite signs, then -4ac is always positive, making D > 0.", ops: ["Both A and R are true and R is correct explanation", "Both true but R is not explanation", "A is true", "R is false"], ai: 0 },
+                    { q: "Assertion (A): line equation y = mx + c can intersect a parabola ax² + bx + c at atmost 2 points.\nReason (R): Equating them results in a quadratic equation, which can have a maximum of 2 distinct real roots.", ops: ["Both A and R are true and R is correct explanation", "Both true but R is not explanation", "A is true", "R is false"], ai: 0 },
+                    { q: "Assertion (A): x = 1 is a root of the equation x² - 2x + 1 = 0.\nReason (R): Substituting x = 1 satisfies the equation making LHS equal to RHS.", ops: ["Both A and R are true and R is correct explanation", "Both true but R is not explanation", "A is true", "R is false"], ai: 0 },
+                    { q: "Assertion (A): If D < 0, the graph of y = ax² + bx + c never touches or crosses the x-axis.\nReason (R): D < 0 implies that the roots are imaginary, hence no real x intercept exists.", ops: ["Both A and R are true and R is correct explanation", "Both true but R is not explanation", "A is true", "R is false"], ai: 0 },
+                    { q: "Assertion (A): Every quadratic equation can be solved by the method of splitting the middle term using integers.\nReason (R): Some equations have irrational or complex roots which cannot be split using rational integers.", ops: ["A is false but R is true", "Both true with explanation", "A is true but R is false", "Both false"], ai: 0 },
+                    { q: "Assertion (A): The equation 3x² - 6x + 3 = 0 has real and equal roots.\nReason (R): The discriminant calculated for this equation evaluates to exactly 0.", ops: ["Both A and R are true and R is correct explanation", "Both true but R is not explanation", "A is true", "R is false"], ai: 0 },
+                    { q: "Assertion (A): If sum of roots is 5 and product of roots is 6, the equation is x² + 5x + 6 = 0.\nReason (R): Standard quadratic format is x² - (Sum of roots)x + (Product of roots) = 0.", ops: ["A is false but R is true", "Both true", "A is true but R is false", "Both false"], ai: 0 },
+                    { q: "Assertion (A): In ax² + bx + c = 0, if b = 0, the roots are equal in magnitude but opposite in sign.\nReason (R): When b = 0, roots are given by x = ±√(-c/a).", ops: ["Both A and R are true and R is correct explanation", "Both true but R is not explanation", "A is true", "R is false"], ai: 0 }
+                ]
+            },
+            ratio: {
+                title: "Ratio and Proportion",
+                sub: "Set 1: Componendo, Dividendo, and Continued Proportions",
+                normal: [
+                    { q: "If a, b, c, d are in proportion, then which of the following is strictly true?", ops: ["ad = bc", "ab = cd", "ac = bd", "a + d = b + c"], ai: 0 },
+                    { q: "Find the mean proportion between 9 and 16.", ops: ["12", "12.5", "144", "7"], ai: 0 },
+                    { q: "If 4, x, 9 are in continued proportion, find the positive value of x.", ops: ["6", "5", "36", "4.5"], ai: 0 },
+                    { q: "Find the third proportional to 16 and 4.", ops: ["1", "2", "0.5", "8"], ai: 0 },
+                    { q: "If a:b = 2:3 and b:c = 4:5, find the combined ratio a:c.", ops: ["8:15", "2:5", "6:8", "12:10"], ai: 0 },
+                    { q: "What number must be added to each of the numbers 6, 15, 20 and 43 to make them proportional?", ops: ["3", "2", "4", "5"], ai: 0 },
+                    { q: "If a/b = c/d, then according to Alternendo property:", ops: ["a/c = b/d", "b/a = d/c", "(a+b)/b = (c+d)/d", "a/b = d/c"], ai: 0 },
+                    { q: "Find the fourth proportional to 3, 4, and 12.", ops: ["16", "15", "18", "20"], ai: 0 },
+                    { q: "If x:y = 3:4, find the value of (2x + 3y) : (3x + 4y).", ops: ["18:25", "15:22", "6:7", "9:16"], ai: 0 },
+                    { q: "If a, b, c are in continued proportion, then b² is equal to:", ops: ["ac", "a/c", "a + c", "2ac"], ai: 0 }
+                ],
+                high: [
+                    { q: "Using properties of proportion, solve for x: (√(x+2) + √(x-2)) / (√(x+2) - √(x-2)) = 2.", ops: ["2.5", "3", "4", "1.5"], ai: 0 },
+                    { q: "If (3x⁴ + x²) / (2x³ + 5x) = (3y⁴ + y²) / (2y³ + 5y), prove or evaluate the relationship between x and y.", ops: ["x = y", "x = 2y", "x² = y²", "xy = 1"], ai: 0 },
+                    { q: "What number must be subtracted from each of the numbers 23, 30, 57 and 78 so that the remainders are in continued proportion?", ops: ["6", "4", "5", "7"], ai: 0 },
+                    { q: "If a, b, c are in continued proportion, simplify: (a + b + c)(a - b + c) upon expansion.", ops: ["a² + b² + c²", "a² - b² + c²", "a² + 2b² + c²", "b⁴"], ai: 0 },
+                    { q: "Using Componendo and Dividendo, solve for x: (x³ + 3x) / (3x² + 1) = 341 / 91.", ops: ["11", "9", "7", "13"], ai: 0 },
+                    { q: "If x = (8ab) / (a + b), find the value of (x + 4a)/(x - 4a) + (x + 4b)/(x - 4b).", ops: ["2", "4", "1", "8"], ai: 0 },
+                    { q: "If a, b, c, d are in continued proportion, prove that (b-c)² + (c-a)² + (d-b)² is equal to:", ops: ["(a - d)³ upon base matches", "(a - d)²", "0", "a² - d²"], ai: 1 },
+                    { q: "Two numbers are in the ratio 3:5. If 9 is subtracted from each, the new numbers are in the ratio 12:23. Find the smaller original number.", ops: ["33", "55", "40", "27"], ai: 0 },
+                    { q: "If (a² + c²) / (b² + d²) = ac / bd, show that a, b, c, d follow what structural layout?", ops: ["a, b, c, d are in proportion", "a, b, c are in continued proportion", "a=b and c=d", "None"], ai: 0 },
+                    { q: "If x/a = y/b = z/c, evaluate the expression (x³+a³)/(x²+a²) given scaling operations.", ops: ["Managed via k-method substitution directly", "Always resolves to zero constant", "Equal to cross products", "Infinite variance"], ai: 0 }
+                ],
+                reasoning: [
+                    { q: "Assertion (A): If a/b = c/d, then by Componendo-Dividendo (a+b)/(a-b) = (c+d)/(c-d).\nReason (R): This operation is valid for all non-zero proportional ratios.", ops: ["Both A and R are true and R is correct explanation", "Both true but R is not explanation", "A is true but R is false", "Both false"], ai: 0 },
+                    { q: "Assertion (A): The mean proportional between 4 and -9 is imaginary.\nReason (R): Mean proportional b = √(ac), and product of 4 and -9 is negative (-36).", ops: ["Both A and R are true and R is correct explanation", "Both true but R is not explanation", "A is true", "R is false"], ai: 0 },
+                    { q: "Assertion (A): If a, b, c are in continued proportion, then a:c = a²:b².\nReason (R): Since b² = ac, dividing components validates the duplicate ratio structure.", ops: ["Both A and R are true and R is correct explanation", "Both true but R is not explanation", "A is true", "R is false"], ai: 0 },
+                    { q: "Assertion (A): In a compound ratio of a:b and c:d, the output is given by ac:bd.\nReason (R): Compounding means multiplying the respective antecedents and consequents.", ops: ["Both A and R are true and R is correct explanation", "Both true but R is not explanation", "A is true", "R is false"], ai: 0 },
+                    { q: "Assertion (A): If cross products ad and bc are equal, then a, b, c, d are in direct proportion.\nReason (R): This is the fundamental property derived from the definition of a/b = c/d.", ops: ["Both A and R are true and R is correct explanation", "Both true but R is not explanation", "A is true", "R is false"], ai: 0 },
+                    { q: "Assertion (A): Triplicate ratio of 2:3 is 8:27.\nReason (R): Triplicate ratio is calculated by taking cubes of the given terms.", ops: ["Both A and R are true and R is correct explanation", "Both true but R is not explanation", "A is true", "R is false"], ai: 0 },
+                    { q: "Assertion (A): If the income of two people is in ratio 4:5, their expenditure must also be 4:5.\nReason (R): Income and expenditure are completely independent variables unless savings parameters are fixed.", ops: ["A is false but R is true", "Both true", "A is true but R is false", "Both false"], ai: 0 },
+                    { q: "Assertion (A): According to Invertendo property, if a:b = c:d, then b:a = d:c.\nReason (R): Taking reciprocals on both sides preserves the mathematical balance.", ops: ["Both A and R are true and R is correct explanation", "Both true but R is not explanation", "A is true", "R is false"], ai: 0 },
+                    { q: "Assertion (A): Sub-duplicate ratio of 9:16 is 3:4.\nReason (R): Sub-duplicate ratio involves finding the square roots of the terms.", ops: ["Both A and R are true and R is correct explanation", "Both true but R is not explanation", "A is true", "R is false"], ai: 0 },
+                    { q: "Assertion (A): Using the k-method simplifies complex multi-variable structural proportion proofs.\nReason (R): Replacing ratios with a single scale factor 'k' reduces equations to a single baseline variable.", ops: ["Both A and R are true and R is correct explanation", "Both true but R is not explanation", "A is true", "R is false"], ai: 0 }
+                ]
+            },
+            matrices: {
+                title: "Matrices",
+                sub: "Set 1: Order, Operations, and Identity Multiplication",
+                normal: [
+                    { q: "If Matrix A has order 2×3 and Matrix B has order 3×2, what is the order of matrix AB?", ops: ["2×2", "3×3", "2×3", "Multiplication is impossible"], ai: 0 },
+                    { q: "Find the value of x if: [x  2] + [3  -1] = [5  1].", ops: ["2", "3", "5", "1"], ai: 0 },
+                    { q: "What is the identity matrix I for an order of 2×2?", ops: ["[[1, 0], [0, 1]]", "[[0, 1], [1, 0]]", "[[1, 1], [1, 1]]", "[[0, 0], [0, 0]]"], ai: 0 },
+                    { q: "If A is a matrix of order 3×1, how many rows does it possess?", ops: ["3", "1", "4", "0"], ai: 0 },
+                    { q: "Multiply the scalar 3 with matrix [[2, -1], [0, 4]]. What is the result?", ops: ["[[6, -3], [0, 12]]", "[[5, 2], [3, 7]]", "[[6, -1], [0, 4]]", "[[2, -3], [0, 12]]"], ai: 0 },
+                    { q: "Can you add a matrix of order 2×2 with a matrix of order 2×3?", ops: ["No, orders must be identical", "Yes, anytime", "Only if elements are zero", "Result is a 2×3 matrix"], ai: 0 },
+                    { q: "The transpose of a row matrix yields what type of matrix?", ops: ["Column Matrix", "Row Matrix", "Square Matrix", "Zero Matrix"], ai: 0 },
+                    { q: "If A = [[1, 2]], find its order layout.", ops: ["1 × 2", "2 × 1", "1 × 1", "2 × 2"], ai: 0 },
+                    { q: "What is the additive inverse of matrix [[2, -3], [1, 0]]?", ops: "[[-2, 3], [-1, 0]]", "[[2, 3], [1, 0]]", "[[-2, -3], [-1, 0]]", "[[0, 0], [0, 0]]"], ai: 0 },
+                    { q: "If A + B = 0 (Null Matrix), then matrix B is called:", ops: ["Additive Inverse of A", "Transpose of A", "Identity Matrix of A", "Multiplicative Inverse"], ai: 0 }
+                ],
+                high: [
+                    { q: "Find x and y if: [[2, x], [0, 1]] × [[1], [3]] = [[8], [3]].", ops: ["x = 2", "x = 3", "x = 4", "x = 1"], ai: 0 },
+                    { q: "Given A = [[2, 1], [0, -2]], find the value of A².", ops: ["[[4, 0], [0, 4]]", "[[4, 1], [0, 4]]", "[[4, 2], [0, -4]]", "[[2, 0], [0, 2]]"], ai: 0 },
+                    { q: "Solve for matrix X if: 2[[1, 3], [0, 4]] + X = [[5, -1], [2, 10]].", ops: ["[[3, -7], [2, 2]]", "[[3, 5], [2, 2]]", "[[4, -4], [2, 6]]", "[[3, -7], [1, 2]]"], ai: 0 },
+                    { q: "If A = [[2, -1], [1, 0]] and B = [[0, 3], [1, 4]], calculate the matrix product AB.", ops: "[[-1, 2], [0, 3]]", "[[1, 3], [-1, 4]]", "[[-1, 2], [1, 4]]", "None"], ai: 0 },
+                    { q: "Find the values of a and b if: [[a, 0], [2, b]] × [[1], [-1]] = [[3], [5]].", ops: ["a = 3, b = -3", "a = 2, b = 3", "a = 3, b = 2", "a = -3, b = 3"], ai: 0 },
+                    { q: "If A = [[1, 2], [3, 4]], evaluate the expression A² - 5A.", ops: ["-2I", "2I", "0", "5I"], ai: 0 },
+                    { q: "Matrix M multiplied with [[1, 2], [0, 3]] yields [[2, 4]]. Find the order of matrix M.", ops: ["1 × 2", "2 × 1", "2 × 2", "1 × 1"], ai: 0 },
+                    { q: "Find matrix B such that [[2, 1], [-3, 0]] + 2B = [[4, 5], [1, 2]].", ops: "[[1, 2], [2, 1]]", "[[2, 4], [4, 2]]", "[[1, 2], [2, 1]]", "None", ai: 0 },
+                    { q: "If A = [[cosθ, sinθ], [-sinθ, cosθ]], find A × Aᵀ (Transpose).", ops: ["I (Identity Matrix)", "0 (Null Matrix)", "A", "-A"], ai: 0 },
+                    { q: "Solve the polynomial equation condition for matrix M: M² = M, given choice values.", ops: ["M can be Identity matrix I", "M must be zero matrix only", "Both choices are logically correct", "Impossible to evaluate"], ai: 2 }
+                ],
+                reasoning: [
+                    { q: "Assertion (A): Matrix multiplication is not commutative in general (AB ≠ BA).\nReason (R): The orders of AB and BA can be different, making cross-comparison impossible.", ops: ["Both A and R are true and R is correct explanation", "Both true but R is not explanation", "A is true", "R is false"], ai: 0 },
+                    { q: "Assertion (A): For any square matrix A, A × I = I × A = A.\nReason (R): Identity matrix acts as the multiplicative identity element just like number 1 in algebra.", ops: ["Both A and R are true and R is correct explanation", "Both true but R is not explanation", "A is true", "R is false"], ai: 0 },
+                    { q: "Assertion (A): If the product of two matrices is a zero matrix, then at least one of them must be a zero matrix.\nReason (R): Unlike real numbers, two non-zero matrices can multiply to give a completely null matrix.", ops: ["A is false but R is true", "Both true with explanation", "A is true but R is false", "Both false"], ai: 0 },
+                    { q: "Assertion (A): To add two matrices, their orders must be exactly identical.\nReason (R): Matrix addition is performed by adding corresponding positional elements together.", ops: ["Both A and R are true and R is correct explanation", "Both true but R is not explanation", "A is true", "R is false"], ai: 0 },
+                    { q: "Assertion (A): Order of a matrix with 3 rows and 2 columns is written as 2×3.\nReason (R): Standard matrix order notation is always represented as Rows × Columns.", ops: ["A is false but R is true", "Both true", "A is true but R is false", "Both false"], ai: 0 },
+                    { q: "Assertion (A): (A + B)ᵀ = Aᵀ + Bᵀ.\nReason (R): Transpose operation distributes evenly across addition operations.", ops: ["Both A and R are true and R is correct explanation", "Both true but R is not explanation", "A is true", "R is false"], ai: 0 },
+                    { q: "Assertion (A): If order of A is m×n and order of B is n×p, then AB is defined.\nReason (R): Multiplication is valid only when columns of first match the rows of second matrix.", ops: ["Both A and R are true and R is correct explanation", "Both true but R is not explanation", "A is true", "R is false"], ai: 0 },
+                    { q: "Assertion (A): Determinant properties don't apply to Class 10 ICSE matrix algebra computations.\nReason (R): ICSE Class 10 scope restricts matrix content up to basic arithmetic operations on 2×2 dimensions.", ops: ["Both A and R are true and R is correct explanation", "Both true but R is not explanation", "A is true", "R is false"], ai: 0 },
+                    { q: "Assertion (A): Multiplying a matrix by scalar 0 transforms it into a null matrix.\nReason (R): 0 multiplied with any real numerical element inside the matrix structure results in 0.", ops: ["Both A and R are true and R is correct explanation", "Both true but R is not explanation", "A is true", "R is false"], ai: 0 },
+                    { q: "Assertion (A): If A is of order 2×2, then A + Aᵀ is always a symmetric structural matrix.\nReason (R): Transpose elements swap symmetrical positions maintaining perfect diagonal reflection.", ops: ["Both A and R are true and R is correct explanation", "Both true but R is not explanation", "A is true", "R is false"], ai: 0 }
+                ]
+            },
