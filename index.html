@@ -3,19 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shivam's Website</title>
+    <title>Shivam's Personal Site</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             text-align: center;
-            background-color: #f0f2f5;
-            padding: 50px;
+            background-color: #0f172a; /* Sleek dark blue/gray background */
+            color: #f8fafc; /* Clean white text */
+            padding: 50px 20px;
+            margin: 0;
         }
-        h1 { color: #007acc; }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #1e293b; /* Dark card background */
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+        h1 { 
+            color: #38bdf8; /* Vibrant sky blue */
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        p {
+            color: #cbd5e1;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+        .about-section {
+            margin: 30px 0;
+            padding: 15px;
+            border-top: 1px solid #334155;
+            border-bottom: 1px solid #334155;
+        }
+        .btn {
+            display: inline-block;
+            background-color: #38bdf8;
+            color: #0f172a;
+            padding: 12px 30px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 25px;
+            margin-top: 15px;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+        .btn:hover {
+            background-color: #7dd3fc;
+            transform: scale(1.05); /* Slight pop-out effect when hovering */
+        }
     </style>
 </head>
 <body>
-    <h1>Welcome to Shivam's Website!</h1>
-    <p>I successfully built and hosted this website using GitHub. ❤️❤️</p>
+
+    <div class="container">
+        <h1>Shivam Gupta</h1>
+        <p>Welcome to my corner of the internet! 🚀</p>
+
+        <div class="about-section">
+            <h3>About Me</h3>
+            <p>I am an aspiring web developer learning how to build and host clean, responsive websites using modern code.</p>
+        </div>
+
+        <a href="https://github.com/shivamgupta663" target="_blank" class="btn">Connect With Me</a>
+    </div>
+
 </body>
 </html>
