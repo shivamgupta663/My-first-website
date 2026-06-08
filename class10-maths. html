@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ICSE Class 10 Maths Chapters</title>
+    <title>ICSE Class 10 Maths - All Chapters</title>
     <style>
         body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #f1f5f9; color: #1e293b; margin: 0; padding: 20px; }
         .container { max-width: 650px; margin: 0 auto; }
@@ -13,10 +13,13 @@
         .chapter-num { font-size: 0.85rem; color: #94a3b8; margin-bottom: 4px; text-transform: uppercase; }
         .chapter-name { font-size: 1.1rem; color: #1e293b; font-weight: 600; margin: 0 0 15px 0; }
         .level-container { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
-        .level-link { text-align: center; text-decoration: none; font-size: 0.82rem; font-weight: bold; padding: 8px 5px; border-radius: 6px; }
+        .level-link { text-align: center; text-decoration: none; font-size: 0.82rem; font-weight: bold; padding: 8px 5px; border-radius: 6px; transition: background 0.2s; }
         .lvl-normal { background-color: #e0f2fe; color: #0369a1; border: 1px solid #bae6fd; }
+        .lvl-normal:hover { background-color: #bae6fd; }
         .lvl-high { background-color: #fee2e2; color: #b91c1c; border: 1px solid #fca5a5; }
+        .lvl-high:hover { background-color: #fca5a5; }
         .lvl-reasoning { background-color: #fef3c7; color: #b45309; border: 1px solid #fde68a; }
+        .lvl-reasoning:hover { background-color: #fde68a; }
     </style>
 </head>
 <body>
@@ -57,7 +60,7 @@
 
         <div class="chapter-box">
             <div class="chapter-num">Chapter 4</div>
-            <div class="chapter-name">Linear Inequations</div>
+            <div class="chapter-name">Linear Inequations (In one variable)</div>
             <div class="level-container">
                 <a href="linear-normal.html" class="level-link lvl-normal">Normal</a>
                 <a href="linear-high.html" class="level-link lvl-high">High</a>
@@ -74,6 +77,157 @@
                 <a href="quadratic-reasoning.html" class="level-link lvl-reasoning">Reasoning</a>
             </div>
         </div>
+
+        <div class="chapter-box">
+            <div class="chapter-num">Chapter 6</div>
+            <div class="chapter-name">Problems Based on Quadratic Equations</div>
+            <div class="level-container">
+                <a href="quad-prob-normal.html" class="level-link lvl-normal">Normal</a>
+                <a href="quad-prob-high.html" class="level-link lvl-high">High</a>
+                <a href="quad-prob-reasoning.html" class="level-link lvl-reasoning">Reasoning</a>
+            </div>
+        </div>
+
+        <div class="chapter-box">
+            <div class="chapter-num">Chapter 7</div>
+            <div class="chapter-name">Ratio and Proportion</div>
+            <div class="level-container">
+                <a href="ratio-normal.html" class="level-link lvl-normal">Normal</a>
+                <a href="ratio-high.html" class="level-link lvl-high">High</a>
+                <a href="ratio-reasoning.html" class="level-link lvl-reasoning">Reasoning</a>
+            </div>
+        </div>
+
+        <div class="chapter-box">
+            <div class="chapter-num">Chapter 8</div>
+            <div class="chapter-name">Factorization of Polynomials</div>
+            <div class="level-container">
+                <a href="factor-normal.html" class="level-link lvl-normal">Normal</a>
+                <a href="factor-high.html" class="level-link lvl-high">High</a>
+                <a href="factor-reasoning.html" class="level-link lvl-reasoning">Reasoning</a>
+            </div>
+        </div>
+
+        <div class="chapter-box">
+            <div class="chapter-num">Chapter 9</div>
+            <div class="chapter-name">Matrices</div>
+            <div class="level-container">
+                <a href="matrices-normal.html" class="level-link lvl-normal">Normal</a>
+                <a href="matrices-high.html" class="level-link lvl-high">High</a>
+                <a href="matrices-reasoning.html" class="level-link lvl-reasoning">Reasoning</a>
+            </div>
+        </div>
+
+        <div class="chapter-box">
+            <div class="chapter-num">Chapter 10</div>
+            <div class="chapter-name">Arithmetic & Geometric Progression (AP & GP)</div>
+            <div class="level-container">
+                <a href="progression-normal.html" class="level-link lvl-normal">Normal</a>
+                <a href="progression-high.html" class="level-link lvl-high">High</a>
+                <a href="progression-reasoning.html" class="level-link lvl-reasoning">Reasoning</a>
+            </div>
+        </div>
+
+        <div class="chapter-box">
+            <div class="chapter-num">Chapter 11</div>
+            <div class="chapter-name">Reflection (Coordinate Geometry)</div>
+            <div class="level-container">
+                <a href="reflection-normal.html" class="level-link lvl-normal">Normal</a>
+                <a href="reflection-high.html" class="level-link lvl-high">High</a>
+                <a href="reflection-reasoning.html" class="level-link lvl-reasoning">Reasoning</a>
+            </div>
+        </div>
+
+        <div class="chapter-box">
+            <div class="chapter-num">Chapter 12</div>
+            <div class="chapter-name">Section and Mid-Point Formula</div>
+            <div class="level-container">
+                <a href="section-normal.html" class="level-link lvl-normal">Normal</a>
+                <a href="section-high.html" class="level-link lvl-high">High</a>
+                <a href="section-reasoning.html" class="level-link lvl-reasoning">Reasoning</a>
+            </div>
+        </div>
+
+        <div class="chapter-box">
+            <div class="chapter-num">Chapter 13</div>
+            <div class="chapter-name">Equation of a Straight Line</div>
+            <div class="level-container">
+                <a href="line-normal.html" class="level-link lvl-normal">Normal</a>
+                <a href="line-high.html" class="level-link lvl-high">High</a>
+                <a href="line-reasoning.html" class="level-link lvl-reasoning">Reasoning</a>
+            </div>
+        </div>
+
+        <div class="chapter-box">
+            <div class="chapter-num">Chapter 14</div>
+            <div class="chapter-name">Similarity (Geometry)</div>
+            <div class="level-container">
+                <a href="similarity-normal.html" class="level-link lvl-normal">Normal</a>
+                <a href="similarity-high.html" class="level-link lvl-high">High</a>
+                <a href="similarity-reasoning.html" class="level-link lvl-reasoning">Reasoning</a>
+            </div>
+        </div>
+
+        <div class="chapter-box">
+            <div class="chapter-num">Chapter 15</div>
+            <div class="chapter-name">Circles (Theorems & Properties)</div>
+            <div class="level-container">
+                <a href="circles-normal.html" class="level-link lvl-normal">Normal</a>
+                <a href="circles-high.html" class="level-link lvl-high">High</a>
+                <a href="circles-reasoning.html" class="level-link lvl-reasoning">Reasoning</a>
+            </div>
+        </div>
+
+        <div class="chapter-box">
+            <div class="chapter-num">Chapter 16</div>
+            <div class="chapter-name">Mensuration (Cylinder, Cone & Sphere)</div>
+            <div class="level-container">
+                <a href="mensuration-normal.html" class="level-link lvl-normal">Normal</a>
+                <a href="mensuration-high.html" class="level-link lvl-high">High</a>
+                <a href="mensuration-reasoning.html" class="level-link lvl-reasoning">Reasoning</a>
+            </div>
+        </div>
+
+        <div class="chapter-box">
+            <div class="chapter-num">Chapter 17</div>
+            <div class="chapter-name">Trigonometric Identities & Tables</div>
+            <div class="level-container">
+                <a href="trig-normal.html" class="level-link lvl-normal">Normal</a>
+                <a href="trig-high.html" class="level-link lvl-high">High</a>
+                <a href="trig-reasoning.html" class="level-link lvl-reasoning">Reasoning</a>
+            </div>
+        </div>
+
+        <div class="chapter-box">
+            <div class="chapter-num">Chapter 18</div>
+            <div class="chapter-name">Heights and Distances</div>
+            <div class="level-container">
+                <a href="heights-normal.html" class="level-link lvl-normal">Normal</a>
+                <a href="heights-high.html" class="level-link lvl-high">High</a>
+                <a href="heights-reasoning.html" class="level-link lvl-reasoning">Reasoning</a>
+            </div>
+        </div>
+
+        <div class="chapter-box">
+            <div class="chapter-num">Chapter 19</div>
+            <div class="chapter-name">Statistics (Mean, Median, Mode & Ogive)</div>
+            <div class="level-container">
+                <a href="stats-normal.html" class="level-link lvl-normal">Normal</a>
+                <a href="stats-high.html" class="level-link lvl-high">High</a>
+                <a href="stats-reasoning.html" class="level-link lvl-reasoning">Reasoning</a>
+            </div>
+        </div>
+
+        <div class="chapter-box">
+            <div class="chapter-num">Chapter 20</div>
+            <div class="chapter-name">Probability</div>
+            <div class="level-container">
+                <a href="probability-normal.html" class="level-link lvl-normal">Normal</a>
+                <a href="probability-high.html" class="level-link lvl-high">High</a>
+                <a href="probability-reasoning.html" class="level-link lvl-reasoning">Reasoning</a>
+            </div>
+        </div>
+
     </div>
 
 </body>
