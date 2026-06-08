@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Practice Arena - Set 1</title>
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-main: #f8fafc;
+            --text-sub: #94a3b8;
+            --accent-blue: #38bdf8;
+            --accent-green: #4ade80;
+            --accent-red: #f87171;
+            --border-glow: #334155;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 650px;
+            margin: 20px auto;
+        }
+
+        .back-btn {
+            text-decoration: none;
+            color: var(--text-sub);
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+        .back-btn:hover { color: var(--accent-blue); }
+
+        h1 {
+            font-size: 2rem;
+            background: linear-gradient(to right, #38bdf8, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 5px;
+            text-align: center;
+        }
+
+        .subtitle {
+            color: var(--text-sub);
+            margin-bottom: 30px;
+            font-size: 0.95rem;
+            text-align: center;
+        }
+
+        .tabs-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-bottom: 30px;
+            background: rgba(255,255,255,0.03);
+            padding: 6px;
+            border-radius: 12px;
+            border: 1px solid var(--border-glow);
+        }
+
+        .tab-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-sub);
+            padding: 12px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+
+        .tab-btn.active[data-mode="normal"] { background: rgba(14, 165, 233, 0.2); color: #38bdf8; border: 1px solid rgba(14, 165, 233, 0.4); }
+        .tab-btn.active[data-mode="high"] { background: rgba(239, 68, 68, 0.2); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.4); }
+        .tab-btn.active[data-mode="reasoning"] { background: rgba(245, 158, 11, 0.2); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.4); }
+
+        .quiz-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-glow);
+            border-radius: 14px;
+            padding: 22px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .q-text {
+            font-size: 1.05rem;
+            font-weight: 600;
+            line-height: 1.5;
+            margin-bottom: 18px;
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+
+        .option-btn {
+            background-color: #131c2e;
+            border: 1px solid var(--border-glow);
+            color: var(--text-main);
+            padding: 14px 16px;
+            border-radius: 10px;
+            text-align: left;
+            font-size: 0.95rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .option-btn:hover { border-color: var(--accent-blue); background-color: #1b2640; }
+        .option-btn.correct { background-color: rgba(74, 222, 128, 0.15) !important; border-color: var(--accent-green) !important; color: var(--accent-green); }
+        .option-btn.wrong { background-color: rgba(248, 113, 113, 0.15) !important; border-color: var(--accent-red) !important; color: var(--accent-red); }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <a href="class10.html" class="back-btn">← Back to Dashboard</a>
+        <h1 id="chapter-title">Loading Arena...</h1>
+        <p class="subtitle" id="chapter-subtitle">Set 1 Practice Arena</p>
+
+        <div class="tabs-container">
+            <button class="tab-btn active" data-mode="normal" onclick="switchMode('normal')">Normal Level</button>
+            <button class="tab-btn" data-mode="high" onclick="switchMode('high')">High Level</button>
+            <button class="tab-btn" data-mode="reasoning" onclick="switchMode('reasoning')">Assertion & Reason</button>
+        </div>
+
+        <div id="quiz-arena"></div>
+    </div>
+
+    <script>
+        const chaptersDatabase = {
+            gst: {
+                title: "Goods & Services Tax (GST)",
+                sub: "Set 1: Pure Board Syllabus Foundations",
+                normal: [
+                    { q: "An article is sold for ₹5,000 within the same state. If the GST rate is 12%, find the CGST amount.", ops: ["₹600", "₹300", "₹150", "₹1,200"], ai: 1 },
+                    { q: "A service cost is ₹2,500. Under intra-state transaction, the SGST charged is ₹225. Find the total rate of GST.", ops: ["9%", "12%", "18%", "5%"], ai: 2 },
+                    { q: "The marked price of an item is ₹45,000. A shopkeeper allows a flat 10% discount. If the rate of GST is 28%, find the total amount the consumer has to pay.", ops: ["₹51,840", "₹57,600", "₹40,500", "₹11,340"], ai: 0 },
+                    { q: "An item listed at ₹8,000 is available at a 20% discount. If a customer pays a total of ₹7,552 including GST, what is the rate of GST?", ops: ["5%", "12%", "18%", "28%"], ai: 2 },
+                    { q: "A trader bought goods for ₹6,000 and paid a total GST of ₹300. What was the rate of GST?", ops: ["5%", "12%", "6%", "2.5%"], ai: 0 },
+                    { q: "A shopkeeper buys an item for ₹4,000 and sells it at a profit of ₹1,000 within his state. If GST is 5%, calculate the total GST paid by consumer.", ops: ["₹25", "₹50", "₹250", "₹12.50"], ai: 2 },
+                    { q: "The total cost of an article including 18% GST is ₹14,160. Find its original price before tax.", ops: ["₹12,000", "₹11,611", "₹13,000", "₹12,500"], ai: 0 },
+                    { q: "A smart TV has a market price of ₹30,000. The dealer offers a 15% discount. If GST is 28%, find the total tax amount collected.", ops: ["₹8,400", "₹7,140", "₹4,200", "₹3,570"], ai: 1 },
+                    { q: "In an intra-state deal, output tax collected by a dealer is ₹4,500 and input tax paid by him is ₹3,800. How much total GST does he deposit with the government?", ops: ["₹700", "₹350", "₹4,500", "₹8,300"], ai: 0 },
+                    { q: "An electrical appliance is sold for ₹12,000. If the total tax distributed to the state government (SGST) is ₹720, what is the rate of GST?", ops: ["6%", "12%", "18%", "5%"], ai: 1 }
+                ],
+                high: [
+                    { q: "A shopkeeper buys an article from a wholesaler for ₹12,000 and sells it to a consumer at a profit of 25%. If the rate of GST is 18%, and the transaction is intra-state, calculate the CGST paid by the shopkeeper to the government.", ops: ["₹270", "₹540", "₹1,080", "₹1,350"], ai: 0 },
+                    { q: "A continuous multi-stage transaction happens within Punjab: Manufacturer → Dealer → Consumer. The manufacturer sells goods to the dealer for ₹10,000. The dealer raises the price and sells to the consumer. If the consumer pays a total SGST of ₹900 at a GST rate of 18%, what was the dealer's profit?", ops: ["₹0", "₹2,000", "₹5,000", "₹1,000"], ai: 0 },
+                    { q: "A service provider in Rajasthan provides services worth ₹8,000 to a client in Gujarat. The client then provides a modified service to an end-user in Gujarat for ₹12,000. If the GST rate is 18%, find the net IGST paid by the intermediate client to the government.", ops: ["₹0", "₹720", "₹1,440", "₹2,160"], ai: 0 },
+                    { q: "An article is available at a marked price of ₹40,000. A retailer allows two successive discounts of 10% each, and then charges GST at 5%. Calculate the total amount a customer needs to pay.", ops: ["₹34,020", "₹33,600", "₹35,700", "₹32,400"], ai: 0 },
+                    { q: "An article marked at ₹5,000 is sold at a discount of 20%. If the consumer pays a total amount of ₹4,480 including GST, find the rate of GST applied.", ops: ["12%", "5%", "18%", "28%"], ai: 0 },
+                    { q: "A manufacturer sells a machine part to a distributor for ₹20,000. The distributor sells it to a dealer at a profit of ₹5,000. The dealer sells it to a consumer at a profit of ₹3,000. If all transactions are intra-state and GST rate is 18%, find the total tax received by the State Government.", ops: ["₹2,520", "₹5,040", "₹1,440", "₹2,160"], ai: 0 },
+                    { q: "A shopkeeper in Delhi buys an item from a wholesaler in Mumbai for ₹15,000. He marks up the price by 20% and sells it to a local customer in Delhi. If the GST rate is 12%, calculate the net tax paid by the shopkeeper to the government.", ops: ["₹360", "₹1,800", "₹2,160", "₹0"], ai: 0 },
+                    { q: "The marked price of an appliance is ₹50,000. A dealer buys it at a certain discount from the manufacturer and sells it to a consumer at the marked price. If the rate of GST is 18% and the dealer pays a net tax of ₹900 to the government, find the discount percentage he received.", ops: ["10%", "15%", "20%", "5%"], ai: 0 },
+                    { q: "A consulting firm provides intra-state services worth ₹60,000. They use input services worth ₹40,000 on which they paid 18% tax. Find the net CGST and SGST payable by the firm on their value addition.", ops: ["CGST ₹1,800, SGST ₹1,800", "CGST ₹3,600, SGST ₹3,600", "CGST ₹5,400, SGST ₹5,400", "CGST ₹900, SGST ₹900"], ai: 3 },
+                    { q: "A dealer buys a product for ₹8,000 and sells it at a marked price of ₹10,000 to a consumer. If the consumer pays ₹11,800 total, find the Input Tax Credit available to the dealer.", ops: ["₹1,440", "₹1,800", "₹360", "₹1,000"], ai: 0 }
+                ],
+                reasoning: [
+                    { q: "Assertion (A): For an intra-state transaction, the central government and state government collect equal shares of tax.\nReason (R): In an intra-state supply of goods, CGST rate is always equal to SGST rate.", ops: ["Both A and R are true and R is correct explanation", "Both A and R are true but R is not correct explanation", "A is true but R is false", "A is false but R is true"], ai: 0 },
+                    { q: "Assertion (A): No IGST is levied on services provided from Delhi to Noida (UP).\nReason (R): Noida and Delhi are part of the National Capital Region (NCR) but belong to two different states.", ops: ["A is false but R is true", "Both A and R are true and R is correct explanation", "Both A and R are true but R is not correct explanation", "A is true but R is false"], ai: 0 },
+                    { q: "Assertion (A): The Input Tax Credit (ITC) can be used to reduce the tax liability on outward supplies.\nReason (R): GST is a single-stage tax levied only at the final point of consumption without credit mechanisms.", ops: ["A is true but R is false", "Both A and R are true and R is correct explanation", "Both A and R are true but R is not correct explanation", "A is false but R is true"], ai: 0 },
+                    { q: "Assertion (A): Alcohol for human consumption and petroleum products are currently outside the ambit of GST.\nReason (R): These items are heavily taxed by states independently to maintain local revenue control.", ops: ["Both A and R are true and R is correct explanation", "Both true but R is not correct explanation", "A is true but R is false", "A is false"], ai: 0 },
+                    { q: "Assertion (A): A school providing regular education services to its students does not charge GST on tuition fees.\nReason (R): Core educational services are exempted from GST under the Indian tax structures.", ops: ["Both A and R are true and R is correct explanation", "Both true but R is not explanation", "A is true", "R is false"], ai: 0 },
+                    { q: "Assertion (A): If a dealer buys goods inter-state and sells them intra-state, he cannot utilize his IGST credit.\nReason (R): IGST credit can be seamlessly cross-utilized to pay off output CGST and SGST liabilities.", ops: ["A is false but R is true", "Both true", "A is true but R is false", "Both false"], ai: 0 },
+                    { q: "Assertion (A): GST is considered a destination-based consumption tax.\nReason (R): The tax revenue ultimately goes to the state where the goods or services are finally consumed.", ops: ["Both A and R are true and R is correct explanation", "Both true but R is not explanation", "A is false", "R is false"], ai: 0 },
+                    { q: "Assertion (A): When a product is sold at a loss by a intermediate dealer, his output tax is less than his input tax.\nReason (R): Output tax depends completely on the selling price, which is lower than cost price during a loss scenario.", ops: ["Both A and R are true and R is correct explanation", "Both true but R is not explanation", "A is true", "A is false"], ai: 0 },
+                    { q: "Assertion (A): CGST and SGST cannot be adjusted against each other.\nReason (R): Central and State tax accounts are strictly separated to maintain independent federal revenue streams.", ops: ["Both A and R are true and R is correct explanation", "Both true but R is not explanation", "A is false", "R is false"], ai: 0 },
+                    { q: "Assertion (A): Successive discounts of 10% and 10% are equal to a flat single discount of 20% for tax base calculations.\nReason (R): The second discount is calculated on the reduced price obtained after the first discount.", ops: ["A is false but R is true", "Both true with correct explanation", "A is true but R is false", "Both false"], ai: 0 }
+                ]
+            },
+            banking: {
+                title: "Banking (Recurring Deposits)",
+                sub: "Set 1: Compounding Interest & Installment Problems",
+                normal: [
+                    { q: "Karan deposits ₹600 per month in a Recurring Deposit Account for 20 months. Find the total principal deposited by him.", ops: ["₹12,000", "₹6,000", "₹14,400", "₹10,000"], ai: 0 },
+                    { q: "A man deposits ₹400 per month for 1 year at 10% p.a. Find the equivalent principal for 1 month ($[n(n+1)]/2 \\times P$).", ops: ["₹4,800", "₹31,200", "₹2,600", "₹400"], ai: 1 },
+                    { q: "If the total interest earned in an RD account over 2 years is ₹1,200 and the total amount deposited is ₹24,000, find the Maturity Value.", ops: ["₹22,800", "₹25,200", "₹24,000", "₹26,400"], ai: 1 },
+                    { q: "Sonia opened an RD account and deposited ₹150 per month for 24 months. If she received ₹300 as interest at maturity, what is the maturity value?", ops: ["₹3,600", "₹3,900", "₹4,200", "₹3,300"], ai: 1 },
+                    { q: "An RD account of ₹500 per month for 10 months earns a simple interest of ₹110. Find the rate of interest per annum.", ops: ["6%", "8%", "10%", "12%"], ai: 0 },
+                    { q: "Rohan deposits ₹1,000 monthly for 3 years. What is the total number of monthly installments (n) used in the formula?", ops: ["3", "12", "36", "24"], ai: 2 },
+                    { q: "Find the interest earned on a monthly deposit of ₹200 for 6 months at 12% per annum.", ops: ["₹14", "₹42", "₹84", "₹21"], ai: 1 },
+                    { q: "If the Maturity Value of an RD account is ₹16,550 and the total interest earned is ₹1,550, what was the total sum deposited?", ops: ["₹15,000", "₹18,100", "₹16,000", "₹14,500"], ai: 0 },
+                    { q: "A student deposits ₹50 per month for 2 years. What will be the value of $n(n+1)$ in the interest formula?", ops: ["552", "600", "48", "50"], ai: 0 },
+                    { q: "An RD account gets ₹600 interest on a total deposit of ₹12,000 over 20 months. Find the monthly installment amount.", ops: ["₹500", "₹600", "₹400", "₹1,000"], ai: 1 }
+                ],
+                high: [
+                    { q: "Amit opened a Recurring Deposit Account in a bank and deposited ₹300 per month for 2 years. If he received ₹7,926 at the time of maturity, find the rate of interest per annum.", ops: ["10%", "9%", "8%", "11%"], ai: 0 },
+                    { q: "Mr. Bajaj has an RD account of ₹1,200 per month for 3 years. If the bank pays interest at 11% p.a., calculate the total interest he will receive at maturity.", ops: ["₹7,326", "₹6,840", "₹8,112", "₹7,128"], ai: 0 },
+                    { q: "A person deposits ₹x per month for 18 months at 12% p.a. simple interest. If the total interest accumulated is ₹1,026, find the value of x (Monthly Deposit).", ops: ["₹400", "₹500", "₹600", "₹450"], ai: 2 },
+                    { q: "Deepak has an RD account of ₹800 per month for a certain period. If the rate of interest is 10% p.a. and he gets ₹1,160 as interest at maturity, find the time period in months.", ops: ["12 months", "15 months", "18 months", "24 months"], ai: 1 },
+                    { q: "Mrs. Matthew opened an RD account of ₹2,000 monthly for 2 years. The bank pays 9% p.a. Calculate the percentage of interest earned relative to her total core investment.", ops: ["8.55%", "9.375%", "9.0%", "7.25%"], ai: 1 },
+                    { q: "An RD maturity value is ₹29,640 over 24 months. If the interest rate is 10% p.a., solve the quadratic relationship to find the monthly deposit.", ops: ["₹1,000", "₹1,200", "₹1,100", "₹950"], ai: 2 },
+                    { q: "A shopkeeper deposits ₹1,500 monthly for 1 year. The maturity value is ₹18,845. If the tax on interest is 0%, what was the equivalent interest rate?", ops: ["11%", "10.5%", "11.5%", "13%"], ai: 3 },
+                    { q: "Calculate the difference in interest earned if ₹1,000 per month is deposited for 1 year at 12% p.a. versus ₹2,000 per month deposited for 6 months at 12% p.a.", ops: ["₹540", "₹390", "₹650", "₹410"], ai: 1 },
+                    { q: "Kiran opened an RD account of ₹400 per month for 3 years at 9% p.a. Find the total amount she gets at maturity including interest.", ops: ["₹16,434", "₹14,400", "₹2,034", "₹15,800"], ai: 0 },
+                    { q: "A man has a recurring deposit account of ₹500 per month for 2 years. If the rate of interest is 8% per annum, find the interest earned by him.", ops: ["₹1,250", "₹1,000", "₹1,500", "₹800"], ai: 0 }
+                ],
+                reasoning: [
+                    { q: "Assertion (A): For a constant monthly deposit, the interest earned in the 2nd year is higher than the 1st year.\nReason (R): The principal for interest calculation grows cumulatively every single month in a Recurring Deposit.", ops: ["Both A and R are true and R is correct explanation", "Both A and R are true but R is not correct explanation", "A is true but R is false", "A is false but R is true"], ai: 0 },
+                    { q: "Assertion (A): If the time period of an RD account is doubled, the total interest earned becomes exactly double.\nReason (R): The formula for RD interest is directly proportional to the quadratic factor $n(n+1)$, not just a linear $n$.", ops: ["A is false but R is true", "Both A and R are true and R is correct explanation", "Both A and R are true but R is not correct explanation", "A is true but R is false"], ai: 0 },
+                    { q: "Assertion (A): A savings bank account always yields more interest than a Recurring Deposit account for the same monthly savings.\nReason (R): Recurring deposits lock money progressively, offering a higher structured rate of interest than regular savings accounts.", ops: ["A is false but R is true", "Both A and R are true and R is correct explanation", "A is true but R is false", "Both A and R are true but R is not correct explanation"], ai: 0 },
+                    { q: "Assertion (A): The maturity value is always greater than the total amount deposited by the account holder.\nReason (R): Maturity Value is the summation of the total principal deposited and the interest accumulated over the tenure.", ops: ["Both A and R are true and R is correct explanation", "Both A and R are true but R is not correct explanation", "A is true but R is false", "A is false but R is true"], ai: 0 },
+                    { q: "Assertion (A): The simple interest formula $I = P \\times \\frac{n(n+1)}{2 \\times 12} \\times \\frac{r}{100}$ uses $\\frac{n(n+1)}{2}$ to calculate the sum of natural numbers up to 'n' months.\nReason (R): Each monthly installment remains in the bank for a different number of months, ranging from 'n' months down to 1 month.", ops: ["Both A and R are true and R is correct explanation", "Both true but R is not explanation", "A is true", "R is false"], ai: 0 },
+                    { q: "Assertion (A): Banks offer identical interest rates for Fixed Deposits (FD) and Recurring Deposits (RD) across all time intervals.\nReason (R): FDs involve a single lump-sum investment at the beginning, while RDs involve periodic small monthly savings.", ops: ["A is false but R is true", "Both true with correct explanation", "A is true but R is false", "Both false"], ai: 0 },
+                    { q: "Assertion (A): If the rate of interest increases, the maturity value of a recurring deposit account increases automatically.\nReason (R): Interest component is directly proportional to the rate of interest (r) in the standard banking formula.", ops: ["Both A and R are true and R is correct explanation", "Both true but R is not explanation", "A is false", "R is false"], ai: 0 },
+                    { q: "Assertion (A): Even if an installment is skipped, the bank will calculate full interest for that specific month without penalty.\nReason (R): Banks calculate interest purely on the actual balances present in the account on specific dates.", ops: ["A is false but R is true", "Both true", "A is true but R is false", "Both false"], ai: 0 },
+                    { q: "Assertion (A): Senior citizens generally get a slightly higher rate of interest on recurring deposit accounts than normal citizens.\nReason (R): Banking policies throughout India offer special incentive slabs to support senior citizens' post-retirement funds.", ops: ["Both A and R are true and R is correct explanation", "Both true but R is not explanation", "A is false", "R is false"], ai: 0 },
+                    { q: "Assertion (A): Interest earned on Recurring Deposits can be subjected to Tax Deducted at Source (TDS) by the bank.\nReason (R): According to Income Tax laws, if interest income from deposits exceeds specified annual limits, banks must deduct tax.", ops: ["Both A and R are true and R is correct explanation", "Both true but R is not explanation", "A is true", "R is false"], ai: 0 }
+                ]
+            },
+            lineariq: {
+                title: "Linear Inequations",
+                sub: "Set 1: Number Lines & Interval Constraints",
+                normal: [
+                    { q: "If $x \\in W$ (Whole Numbers), find the solution set for the inequation: $x - 3 < 2$.", ops: ["{0, 1, 2, 3, 4}", "{1, 2, 3, 4}", "{0, 1, 2, 3}", "{1, 2, 3, 4, 5}"], ai: 0 },
+                    { q: "Solve $2x - 4 \\le 6$, where $x \\in N$ (Natural Numbers).", ops: ["{1, 2, 3, 4, 5}", "{0, 1, 2, 3, 4, 5}", "{1, 2, 3, 4}", "{1, 2, 3}"], ai: 0 },
+                    { q: "Find the solution set for $-3x + 12 > 0$, where $x \\in N$.", ops: ["{1, 2, 3}", "{1, 2, 3, 4}", "{0, 1, 2, 3}", "{1, 2}"], ai: 0 },
+                    { q: "Solve the inequation: $x + 5 \\ge 9$, given the replacement set is {1, 2, 3, 4, 5, 6}.", ops: ["{4, 5, 6}", "{5, 6}", "{3, 4, 5, 6}", "{4, 5}"], ai: 0 },
+                    { q: "If $x \\in Z$ (Integers), find the solution set for $-2 \\le x < 3$.", ops: ["{-2, -1, 0, 1, 2}", "{-1, 0, 1, 2}", "{-2, -1, 0, 1, 2, 3}", "{0, 1, 2}"], ai: 0 },
+                    { q: "What is the smallest integer value of x satisfying $3x - 5 > 7$?", ops: ["5", "4", "3", "6"], ai: 0 },
+                    { q: "Solve $\frac{x}{2} - 1 \\le 1$, where $x \\in W$.", ops: ["{0, 1, 2, 3, 4}", "{1, 2, 3, 4}", "{0, 1, 2, 3}", "{0, 1, 2}"], ai: 0 },
+                    { q: "Find the maximum natural number satisfying $5 - 2x > -3$.", ops: ["3", "4", "2", "5"], ai: 0 },
+                    { q: "Representing $x > 4$ on a real number line requires what type of circle at 4?", ops: ["An open circle (hollow)", "A darkened solid circle", "No circle at all", "A square block"], ai: 0 },
+                    { q: "Solve $4x - 1 < 15$, where $x \\in P$ (Prime Numbers).", ops: ["{2, 3}", "{1, 2, 3}", "{2, 3, 5}", "{2}"], ai: 0 }
+                ],
+                high: [
+                    { q: "Find the range of values of x which satisfies: $-2 \\le \\frac{2x-1}{3} < 3, x \\in Real Numbers$.", ops: ["-2.5 ≤ x < 5", "-3 ≤ x < 4", "-2 ≤ x < 5", "-1.5 ≤ x < 6"], ai: 0 },
+                    { q: "Solve the component inequation system: $2x - 5 \\le 5x + 4 < 11$, where $x \\in Z$.", ops: ["{-3, -2, -1, 0, 1}", "{-2, -1, 0, 1}", "{-3, -2, -1, 0}", "{-4, -3, -2, -1, 0, 1}"], ai: 0 },
+                    { q: "Find the solution set of the following inequation and represent it on a real number line: $-3 < x - 2 \\le 9 - 2x, x \\in R$.", ops: ["-1 < x ≤ 3.66", "-1 < x ≤ 3.5", "-1 ≤ x < 3.66", "-2 < x ≤ 3"], ai: 1 },
+                    { q: "Solve: $11 - 2x \\ge 15 - 4x$, given $x \\in W$. Also identify the lowest possible element.", ops: ["Lowest is 2 from set {2, 3, 4...}", "Lowest is 0 from set {0, 1, 2...}", "Lowest is 1 from set {1, 2, 3...}", "No solutions exist"], ai: 0 },
+                    { q: "Find the range of values of x that satisfies both $3x + 6 \\ge 9$ and $-2x + 8 > 2$ simultaneously, where $x \\in R$.", ops: ["1 ≤ x < 3", "1 < x ≤ 3", "1 ≤ x ≤ 3", "0 ≤ x < 3"], ai: 0 },
+                    { q: "Solve the given fractional expression over Real numbers: $-\\frac{1}{3} \\le \\frac{x}{2} - 1 \\frac{1}{3} < \\frac{1}{6}$.", ops: ["2 ≤ x < 3", "1.5 ≤ x < 2.5", "2 ≤ x < 4", "1 ≤ x < 3"], ai: 0 },
+                    { q: "If the solution set of a real inequation is represented on a number line with a hollow circle at -2 and a solid dark circle at 5, what is the correct interval notation?", ops: ["(-2, 5]", "[-2, 5]", "(-2, 5)", "[-2, 5)"], ai: 0 },
+                    { q: "Solve: $2(x-3) < 4x - 2 \\le 2x + 8$, where $x \\in Z$. Find total number of elements in the solution set.", ops: ["7", "6", "5", "8"], ai: 0 },
+                    { q: "Solve the complex boundary: $-5 \\le 2x - 3 < 7 - x$, for $x \\in N$.", ops: ["{1, 2, 3}", "{1, 2}", "{1, 2, 3, 4}", "{0, 1, 2, 3}"], ai: 0 },
+                    { q: "An integer x satisfies $\\frac{x+3}{2} > 2x - 3$. What is the largest value x can take?", ops: ["1", "2", "0", "3"], ai: 0 }
+                ],
+                reasoning: [
+                    { q: "Assertion (A): When an inequation is multiplied or divided by a negative number, the sign of inequality reverses.\nReason (R): $-3 < -1$, but when multiplied by $-1$, $3 > 1$.", ops: ["Both A and R are true and R is correct explanation", "Both A and R are true but R is not correct", "A is true but R is false", "A is false but R is true"], ai: 0 },
+                    { q: "Assertion (A): The solution set for $x < 3$ when $x \\in N$ is empty.\nReason (R): Natural numbers start from 1, so numbers 1 and 2 satisfy the equation layout.", ops: ["A is false but R is true", "Both true", "A is true but R is false", "Both false"], ai: 0 },
+                    { q: "Assertion (A): The inequation $x^2 < -4$ has a completely null/empty real solution set.\nReason (R): The square of any real quantity can never yield a negative value under real calculations.", ops: ["Both A and R are true and R is correct explanation", "Both true but R is not explanation", "A is true", "R is false"], ai: 0 },
+                    { q: "Assertion (A): A hollow open circle on a number line plot indicates that the boundary point is strictly included in the solution set.\nReason (R): Solid circles represent $\\le$ or $\\ge$ relationships while hollow circles denote strict $<$ or $>$ boundaries.", ops: ["A is false but R is true", "Both true with correct explanation", "A is true but R is false", "Both false"], ai: 0 },
+                    { q: "Assertion (A): If $x > y$ and $z < 0$, then $xz < yz$.\nReason (R): Multiplying an inequality constraint with a negative scalar changes the structural direction of the inequality layout.", ops: ["Both A and R are true and R is correct explanation", "Both true but R is not explanation", "A is true", "R is false"], ai: 0 },
+                    { q: "Assertion (A): The inequality system $x \\ge 5$ and $x \\le 2$ has an intersection solution set equal to Real numbers.\nReason (R): No single number can simultaneously be greater than or equal to 5 and less than or equal to 2.", ops: ["A is false but R is true", "Both true", "A is true but R is false", "Both false"], ai: 0 },
+                    { q: "Assertion (A): Replacement set is the larger universal set from which the actual answers (solution set) are chosen.\nReason (R): Solution set can sometimes contain extra elements outside the predefined boundary of the replacement set.", ops: ["A is true but R is false", "Both true", "A is false but R is true", "Both false"], ai: 0 },
+                    { q: "Assertion (A): Linear inequations always possess only one unique solution element just like linear equations do.\nReason (R): Linear inequations generally produce an infinite or finite interval space of values as their solution set.", ops: ["A is false but R is true", "Both true", "A is true but R is false", "Both false"], ai: 0 },
+                    { q: "Assertion (A): Adding a fixed positive or negative number to both sides of an inequation does not affect the inequality sign direction.\nReason (R): Shift transformations maintain relative intervals spacing along the horizontal axes coordinate system.", ops: ["Both A and R are true and R is correct explanation", "Both true but R is not explanation", "A is true", "R is false"], ai: 0 },
+                    { q: "Assertion (A): The range $2 < x \\le 6$ contains exactly 4 elements if the domain is specified as Real numbers ($x \\in R$).\nReason (R): Between any two distinct real numbers, there exists an infinite dense configuration of individual real numbers.", ops: ["A is false but R is true", "Both true with correct explanation", "A is true but R is false", "Both false"], ai: 0 }
+                ]
+            }
+        };
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const activeChKey = urlParams.get('ch') || 'gst';
+
+        function renderQuestions(mode) {
+            const targetData = chaptersDatabase[activeChKey];
+            if (!targetData) {
+                document.getElementById('chapter-title').innerText = "Chapter Comming Soon!";
+                document.getElementById('chapter-subtitle').innerText = "We are compiling Set 1 questions currently.";
+                return;
+            }
+            
+            document.getElementById('chapter-title').innerText = targetData.title;
+            document.getElementById('chapter-subtitle').innerText = targetData.sub;
+
+            const arena = document.getElementById('quiz-arena');
+            arena.innerHTML = ''; 
+            
+            const list = targetData[mode] || [];
+            if(list.length === 0) {
+                arena.innerHTML = `<p style='text-align:center; color:var(--text-sub); margin-top:20px;'>Set 1 for this mode is being updated shortly!</p>`;
+                return;
+            }
+
+            list.forEach((item, idx) => {
+                const card = document.createElement('div');
+                card.className = 'quiz-card';
+
+                const qText = document.createElement('div');
+                qText.className = 'q-text';
+                qText.innerText = `Q${idx + 1}. ${item.q}`;
+                card.appendChild(qText);
+
+                const grid = document.createElement('div');
+                grid.className = 'options-grid';
+
+                item.ops.forEach((opt, oIdx) => {
+                    const btn = document.createElement('button');
+                    btn.className = 'option-btn';
+                    btn.innerText = opt;
+                    
+                    btn.onclick = () => {
+                        const buttons = grid.querySelectorAll('.option-btn');
+                        buttons.forEach(b => b.disabled = true);
+                        
+                        if(oIdx === item.ai) {
+                            btn.classList.add('correct');
+                        } else {
+                            btn.classList.add('wrong');
+                            buttons[item.ai].classList.add('correct');
+                        }
+                    };
+                    grid.appendChild(btn);
+                });
+
+                card.appendChild(grid);
+                arena.appendChild(card);
+            });
+        }
+
+        function switchMode(mode) {
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelector(`.tab-btn[data-mode="${mode}"]`).classList.add('active');
+            renderQuestions(mode);
+        }
+
+        renderQuestions('normal');
+    </script>
+</body>
+</html>
