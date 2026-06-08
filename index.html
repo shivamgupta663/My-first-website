@@ -3,65 +3,212 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ICSE & ISC Student Portal</title>
+    <title>ICSE & ISC Study Portal - Home</title>
     <style>
+        /* Modern Trendy Theme Variables */
+        :root {
+            --bg-color: #0f172a; /* Deep Space Slate Blue */
+            --card-bg: rgba(30, 41, 59, 0.7); /* Translucent Glass */
+            --text-main: #f8fafc;
+            --text-sub: #94a3b8;
+            --accent-cyan: #38bdf8;
+            --accent-purple: #c084fc;
+            --accent-orange: #fbbf24;
+            --border-color: rgba(255, 255, 255, 0.08);
+        }
+
         body {
-            font-family: 'Segoe UI', Arial, sans-serif;
-            background-color: #f1f5f9;
-            color: #1e293b;
+            font-family: 'Plus Jakarta Sans', 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
             margin: 0;
             padding: 20px;
+            min-height: 100vh;
+            background-image: 
+                radial-gradient(circle at top left, rgba(56, 189, 248, 0.12), transparent 400px),
+                radial-gradient(circle at bottom right, rgba(192, 132, 252, 0.1), transparent 400px);
+        }
+
+        .container {
+            max-width: 650px;
+            margin: 40px auto;
+        }
+
+        /* Header Style */
+        .header {
             text-align: center;
+            margin-bottom: 40px;
         }
-        .container { max-width: 500px; margin: 40px auto; }
-        h1 { color: #0f172a; margin-bottom: 5px; }
-        .subtitle { color: #64748b; margin-bottom: 40px; }
-        
-        /* Class Button Styling */
+
+        .logo-icon {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            display: inline-block;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            margin: 0 0 8px 0;
+            background: linear-gradient(135deg, #38bdf8, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .tagline {
+            color: var(--text-sub);
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        /* Section Title */
+        .section-title {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--accent-cyan);
+            font-weight: 700;
+            margin-bottom: 15px;
+            padding-left: 5px;
+        }
+
+        /* Trendy Dashboard Grid */
+        .grid {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        /* Glassmorphic Class Cards */
         .class-card {
-            background-color: #ffffff;
-            border: 2px solid #e2e8f0;
-            border-radius: 12px;
-            padding: 25px;
-            margin-bottom: 20px;
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 22px;
             text-decoration: none;
-            display: block;
-            font-size: 1.3rem;
-            font-weight: bold;
-            color: #0284c7;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
-            transition: all 0.2s;
+            color: var(--text-main);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
         }
-        .class-card:hover {
+
+        /* Hover Glow Effects based on Class colors */
+        .class-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 4px; height: 100%;
+        }
+
+        /* Class 10 custom borders/glows */
+        .c-10::before { background: var(--accent-cyan); }
+        .c-10:hover {
+            border-color: rgba(56, 189, 248, 0.4);
+            box-shadow: 0 10px 25px rgba(56, 189, 248, 0.15);
             transform: translateY(-3px);
-            border-color: #0284c7;
-            background-color: #f0f9ff;
-            box-shadow: 0 6px 15px rgba(2, 132, 199, 0.1);
         }
-        .class-desc {
+
+        /* Class 11 custom borders/glows */
+        .c-11::before { background: var(--accent-purple); }
+        .c-11:hover {
+            border-color: rgba(192, 132, 252, 0.4);
+            box-shadow: 0 10px 25px rgba(192, 132, 252, 0.15);
+            transform: translateY(-3px);
+        }
+
+        .card-info h3 {
+            margin: 0 0 5px 0;
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+
+        .card-info p {
+            margin: 0;
             font-size: 0.9rem;
-            color: #64748b;
-            font-weight: normal;
-            margin-top: 5px;
+            color: var(--text-sub);
+        }
+
+        /* Modern Badges inside cards */
+        .status-badge {
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 6px 12px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .badge-cyan {
+            background: rgba(56, 189, 248, 0.1);
+            color: var(--accent-cyan);
+            border: 1px solid rgba(56, 189, 248, 0.2);
+        }
+
+        .badge-purple {
+            background: rgba(192, 132, 252, 0.1);
+            color: var(--accent-purple);
+            border: 1px solid rgba(192, 132, 252, 0.2);
+        }
+
+        /* Footer Info */
+        .footer-note {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 0.8rem;
+            color: rgba(148, 163, 184, 0.4);
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <h1>🎓 Board Practice Portal</h1>
-        <p class="subtitle">Apni Class select karke padhai shuru karein</p>
+        
+        <div class="header">
+            <span class="logo-icon">🚀</span>
+            <h1>Academic Quiz Portal</h1>
+            <p class="tagline">Level up your preparation with smart analytics</p>
+        </div>
 
-        <a href="class10.html" class="class-card">
-            ICSE - Class 10
-            <div class="class-desc">Mathematics, Commercial Studies & Applications</div>
-        </a>
+        <div class="section-title">Available Gateways</div>
 
-        <a href="class11.html" class="class-card">
-            ISC - Class 11
-            <div class="class-desc">Computer Science, Mathematics & Science</div>
-        </a>
+        <div class="grid">
+            
+            <a href="class10.html" class="class-card c-10">
+                <div class="card-info">
+                    <h3>ICSE - Class 10</h3>
+                    <p>10 Subjects • 3 Difficulty Levels</p>
+                </div>
+                <span class="status-badge badge-cyan">Enter Arena →</span>
+            </a>
+
+            <a href="#" class="class-card c-11" onclick="alert('Class 11 Arena is under construction! Stay tuned 🔥')">
+                <div class="card-info">
+                    <h3>ISC - Class 11</h3>
+                    <p>Computer Science & Analytics</p>
+                </div>
+                <span class="status-badge badge-purple">Coming Soon</span>
+            </a>
+
+        </div>
+
+        <div class="footer-note">
+            ⚡ Powered by Premium Glassmorphism UI Theme
+        </div>
+
     </div>
 
 </body>
 </html>
+
