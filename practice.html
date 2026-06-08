@@ -574,3 +574,243 @@
                     { q: "Assertion (A): $\\tan(90^\circ)$ evaluates to a precise absolute integer value of 90.\nReason (R): $\\tan(90^\circ) = \\sin(90^\circ)/\\cos(90^\circ) = 1/0$, which yields an undefined/infinite value map.", ops: ["A is false but R is true", "Both true", "A is true but R is false", "Both false"], ai: 0 }
                 ]
             },
+            circles: {
+                title: "Circles",
+                sub: "Set 1: Tangents, Secants, and Cyclic Quadrilateral Properties",
+                normal: [
+                    { q: "A tangent at any point of a circle is perpendicular to the radius through the point of contact. What is the angle between them?", ops: ["90°", "45°", "60°", "0°"], ai: 0 },
+                    { q: "If two circles touch each other externally, how many common tangents can be drawn to them?", ops: ["3", "2", "1", "4"], ai: 0 },
+                    { q: "In a cyclic quadrilateral ABCD, if angle A = 85°, find the measure of the opposite angle C.", ops: ["95°", "85°", "100°", "115°"], ai: 0 },
+                    { q: "The length of a tangent from a point continuous 10 cm away from the center of a circle is 8 cm. Find the radius of the circle.", ops: ["6 cm", "5 cm", "4 cm", "7 cm"], ai: 0 },
+                    { q: "An angle inscribed in a semi-circle is always equal to:", ops: ["90°", "180°", "60°", "45°"], ai: 0 },
+                    { q: "If angles inscribed by the same arc at the remaining part of the circle are compared, they are:", ops: ["Equal", "Complementary", "Supplementary", "Double"], ai: 0 },
+                    { q: "The angle subtended by an arc at the center is ____ the angle subtended by it at any point on the remaining part of the circle.", ops: ["Double", "Half", "Equal", "Triple"], ai: 0 },
+                    { q: "If ABCD is a cyclic quadrilateral, then the sum of angles B and D is equal to:", ops: ["180°", "90°", "360°", "270°"], ai: 0 },
+                    { q: "How many tangents can be drawn to a circle from a point residing inside the circle?", ops: ["0", "1", "2", "Infinite"], ai: 0 },
+                    { q: "The exterior angle of a cyclic quadrilateral is equal to the:", ops: ["Interior opposite angle", "Adjacent angle", "Opposite exterior angle", "90°"], ai: 0 }
+                ],
+                high: [
+                    { q: "Two concentric circles are of radii 5 cm and 3 cm. Find the length of the chord of the larger circle which touches the smaller circle.", ops: ["8 cm", "6 cm", "4 cm", "10 cm"], ai: 0 },
+                    { q: "In the given figure, PA and PB are tangents to the circle from an external point P. If angle APB = 60° and radius is 3 cm, find the length of OP.", ops: ["6 cm", "3√3 cm", "5 cm", "4.5 cm"], ai: 0 },
+                    { q: "ABCD is a cyclic quadrilateral whose diagonals intersect at a point E. If angle DBC = 70° and angle BAC = 30°, find angle BCD.", ops: ["80°", "100°", "90°", "110°"], ai: 0 },
+                    { q: "PT is a tangent to a circle at T. If PA = 4 cm and AB = 5 cm on a secant PAB passing through the center, find the length of tangent PT.", ops: ["6 cm", "4.5 cm", "5 cm", "6.5 cm"], ai: 0 },
+                    { q: "A circle touches all the four sides of a quadrilateral ABCD whose sides are AB=6cm, BC=7cm, and CD=4cm. Find the length of side AD.", ops: ["3 cm", "4 cm", "5 cm", "6 cm"], ai: 0 },
+                    { q: "If an isosceles triangle ABC with AB = AC = 8 cm is inscribed in a circle of radius 5 cm, find the area of the triangle.", ops: ["12 cm²", "24 cm²", "16 cm²", "32 cm²"], ai: 1 },
+                    { q: "An administrative layout shows two parallel tangents to a circle of radius 4.5 cm. Find the direct straight distance between these two parallel lines.", ops: ["9 cm", "4.5 cm", "13.5 cm", "6 cm"], ai: 0 },
+                    { q: "From a point P outside, two tangents making an angle of 120° are drawn to a circle of radius r. Prove or find length of each tangent in terms of r.", ops: ["r/√3", "r√3", "2r", "r/2"], ai: 0 },
+                    { q: "In a cyclic quadrilateral, the ratio of three consecutive angles is 1:2:3. Find the measure of the fourth angle position.", ops: ["120°", "90°", "60°", "135°"], ai: 0 },
+                    { q: "A chord of length 16 cm is drawn in a circle of radius 10 cm. Calculate its perpendicular distance from the center point.", ops: ["6 cm", "8 cm", "5 cm", "4 cm"], ai: 0 }
+                ],
+                reasoning: [
+                    { q: "Assertion (A): If a point P lies on a circle, then only one tangent can be drawn to the circle at that point.\nReason (R): The perpendicular to the radius at its endpoint passes through only one point on the perimeter boundary boundary.", ops: ["Both A and R are true and R is correct explanation", "Both true but R is not explanation", "A is true", "R is false"], ai: 0 },
+                    { q: "Assertion (A): The opposite angles of any cyclic quadrilateral are always supplementary.\nReason (R): Sum of all internal angles of any quadrilateral structure equals 360°.", ops: ["Both true but R is not correct explanation", "Both true with correct explanation", "A is true", "R is false"], ai: 0 },
+                    { q: "Assertion (A): Lengths of tangents drawn from an external point to a circle are perfectly equal.\nReason (R): Right-angled triangles formed by radii, tangents, and common center lines are congruent by RHS rule.", ops: ["Both A and R are true and R is correct explanation", "Both true but R is not explanation", "A is true", "R is false"], ai: 0 },
+                    { q: "Assertion (A): A secant is a straight line that intersects a circle at exactly two distinct points.\nReason (R): A chord is a line segment whose endpoints both lie directly on the circular boundary curvature.", ops: ["Both true but R is not explanation", "Both true with correct explanation", "A is true", "R is false"], ai: 0 },
+                    { q: "Assertion (A): If angle subtended by an arc at the center is 120°, then angle subtended by it at the circumference is 240°.\nReason (R): Angle at the center is double the angle subtended at any other point on the remaining arc context.", ops: ["A is false but R is true", "Both true", "A is true but R is false", "Both false"], ai: 0 },
+                    { q: "Assertion (A): If two tangents are drawn to a circle from an external point, then they subtend equal angles at the center.\nReason (R): Center lines bisect the structural angle between the two tangent segments.", ops: ["Both A and R are true and R is correct explanation", "Both true but R is not explanation", "A is true", "R is false"], ai: 0 },
+                    { q: "Assertion (A): It is possible to draw 3 independent tangents to a circle from a single external point.\nReason (R): From an external point, maximum of two distinct real tangents can mathematically touch the circle structure boundary.", ops: ["A is false but R is true", "Both true", "A is true but R is false", "Both false"], ai: 0 },
+                    { q: "Assertion (A): Parallelogram circumscribing a circle is always a rhombus layout.\nReason (R): Equal tangent segments from vertices force adjacent pairs of sides to be structurally uniform.", ops: ["Both A and R are true and R is correct explanation", "Both true but R is not explanation", "A is true", "R is false"], ai: 0 },
+                    { q: "Assertion (A): If the distance between center and a line is greater than radius, the line is a tangent.\nReason (R): Tangents require perpendicular distance from center to match the radius length exactly.", ops: ["A is false but R is true", "Both true", "A is true but R is false", "Both false"], ai: 0 },
+                    { q: "Assertion (A): A cyclic trapezium is always an isosceles trapezium with non-parallel sides equal.\nReason (R): Angles on parallel lines combine with cyclic properties to force symmetric balance along boundaries.", ops: ["Both A and R are true and R is correct explanation", "Both true but R is not explanation", "A is true", "R is false"], ai: 0 }
+                ]
+            },
+            mensuration: {
+                title: "Mensuration",
+                sub: "Set 1: Cylinders, Cones, and Spherical Combinations",
+                normal: [
+                    { q: "Find the volume of a cylinder whose radius is 7 cm and height is 10 cm.", ops: ["1540 cm³", "154 cm³", "770 cm³", "3080 cm³"], ai: 0 },
+                    { q: "What is the formula for the curved surface area (CSA) of a cone?", ops: ["πrl", "πr²h", "2πrh", "πr(l+r)"], ai: 0 },
+                    { q: "Find the surface area of a sphere having a radius of 3.5 cm.", ops: ["154 cm²", "308 cm²", "77 cm²", "616 cm²"], ai: 0 },
+                    { q: "If the radius of a sphere is doubled, its volume becomes how many times the original?", ops: ["8 times", "4 times", "2 times", "16 times"], ai: 0 },
+                    { q: "Find the slant height (l) of a cone whose radius is 3 cm and height is 4 cm.", ops: ["5 cm", "7 cm", "6 cm", "25 cm"], ai: 0 },
+                    { q: "The total surface area (TSA) of a solid hemisphere of radius r is given by:", ops: ["3πr²", "2πr²", "4πr²", "πr²"], ai: 0 },
+                    { q: "If a solid metal cone is melted and recast into a cylinder of same radius, how does the new height compare?", ops: ["One-third of cone's height", "Three times cone's height", "Identical height", "Half height"], ai: 0 },
+                    { q: "Find the volume of a cone with base radius 6 cm and height 7 cm.", ops: ["264 cm³", "792 cm³", "132 cm³", "528 cm³"], ai: 0 },
+                    { q: "The ratio of volumes of two spheres is 8:27. Find the ratio of their radii.", ops: ["2:3", "4:9", "8:27", "1:3"], ai: 0 },
+                    { q: "What is the total surface area of a cylinder with radius r and height h?", ops: ["2πr(h + r)", "2πrh", "πr²h", "2πr² + rh"], ai: 0 }
+                ],
+                high: [
+                    { q: "A tent is in the form of a cylinder surmounted by a conical top. If the height and diameter of cylindrical part are 2.1m and 4m, and slant height of top is 2.8m, find area of canvas used.", ops: ["44 m²", "22 m²", "88 m²", "66 m²"], ai: 0 },
+                    { q: "A solid toy is in the form of a hemisphere surmounted by a right circular cone. The height of cone is 2 cm and diameter of base is 4 cm. Determine the total volume of the toy.", ops: ["25.12 cm³", "50.24 cm³", "12.56 cm³", "37.68 cm³"], ai: 0 },
+                    { q: "How many spherical lead shots each 4.2 cm in diameter can be obtained from a rectangular solid lead piece with dimensions 66cm × 42cm × 21cm?", ops: ["1500", "2000", "1000", "1200"], ai: 0 },
+                    { q: "A well of diameter 3m is dug 14m deep. The earth taken out of it has been spread evenly all around it in the shape of a circular ring of width 4m to form an embankment. Find height of embankment.", ops: ["1.125 m", "1.25 m", "1.5 m", "1.0 m"], ai: 0 },
+                    { q: "A metallic right circular cone of height 20 cm and whose vertical angle is 60° is cut into two parts at the middle of its height by a plane parallel to its base. If the frustum so obtained be drawn into a wire of diameter 1/16 cm, find length of wire.", ops: ["7964.44 m", "6540.2m", "8000m", "7120.5m"], ai: 0 },
+                    { q: "The diameters of internal and external surfaces of a hollow spherical shell are 6 cm and 10 cm respectively. If it is melted and recast into a solid cylinder of length 8/3 cm, find diameter of cylinder base.", ops: ["14 cm", "7 cm", "21 cm", "10 cm"], ai: 0 },
+                    { q: "Water in a canal, 6m wide and 1.5m deep, is flowing with a speed of 10 km/h. How much area will it irrigate in 30 minutes, if 8cm of standing water is needed?", ops: ["562500 m²", "450000 m²", "500000 m²", "600000 m²"], ai: 0 },
+                    { q: "A solid cylinder of diameter 12 cm and height 15 cm is full of ice cream. The ice cream is to be filled into cones of height 12 cm and diameter 6 cm, having a hemispherical shape on the top. Find number of such cones.", ops: ["10", "12", "15", "8"], ai: 0 },
+                    { q: "A hemispherical tank full of water is emptied by a pipe at the rate of 3(4/7) liters per second. How much time will it take to empty half the tank, if it is 3m in diameter?", ops: ["16.5 minutes", "33 minutes", "20 minutes", "15 minutes"], ai: 0 },
+                    { q: "The radii of bases of a cylinder and a cone are in ratio 3:4 and their heights are in ratio 2:3. Find the ratio of their volumes.", ops: ["9:8", "3:4", "27:32", "9:16"], ai: 0 }
+                ],
+                reasoning: [
+                    { q: "Assertion (A): If a sphere fits perfectly inside a cube touching all six faces, the diameter of sphere equals the side length of the cube.\nReason (R): The maximum linear clearance along perpendicular axes inside a cube space is bounded by its edge measurements.", ops: ["Both A and R are true and R is correct explanation", "Both true but R is not explanation", "A is true", "R is false"], ai: 0 },
+                    { q: "Assertion (A): When a solid object is melted and recast into multiple smaller structural shapes, the overall total volume drops by 10% automatically.\nReason (R): Melting changes physical shape layout layout but total mass/volume configurations are conserved assuming no leakage evaporation.", ops: ["A is false but R is true", "Both true with explanation", "A is true but R is false", "Both false"], ai: 0 },
+                    { q: "Assertion (A): The surface area of a solid cylinder of radius r and height h is identical to the sum of its CSA and areas of two circular bases.\nReason (R): Total surface area includes every exposed boundary face dimension mapped across flat and curved projections.", ops: ["Both A and R are true and R is correct explanation", "Both true but R is not explanation", "A is true", "R is false"], ai: 0 },
+                    { q: "Assertion (A): If the slant height of a cone is kept constant while radius increases, its vertical height drops.\nReason (R): The relationship between slant height, radius, and vertical height is defined by Pythagoras formula $l^2 = r^2 + h^2$.", ops: ["Both A and R are true and R is correct explanation", "Both true but R is not explanation", "A is true", "R is false"], ai: 0 },
+                    { q: "Assertion (A): Volume of a cone is exactly one-third the volume of a cylinder sharing identical base radius and vertical height attributes.\nReason (R): Cone structural profiles taper uniformly to an apex point, reducing standard cylindrical capacity bounds.", ops: ["Both A and R are true and R is correct explanation", "Both true but R is not explanation", "A is true", "R is false"], ai: 0 },
+                    { q: "Assertion (A): A hollow tube structure has a total volume computed by subtracting internal volume from external volume matrices.\nReason (R): The volume of material equals the total geometric space bounded between outer and inner shell surfaces.", ops: ["Both A and R are true and R is correct explanation", "Both true but R is not explanation", "A is true", "R is false"], ai: 0 },
+                    { q: "Assertion (A): The curved surface area of a sphere is equal to its total surface area layout.\nReason (R): Spheres possess no flat faces, base margins, or edge corners; the entire surface forms a single continuous curved loop boundary.", ops: ["Both A and R are true and R is correct explanation", "Both true but R is not explanation", "A is true", "R is false"], ai: 0 },
+                    { q: "Assertion (A): If a cone base radius is doubled and height halved, volume remains completely unchanged.\nReason (R): Volume formula contains radius squared ($r^2$), so changes in radius create a quadratic scaling effect compared to linear height shifts.", ops: ["A is false but R is true", "Both true with explanation", "A is true but R is false", "Both false"], ai: 0 },
+                    { q: "Assertion (A): Total surface area of a combined solid (e.g. cylinder with hemisphere top) equals sum of individual TSAs.\nReason (R): When solids are joined together, the base faces in contact are hidden inside and no longer form part of the exposed surface area.", ops: ["A is false but R is true", "Both true", "A is true but R is false", "Both false"], ai: 0 },
+                    { q: "Assertion (A): Units for measuring area allocations are expressed in square metrics ($cm^2$) while volumes demand cubic indicators ($cm^3$).\nReason (R): Area evaluates two-dimensional surface space, whereas volume calculates three-dimensional capacity configurations.", ops: ["Both A and R are true and R is correct explanation", "Both true but R is not explanation", "A is true", "R is false"], ai: 0 }
+                ]
+            },
+            stats: {
+                title: "Statistics",
+                sub: "Set 1: Mean, Median, Mode, Ogive Curves and Histograms",
+                normal: [
+                    { q: "Find the mean of the first five prime numbers.", ops: ["5.6", "5.4", "5.0", "4.8"], ai: 0 },
+                    { q: "What is the empirical relationship link between Mean, Median, and Mode?", ops: ["Mode = 3 Median - 2 Mean", "Mode = 2 Median - 3 Mean", "Median = 3 Mode - 2 Mean", "Mean = 3 Median - 2 Mode"], ai: 0 },
+                    { q: "Find the median of data values: 15, 35, 18, 26, 19, 25, 29, 31.", ops: ["25.5", "25", "26", "24.5"], ai: 0 },
+                    { q: "The class mark of class interval 100 - 150 is calculated as:", ops: ["125", "50", "250", "130"], ai: 0 },
+                    { q: "Which measure of central tendency can be easily identified from the highest peak point of a histogram plot?", ops: ["Mode", "Mean", "Median", "Range"], ai: 0 },
+                    { q: "An Ogive curve graphical plot is essentially used to determine which statistical parameter?", ops: ["Median", "Mean", "Mode", "Standard Deviation"], ai: 0 },
+                    { q: "What type of frequency data accumulation is required along the vertical axis to plot an Ogive graph?", ops: ["Cumulative Frequency", "Relative Frequency", "Raw Frequency", "Class Width Frequency"], ai: 0 },
+                    { q: "Find the mode of the following data series: 4, 3, 5, 3, 6, 3, 2, 5, 3.", ops: ["3", "5", "4", "2"], ai: 0 },
+                    { q: "If the mean of 5 observations x, x+2, x+4, x+6, x+8 is 11, find the value of x.", ops: ["7", "5", "6", "8"], ai: 0 },
+                    { q: "The upper boundary limit value for class interval 20 - 30 is:", ops: ["30", "20", "25", "10"], ai: 0 }
+                ],
+                high: [
+                    { q: "The mean of the following frequency distribution table is 50. Find the missing frequency f₁ value for interval 20-40 given total frequency counts filter.", ops: ["28", "26", "30", "24"], ai: 0 },
+                    { q: "Calculate the median value for the structured grouped layout: Class (0-10, 10-20, 20-30, 30-40, 40-50) with Frequencies (5, 8, 15, 10, 6).", ops: ["26.67", "25.5", "27.33", "24.0"], ai: 0 },
+                    { q: "Using the Short-cut method (Assumed Mean A=25), calculate Mean for step values data setup where sum of fd equals 110 and sum of f equals 50.", ops: ["27.2", "26.1", "28.5", "24.8"], ai: 0 },
+                    { q: "Find the upper quartile ($Q_3$) from an Ogive graph containing total cumulative sample observation limit N = 160.", ops: ["Value matching 120th CF index coordinate", "Value matching 40th CF index", "Value matching 80th index", "100th coordinate index"], ai: 0 },
+                    { q: "If the mode of a grouped data is 34.5, and the modal class interval is 30-40 with preceding frequency 8 and succeeding frequency 10, find modal frequency.", ops: ["14", "12", "16", "15"], ai: 0 },
+                    { q: "Find the step deviation scale factor modification value if data handles large structured steps interval: 1000-2000, 2000-3000, 3000-4000.", ops: ["1000", "500", "100", "2000"], ai: 0 },
+                    { q: "Calculate interquartile range if $Q_1 = 22.5$ and $Q_3 = 48.5$ are extracted across frequency ogive curves mapping.", ops: ["26", "71", "35.5", "13"], ai: 0 },
+                    { q: "The mean of 20 items was found to be 40. Later it was discovered that an item 53 was misread as 35. Find the corrected true mean.", ops: ["40.9", "39.1", "41.5", "40.5"], ai: 0 },
+                    { q: "While drawing a 'less than' type Ogive curve, cumulative frequencies are plotted against which class boundary limits?", ops: ["Upper class limits", "Lower class limits", "Mid points", "Class marks"], ai: 0 },
+                    { q: "If a distribution has a mean of 24 and median of 25, compute the estimated value of mode via empirical link parameters.", ops: ["27", "23", "26", "24.5"], ai: 0 }
+                ],
+                reasoning: [
+                    { q: "Assertion (A): Mean can be affected drastically by extreme single values (outliers) present within data pools.\nReason (R): Mean formulation aggregates every individual value sum divided linearly by net counts.", ops: ["Both A and R are true and R is correct explanation", "Both true but R is not explanation", "A is true", "R is false"], ai: 0 },
+                    { q: "Assertion (A): Mode can be extracted geometrically from a Histogram graph framework.\nReason (R): The highest bar box represents maximum frequency density, pinpointing the modal location bounds.", ops: ["Both A and R are true and R is correct explanation", "Both true but R is not explanation", "A is true", "R is false"], ai: 0 },
+                    { q: "Assertion (A): Median value represents the exact positional midpoint dividing sorted dataset groups evenly.\nReason (R): Median is calculated across raw unordered random layouts without sorting prerequisites.", ops: ["A is true but R is false", "Both true with explanation", "A is false but R is true", "Both false"], ai: 0 },
+                    { q: "Assertion (A): An Ogive curve layout never goes downward as it progresses along the horizontal axis.\nReason (R): Cumulative frequencies accumulate values continuously, ensuring quantities either increase or stay flat.", ops: ["Both A and R are true and R is correct explanation", "Both true but R is not explanation", "A is true", "R is false"], ai: 0 },
+                    { q: "Assertion (A): For a perfectly symmetrical distribution profile, Mean, Median, and Mode overlap perfectly.\nReason (R): Symmetry ensures frequency weights spread uniformly around a single central pivot center.", ops: ["Both A and R are true and R is correct explanation", "Both true but R is not explanation", "A is true", "R is false"], ai: 0 },
+                    { q: "Assertion (A): Class interval boundaries must be continuous (e.g. 10-20, 20-30) to draw precise histogram boxes.\nReason (R): Discontinuous intervals leave empty gap intervals along the horizontal axis rendering continuous plotting faulty.", ops: ["Both A and R are true and R is correct explanation", "Both true but R is not explanation", "A is true", "R is false"], ai: 0 },
+                    { q: "Assertion (A): Assumed Mean Shortcut operations change final mean output calculation results.\nReason (R): Shift tracking metrics compensate structural adjustment biases via counterbalancing math adjustments perfectly.", ops: ["A is false but R is true", "Both true", "A is true but R is false", "Both false"], ai: 0 },
+                    { q: "Assertion (A): The sum of deviations of a set of observations from their mean is always equal to 0.\nReason (R): Mean behaves as the absolute arithmetic balancing pivot point for data distribution spreads.", ops: ["Both A and R are true and R is correct explanation", "Both true but R is not explanation", "A is true", "R is false"], ai: 0 },
+                    { q: "Assertion (A): Range is the most reliable measure of central tendency allocations.\nReason (R): Range only calculates clearance boundaries between maximum and minimum values ignoring inner patterns completely.", ops: ["A is false but R is true", "Both true with explanation", "A is true but R is false", "Both false"], ai: 0 },
+                    { q: "Assertion (A): Cumulative frequency tracking filters total items falling below specified boundary limits.\nReason (R): Adding frequencies successively tallies running distribution counts systematically.", ops: ["Both A and R are true and R is correct explanation", "Both true but R is not explanation", "A is true", "R is false"], ai: 0 }
+                ]
+            },
+            probability: {
+                title: "Probability",
+                sub: "Set 1: Dice, Cards, Coins and Event Odds Foundations",
+                normal: [
+                    { q: "What is the probability of getting a head when tossing a fair coin once?", ops: ["1/2", "1", "0", "1/4"], ai: 0 },
+                    { q: "A standard fair die is rolled. Find the probability of getting an even prime number.", ops: ["1/6", "1/2", "1/3", "0"], ai: 0 },
+                    { q: "From a well-shuffled deck of 52 playing cards, a card is drawn. Find the probability it is a red king.", ops: ["2/52", "4/52", "1/52", "26/52"], ai: 0 },
+                    { q: "An event that is absolutely certain to happen possesses a probability value equal to:", ops: ["1", "0", "0.5", "Infinite"], ai: 0 },
+                    { q: "What is the probability of rolling a number greater than 6 on a normal single six-sided die?", ops: ["0", "1", "1/6", "5/6"], ai: 0 },
+                    { q: "A bag contains 3 red, 5 blue, and 2 green balls. Find probability of drawing a red ball.", ops: ["3/10", "1/2", "1/5", "7/10"], ai: 0 },
+                    { q: "If the probability of an event happening is 0.35, find the probability of the event NOT happening ($P(E')$).", ops: ["0.65", "0.35", "1.0", "0.55"], ai: 0 },
+                    { q: "How many face cards are there total within a standard deck of 52 playing cards?", ops: ["12", "16", "4", "8"], ai: 0 },
+                    { q: "A card is drawn from a standard pack. What is the probability of getting a spade card?", ops: ["1/4", "1/13", "1/2", "13/52"], ai: 0 },
+                    { q: "The value of probability of any random event arbitrary picked always ranges strictly between:", ops: ["0 and 1 inclusive", "-1 and 1", "0 and infinity", "0.1 and 1.0"], ai: 0 }
+                ],
+                high: [
+                    { q: "Two unbiased coins are tossed simultaneously. Find the probability of getting at least one head configuration.", ops: ["3/4", "1/4", "1/2", "1"], ai: 0 },
+                    { q: "Two fair dice are rolled at once. Find the probability that the sum of numbers appearing on top is a perfect square.", ops: ["7/36", "4/36", "5/36", "1/6"], ai: 0 },
+                    { q: "A card is drawn at random from a pack of 52 playing cards. Find the probability that the drawn card is neither a heart nor a king.", ops: ["36/52", "39/52", "35/52", "40/52"], ai: 2 },
+                    { q: "A box contains 90 discs numbered from 1 to 90. If one disc is drawn at random, find probability it bears a two-digit number.", ops: ["81/90", "80/90", "9/90", "82/90"], ai: 0 },
+                    { q: "In a non-leap year, what is the exact probability configuration of possessing exactly 53 Sundays?", ops: ["1/7", "2/7", "53/365", "0"], ai: 0 },
+                    { q: "Three coins are tossed together. What is the probability of getting exactly two tails?", ops: ["3/8", "1/4", "1/2", "7/8"], ai: 0 },
+                    { q: "A bag contains 5 white, 7 red, and some black balls. If probability of drawing a black ball is double that of a white ball, find net black balls count.", ops: ["10", "5", "14", "8"], ai: 0 },
+                    { q: "Two dice are thrown together. Find the probability that the product of the numbers on the top faces is a multiple of 6.", ops: ["15/36", "12/36", "18/36", "20/36"], ai: 0 },
+                    { q: "Game cards marked with numbers 11 to 60 are placed in a box. One card is drawn. Find probability that the number is a perfect square.", ops: ["4/50", "5/50", "3/50", "4/60"], ai: 0 },
+                    { q: "Find the probability of guessing a correct answer choice in a random question containing 4 option pathways, if elimination cancels out 1 wrong option first.", ops: ["1/3", "1/4", "1/2", "2/3"], ai: 0 }
+                ],
+                reasoning: [
+                    { q: "Assertion (A): The probability of getting a number 7 on a single dice roll is an impossible event.\nReason (R): Sample space configurations for a standard single die list outcomes {1, 2, 3, 4, 5, 6} only.", ops: ["Both A and R are true and R is correct explanation", "Both true but R is not explanation", "A is true", "R is false"], ai: 0 },
+                    { q: "Assertion (A): Probability value for any compound event configuration can sometimes evaluate to 1.35.\nReason (R): Probability maps range strictly within $[0, 1]$ bounds; values outside this scale represent absolute mathematical errors.", ops: ["A is false but R is true", "Both true", "A is true but R is false", "Both false"], ai: 0 },
+                    { q: "Assertion (A): For any event E, $P(E) + P(E') = 1$.\nReason (R): Occurrence and non-occurrence complement each other covering the entire sample space structure completely.", ops: ["Both A and R are true and R is correct explanation", "Both true but R is not explanation", "A is true", "R is false"], ai: 0 },
+                    { q: "Assertion (A): In a standard deck, drawing a face card or a red card has overlapping outcomes.\nReason (R): Red suits (Hearts, Diamonds) contain Jack, Queen, and King cards which satisfy both category filters simultaneously.", ops: ["Both A and R are true and R is correct explanation", "Both true but R is not explanation", "A is true", "R is false"], ai: 0 },
+                    { q: "Assertion (A): Tossing a coin 100 times will result in exactly 50 heads and 50 tails every single try.\nReason (R): Theoretical probability provides long-run averages, but local experimental trials exhibit random statistical variance fluctuations.", ops: ["A is false but R is true", "Both true with explanation", "A is true but R is false", "Both false"], ai: 0 },
+                    { q: "Assertion (A): The sample space for tossing two coins simultaneously contains a total of 4 independent point combinations.\nReason (R): Permutations yield outcomes mapping out exactly to: {HH, HT, TH, TT}.", ops: ["Both A and R are true and R is correct explanation", "Both true but R is not explanation", "A is true", "R is false"], ai: 0 },
+                    { q: "Assertion (A): A leap year possesses a 2/7 probability allocation of having 53 Mondays.\nReason (R): Leap years contain 366 days, which breaks down into 52 full weeks and 2 extra leftover days.", ops: ["Both A and R are true and R is correct explanation", "Both true but R is not explanation", "A is true", "R is false"], ai: 0 },
+                    { q: "Assertion (A): The probability of selecting a vowel letter from the word 'MATHEMATICS' is 4/11.\nReason (R): Count of individual target vowel occurrences inside equals 4 while absolute letter capacity totals 11.", ops: ["Both A and R are true and R is correct explanation", "Both true but R is not explanation", "A is true", "R is false"], ai: 0 },
+                    { q: "Assertion (A): Rolling two dice creates a total combined sample space layout comprising 12 possible output outcomes.\nReason (R): Two independent events with 6 choices scale quadratically by multiplication principle ($6 \\times 6 = 36$).", ops: ["A is false but R is true", "Both true", "A is true but R is false", "Both false"], ai: 0 },
+                    { q: "Assertion (A): Probability distributions provide crucial optimization foundations across data tracking, weather forecasting, and machine workflows.\nReason (R): Quantifying uncertainty allows systematic mathematical calculations for unpredictable future data tracking patterns.", ops: ["Both A and R are true and R is correct explanation", "Both true but R is not explanation", "A is true", "R is false"], ai: 0 }
+                ]
+            },
+            factor: {
+                title: "Remainder & Factor Theorems",
+                sub: "Set 1: Polynomial Divisibility, Remainders, and Complete Factorization",
+                normal: [
+                    { q: "Find the remainder when polynomial f(x) = x² - 7x + 12 is divided by (x - 3).", ops: ["0", "3", "6", "-2"], ai: 0 },
+                    { q: "If (x - 2) is a factor of polynomial x³ - 4x² + kx - 8 = 0, find value of k.", ops: ["8", "4", "2", "6"], ai: 0 },
+                    { q: "According to Remainder Theorem, if a polynomial f(x) is divided by (bx - a), the remainder is given by:", ops: ["f(a/b)", "f(-a/b)", "f(b/a)", "0"], ai: 0 },
+                    { q: "What condition must be met for a linear expression (g(x)) to be a factor of polynomial f(x)?", ops: ["Remainder must be exactly 0", "Remainder must be 1", "f(x) must equal g(x)", "Quotient must be 0"], ai: 0 },
+                    { q: "Find the remainder when 2x³ - 3x² + 4x - 5 is divided by (x - 1).", ops: ["-2", "0", "-5", "2"], ai: 0 },
+                    { q: "If f(-2) = 0 for a polynomial f(x), then which of the following is a confirmed factor?", ops: ["(x + 2)", "(x - 2)", "(2x + 1)", "x"], ai: 0 },
+                    { q: "What is the degree of a cubic polynomial expression?", ops: ["3", "2", "1", "4"], ai: 0 },
+                    { q: "Determine the remainder when x⁴ - 1 is divided by (x + 1).", ops: ["0", "2", "-2", "1"], ai: 0 },
+                    { q: "If a polynomial of degree 3 is divided by a linear expression, what will be the maximum possible degree of the quotient?", ops: ["2", "1", "3", "0"], ai: 0 },
+                    { q: "Find the constant term value if x² - 5x + c has (x - 2) as a clean factor.", ops: ["6", "4", "5", "-6"], ai: 0 }
+                ],
+                high: [
+                    { q: "The polynomial 2x³ + ax² + bx - 14 has (x - 1) as a factor and leaves a remainder of -12 when divided by (x + 1). Calculate the values of a and b.", ops: ["a = 5, b = 7", "a = 3, b = 9", "a = 7, b = 5", "a = 6, b = 6"], ai: 0 },
+                    { q: "Using Factor Theorem, completely factorize the cubic polynomial: x³ - 6x² + 11x - 6.", ops: ["(x-1)(x-2)(x-3)", "(x+1)(x-2)(x+3)", "(x-1)(x+2)(x-3)", "None"], ai: 0 },
+                    { q: "Find the values of m and n such that ax³ - 5x² + mx + n is exactly divisible by both (x - 2) and (x - 3) when a=1.", ops: ["m = 11, n = -6", "m = -11, n = 6", "m = 6, n = -11", "m = 5, n = -6"], ai: 0 },
+                    { q: "What number should be added to the polynomial 3x³ - 5x² + 6x so that it becomes exactly divisible by (x - 2)?", ops: ["-16", "16", "-12", "12"], ai: 0 },
+                    { q: "What number must be subtracted from 16x³ - 8x² + 4x + 7 so that the resulting expression has (2x + 1) as a factor?", ops: ["1", "3", "2", "0"], ai: 2 },
+                    { q: "When the polynomial x³ + 2x² - kx + 4 is divided by (x - 2), the remainder is k. Find the exact value of k.", ops: ["20", "10", "4", "6"], ai: 0 },
+                    { q: "If (x - a) is a common factor of expressions x² + px + q and x² + mx + n, find the value of evaluation parameter 'a'.", ops: ["(n - q) / (p - m)", "(q - n) / (p - m)", "(n - q) / (m - p)", "None"], ai: 0 },
+                    { q: "Factorize completely using tracking rules: 3x³ + 2x² - 19x + 6.", ops: ["(x-2)(3x-1)(x+3)", "(x+2)(3x-1)(x-3)", "(x-2)(3x+1)(x+3)", "None"], ai: 0 },
+                    { q: "The expressions ax³ + 3x² - 9 and 2x³ + 4x + a, when divided by (x + 3), leave identical remainders. Calculate the value of scalar a.", ops: ["4", "2", "3", "1"], ai: 0 },
+                    { q: "Find the values of remainder configurations if $f(x) = x^{99} + 99$ is divided by linear constraint $(x + 1)$.", ops: ["98", "100", "0", "99"], ai: 0 }
+                ],
+                reasoning: [
+                    { q: "Assertion (A): If polynomial f(x) is divided by (x - a), the computed remainder equals evaluation f(a).\nReason (R): This relationship stems directly from polynomial division algorithm format $f(x) = (x-a)Q(x) + R$.", ops: ["Both A and R are true and R is correct explanation", "Both true but R is not explanation", "A is true", "R is false"], ai: 0 },
+                    { q: "Assertion (A): If (x - 1) is a factor of $ax^2 + bx + c$, then sum of coefficients $a + b + c = 0$.\nReason (R): Factor condition guarantees evaluating polynomial at root point x=1 reduces expression to 0.", ops: ["Both A and R are true and R is correct explanation", "Both true but R is not explanation", "A is true", "R is false"], ai: 0 },
+                    { q: "Assertion (A): A cubic polynomial can possess at most 4 distinct linear factors.\nReason (R): Fundamental Theorem of Algebra states a polynomial of degree 'n' has exactly 'n' roots/factors.", ops: ["A is false but R is true", "Both true", "A is true but R is false", "Both false"], ai: 0 },
+                    { q: "Assertion (A): If division yields a non-zero remainder, then divider expression is not a factor.\nReason (R): Factor status requires absolute divisibility with clean zero residue tracking metrics.", ops: ["Both A and R are true and R is correct explanation", "Both true but R is not explanation", "A is true", "R is false"], ai: 0 },
+                    { q: "Assertion (A): Rational root theorem helps guess initial trial points for solving cubic polynomials.\nReason (R): Trial factors must logically divide the constant terminal integer of the expression layout.", ops: ["Both A and R are true and R is correct explanation", "Both true but R is not explanation", "A is true", "R is false"], ai: 0 },
+                    { q: "Assertion (A): If polynomial degree is lower than divider expression, division cannot proceed normally.\nReason (R): Remainder status triggers automatically once expression degree drops strictly below divisor dimensions.", ops: ["Both A and R are true and R is correct explanation", "Both true but R is not explanation", "A is true", "R is false"], ai: 0 },
+                    { q: "Assertion (A): The expression $x^2 - 4$ can be cleanly evaluated using factor theorem rules.\nReason (R): Difference of squares structures establish direct polynomial factorization coordinates easily.", ops: ["Both true but R is not correct explanation", "Both true with correct explanation", "A is true", "R is false"], ai: 0 },
+                    { q: "Assertion (A): If a polynomial leaves a remainder 5 when divided by x, its constant term equals 5.\nReason (R): Evaluating f(0) leaves only the baseline constant term active, matching the remainder output.", ops: ["Both A and R are true and R is correct explanation", "Both true but R is not explanation", "A is true", "R is false"], ai: 0 },
+                    { q: "Assertion (A): Synthetic division methods are illegal across all board exam formats globally.\nReason (R): Subjective scoring requirements prioritize long-division formats to award step-wise method tracking marks.", ops: ["Both true but R is not correct explanation", "Both true with explanation", "A is false but R is true", "Both false"], ai: 0 },
+                    { q: "Assertion (A): Factor theorem applies perfectly to transcendental functions like $\\sin(x)$ or $\\log(x)$ too.\nReason (R): Factor theorem parameters strictly govern algebraic polynomial structures containing whole-number power distributions.", ops: ["A is false but R is true", "Both true", "A is true but R is false", "Both false"], ai: 0 }
+                ]
+            },
+            similarity: {
+                title: "Similarity",
+                sub: "Set 1: Thales Theorem (BPT) and Scale Factors in Similar Triangles",
+                normal: [
+                    { q: "If two triangles are similar, then their corresponding angles are always:", ops: ["Equal", "Proportional", "Complementary", "90°"], ai: 0 },
+                    { q: "State the primary condition for two triangles to be similar via side tracking metrics.", ops: ["Corresponding sides are in equal ratio", "Corresponding sides are perfectly equal", "Sides must intersect at 90°", "None"], ai: 0 },
+                    { q: "In triangle ABC, DE is parallel to BC cutting AB at D and AC at E. If AD=2cm, DB=3cm, AE=4cm, find EC length via BPT theorem.", ops: ["6 cm", "5 cm", "4 cm", "8 cm"], ai: 0 },
+                    { q: "What does the abbreviation BPT stand for in geometry foundations?", ops: ["Basic Proportionality Theorem", "Base Perpendicular Triangle", "Bilateral Proof Tracking", "None"], ai: 0 },
+                    { q: "If ratio of corresponding sides of two similar triangles is 3:5, find the ratio of their perimeters.", ops: ["3:5", "9:25", "27:125", "1:1"], ai: 0 },
+                    { q: "Triangles ABC and PQR are similar via AAA rule. If angle A=45° and angle B=75°, find measure of angle R.", ops: ["60°", "45°", "75°", "90°"], ai: 0 },
+                    { q: "If two similar triangles have a scale factor of k = 4, what is the ratio of their areas?", ops: ["16", "4", "2", "8"], ai: 0 },
+                    { q: "Are all regular congruent squares also structurally similar figures?", ops: ["Yes, always", "No, never", "Only if sizes match", "Impossible to tell"], ai: 0 },
+                    { q: "A vertical stick 2m long casts a shadow 1m long on the ground. At the same time, a tower casts a shadow 15m long. Find height of tower.", ops: ["30m", "15m", "7.5m", "20m"], ai: 0 },
+                    { q: "Which of the following criteria is NOT valid to establish similarity conditions between triangles?", ops: ["RHS similarity", "SAS similarity", "AA similarity", "SSS similarity"], ai: 0 }
+                ],
+                high: [
+                    { q: "The areas of two similar triangles ABC and PQR are 64 cm² and 121 cm² respectively. If QR = 15.4 cm, calculate corresponding side BC length.", ops: ["11.2 cm", "12.1 cm", "14.0 cm", "10.5 cm"], ai: 0 },
+                    { q: "In a trapezium ABCD with AB parallel to DC, diagonals AC and BD intersect at E. If AB = 3 DC, find the ratio of areas of triangles AEB and CED.", ops: ["9:1", "3:1", "6:1", "1:9"], ai: 0 },
+                    { q: "In triangle ABC, line segment XY is drawn parallel to side AC such that it divides the triangle into two parts of equal area. Determine ratio AX / AB.", ops: ["(√2 - 1) / √2", "1 / √2", "1 / 2", "(√2 + 1) / √2"], ai: 0 },
+                    { q: "A street light bulb is hung at a height of 3.6m. A girl of height 90cm walks away from the base of the lamp post at a speed of 1.2 m/s. Find length of her shadow after 4 seconds.", ops: ["1.6m", "2.0m", "1.2m", "1.5m"], ai: 0 },
+                    { q: "In a right-angled triangle ABC, angle B = 90°. BD is drawn perpendicular to hypotenuse AC. If AD = 4 cm and DC = 9 cm, compute the length of altitude BD.", ops: ["6 cm", "5 cm", "6.5 cm", "7.2 cm"], ai: 0 },
+                    { q: "Two maps of the same province are drawn to scale scales 1:1000 and 1:5000. An estate covers an area of 50 cm² on the first map. Find its area on the second map layout.", ops: ["2 cm²", "10 cm²", "250 cm²", "1 cm²"], ai: 0 },
+                    { q: "In similar triangles, ratio of corresponding medians equals 4:9. Evaluate the ratio of their respective heights.", ops: ["4:9", "16:81", "2:3", "None"], ai: 0 },
+                    { q: "In triangle ABC, angle BAC = 90° and AD is perpendicular to BC. Prove or check ratio value relationship $AB^2 / AC^2$.", ops: ["BD / CD", "BD² / CD²", "CD / BD", "1"], ai: 0 },
+                    { q: "A model of a ship is made to a scale of 1:200. If the volume of the model ship is 1.2 m³, calculate the actual volume capacity of the real ship.", ops: ["9,600,000 m³", "240 m³", "48,000 m³", "19,200 m³"], ai: 0 },
+                    { q: "If the perimeters of two similar triangles are 30 cm and 20 cm respectively, and one side of the first triangle is 12 cm, find the corresponding side of the second.", ops: ["8 cm", "6 cm", "10 cm", "9 cm"], ai: 0 }
+                ],
+                reasoning: [
+                    { q: "Assertion (A): All equilateral triangles are structurally similar to each other regardless of side lengths.\nReason (R): Equilateral triangles maintain a uniform internal angle profile where each angle measures exactly 60° meeting AA criteria.", ops: ["Both A and R are true and R is correct explanation", "Both true but R is not explanation", "A is true", "R is false"], ai: 0 },
+                    { q: "Assertion (A): If ratio of side scales is 2:3, then area scaling tracks identically at 2:3 ratio too.\nReason (R): Area optimization models scale quadratically ($k^2$) relative to linear dimensions in similar figures.", ops: ["A is false but R is true", "Both true with explanation", "A is true but R is false", "Both false"], ai: 0 },
+                    { q: "Assertion (A): Basic Proportionality Theorem (Thales Theorem) states a line parallel to one side cuts remaining sides proportionally.\nReason (R): Parallel layouts establish similar sub-triangles via corresponding angle equivalences.", ops: ["Both A and R are true and R is correct explanation", "Both true but R is not explanation", "A is true", "R is false"], ai: 0 },
+                    { q: "Assertion (A): Congruent figures are always similar, but similar figures may not always be congruent.\nReason (R): Similarity mandates proportional scaling layouts, whereas congruency requires absolute identical measurements across both shape and size.", ops: ["Both A and R are true and R is correct explanation", "Both true but R is not explanation", "A is true", "R is false"], ai: 0 },
+                    { q: "Assertion (A): Midpoint line connectors inside any triangle run parallel to base boundary and measure half its size.\nReason (R): Midpoint configurations anchor linear ratio values at exactly 1:2 scales across sides.", ops: ["Both A and R are true and R is correct explanation", "Both true but R is not explanation", "A is true", "R is false"], ai: 0 },
+                    { q: "Assertion (A): AAA similarity can be validated by checking just two angles (AA rule) instead of all three.\nReason (R): Angle sum properties dictate that if two internal angles are fixed, the third angle matches automatically.", ops: ["Both A and R are true and R is correct explanation", "Both true but R is not explanation", "A is true", "R is false"], ai: 0 },
+                    { q: "Assertion (A): Scale factor configurations govern entire structural layouts across drafting, blueprints, and architecture engineering maps.\nReason (R): Scaled systems preserve relative proportions preventing shape distortion shifts.", ops: ["Both A and R are true and R is correct explanation", "Both true but R is not explanation", "A is true", "R is false"], ai: 0 },
+                    { q: "Assertion (A): If two triangles have sides measuring 3, 4, 5 and 6, 8, 10, they are confirmed similar.\nReason (R): Side pairs reduce to an identical scale ratio of exactly 1:2 across all three tracking vectors.", ops: ["Both A and R are true and R is correct explanation", "Both true but R is not explanation", "A is true", "R is false"], ai: 0 },
+                    { q: "Assertion (A): Internal angle bisectors cut the opposite triangle base side in the same ratio as adjacent side branches.\nReason (R): Bisectors create symmetric scale alignments verified through parallel line tracking operations.", ops: ["Both A and R are true and R is correct explanation", "Both true but R is not explanation", "A is true", "R is false"], ai: 0 },
+                    { q: "Assertion (A): Shadows cast by objects under same solar angle are calculated via similarity rules.\nReason (R): Parallel sunbeams strike flat ground at identical angles of elevation creating proportional geometric structures.", ops: ["Both A and R are true and R is correct explanation", "Both true but R is not explanation", "A is true", "R is false"], ai: 0 }
+                ]
+            }
