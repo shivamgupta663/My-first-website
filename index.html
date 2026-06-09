@@ -3,212 +3,518 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ICSE & ISC Study Portal - Home</title>
+    
+    <title>ICSE Class 10 All-in-One Premium Practice Arena - Shivam Gupta</title>
+    <meta name="description" content="Ultimate online practice arena for ICSE Class 10 all subjects by Shivam Gupta. Practice Maths, Hindi, Physics, Chemistry, Biology, History, and Geography with multi-level questions.">
+    <meta name="keywords" content="ICSE Class 10, Shivam Gupta, ICSE Board Exam, Class 10 Maths, ICSE Hindi, ICSE Physics MCQs, Chemistry Class 10 ICSE, Biology Practice, History Civics ICSE, Geography 10th ICSE, Premium Practice Arena, Study Hub">
+    <meta name="author" content="Shivam Gupta">
+
     <style>
-        /* Modern Trendy Theme Variables */
         :root {
-            --bg-color: #0f172a; /* Deep Space Slate Blue */
-            --card-bg: rgba(30, 41, 59, 0.7); /* Translucent Glass */
+            --bg-color: #0b1329;
+            --card-bg: #1c2541;
             --text-main: #f8fafc;
-            --text-sub: #94a3b8;
-            --accent-cyan: #38bdf8;
-            --accent-purple: #c084fc;
-            --accent-orange: #fbbf24;
-            --border-color: rgba(255, 255, 255, 0.08);
+            --text-sub: #8da9c4;
+            --accent-blue: #38bdf8;
+            --border-color: rgba(255, 255, 255, 0.05);
+            --success: #10b981;
+            --wrong: #ef4444;
         }
 
         body {
-            font-family: 'Plus Jakarta Sans', 'Segoe UI', Roboto, sans-serif;
+            font-family: 'Segoe UI', Roboto, sans-serif;
             background-color: var(--bg-color);
             color: var(--text-main);
             margin: 0;
             padding: 20px;
-            min-height: 100vh;
-            background-image: 
-                radial-gradient(circle at top left, rgba(56, 189, 248, 0.12), transparent 400px),
-                radial-gradient(circle at bottom right, rgba(192, 132, 252, 0.1), transparent 400px);
         }
 
         .container {
-            max-width: 650px;
-            margin: 40px auto;
+            max-width: 900px;
+            margin: 30px auto;
         }
 
-        /* Header Style */
         .header {
             text-align: center;
             margin-bottom: 40px;
         }
 
-        .logo-icon {
-            font-size: 3.5rem;
-            margin-bottom: 10px;
-            display: inline-block;
-            animation: float 3s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-8px); }
-        }
-
-        h1 {
-            font-size: 2.2rem;
-            font-weight: 800;
-            letter-spacing: -0.5px;
-            margin: 0 0 8px 0;
+        .header h1 {
+            font-size: 2.6rem;
             background: linear-gradient(135deg, #38bdf8, #c084fc);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            margin: 10px 0;
         }
 
-        .tagline {
-            color: var(--text-sub);
-            font-size: 1rem;
-            font-weight: 500;
+        /* All Subjects Selector Grid */
+        #subject-selector {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
         }
 
-        /* Section Title */
-        .section-title {
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: var(--accent-cyan);
-            font-weight: 700;
-            margin-bottom: 15px;
-            padding-left: 5px;
-        }
-
-        /* Trendy Dashboard Grid */
-        .grid {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-        }
-
-        /* Glassmorphic Class Cards */
-        .class-card {
+        .subject-choice-btn {
             background: var(--card-bg);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+            border: 2px solid rgba(56, 189, 248, 0.2);
+            color: var(--text-main);
+            padding: 30px 20px;
+            font-size: 1.25rem;
+            font-weight: bold;
+            border-radius: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+            text-align: center;
+        }
+
+        .subject-choice-btn:hover {
+            transform: translateY(-5px);
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            border-color: transparent;
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+        }
+
+        /* Display Controls */
+        #dynamic-dashboard, #practice-arena {
+            display: none;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .subject-card {
+            background: var(--card-bg);
             border: 1px solid var(--border-color);
             border-radius: 16px;
-            padding: 22px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            transition: transform 0.2s;
+        }
+
+        .subject-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .subject-card h3 {
+            margin: 0 0 10px 0;
+            font-size: 1.3rem;
+            color: var(--accent-blue);
+        }
+
+        .subject-card p {
+            color: var(--text-sub);
+            font-size: 0.9rem;
+            margin: 0 0 20px 0;
+            flex-grow: 1;
+        }
+
+        .practice-btn {
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        /* Practice Arena Style Elements */
+        .back-link {
+            color: var(--text-sub);
             text-decoration: none;
+            font-size: 0.95rem;
+            display: inline-block;
+            margin-bottom: 20px;
+            cursor: pointer;
+            font-weight: 500;
+        }
+        .back-link:hover { color: var(--accent-blue); }
+
+        .level-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 25px;
+            background: rgba(255,255,255,0.03);
+            padding: 5px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+
+        .tab-btn {
+            flex: 1;
+            background: transparent;
+            color: var(--text-sub);
+            border: none;
+            padding: 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .tab-btn.active {
+            background: var(--card-bg);
+            color: var(--accent-blue);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        .question-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 25px;
+            margin-bottom: 20px;
+        }
+
+        .question-text {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            white-space: pre-line;
+        }
+
+        .options-grid {
+            display: grid;
+            gap: 12px;
+        }
+
+        .option-btn {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border-color);
             color: var(--text-main);
+            padding: 14px 20px;
+            border-radius: 10px;
+            text-align: left;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .option-btn.selected { border-color: var(--accent-blue); background: rgba(56, 189, 248, 0.1); }
+        .option-btn.correct { border-color: var(--success); background: rgba(16, 185, 129, 0.15); color: #34d399; }
+        .option-btn.wrong { border-color: var(--wrong); background: rgba(239, 68, 68, 0.15); color: #f87171; }
+
+        .action-bar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-            position: relative;
-            overflow: hidden;
+            margin-top: 25px;
         }
 
-        /* Hover Glow Effects based on Class colors */
-        .class-card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; width: 4px; height: 100%;
+        .nav-btn {
+            background: var(--card-bg);
+            color: var(--text-main);
+            border: 1px solid var(--border-color);
+            padding: 12px 24px;
+            border-radius: 10px;
+            cursor: pointer;
         }
 
-        /* Class 10 custom borders/glows */
-        .c-10::before { background: var(--accent-cyan); }
-        .c-10:hover {
-            border-color: rgba(56, 189, 248, 0.4);
-            box-shadow: 0 10px 25px rgba(56, 189, 248, 0.15);
-            transform: translateY(-3px);
-        }
-
-        /* Class 11 custom borders/glows */
-        .c-11::before { background: var(--accent-purple); }
-        .c-11:hover {
-            border-color: rgba(192, 132, 252, 0.4);
-            box-shadow: 0 10px 25px rgba(192, 132, 252, 0.15);
-            transform: translateY(-3px);
-        }
-
-        .card-info h3 {
-            margin: 0 0 5px 0;
-            font-size: 1.25rem;
-            font-weight: 700;
-        }
-
-        .card-info p {
-            margin: 0;
-            font-size: 0.9rem;
-            color: var(--text-sub);
-        }
-
-        /* Modern Badges inside cards */
-        .status-badge {
-            font-size: 0.75rem;
-            font-weight: 700;
-            padding: 6px 12px;
-            border-radius: 20px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .badge-cyan {
-            background: rgba(56, 189, 248, 0.1);
-            color: var(--accent-cyan);
-            border: 1px solid rgba(56, 189, 248, 0.2);
-        }
-
-        .badge-purple {
-            background: rgba(192, 132, 252, 0.1);
-            color: var(--accent-purple);
-            border: 1px solid rgba(192, 132, 252, 0.2);
-        }
-
-        /* Footer Info */
-        .footer-note {
-            text-align: center;
-            margin-top: 40px;
-            font-size: 0.8rem;
-            color: rgba(148, 163, 184, 0.4);
-        }
+        .nav-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+        .submit-btn { background: var(--success); color: white; border: none; padding: 12px 28px; border-radius: 10px; font-weight: 600; cursor: pointer; }
     </style>
 </head>
 <body>
 
     <div class="container">
         
-        <div class="header">
-            <span class="logo-icon">🚀</span>
-            <h1>Academic Quiz Portal</h1>
-            <p class="tagline">Level up your preparation with smart analytics</p>
+        <div id="main-global-header" class="header">
+            <h1>ICSE Class 10 Premium Hub</h1>
+            <p style="color: var(--text-sub);" id="global-sub-text">Select any subject below to challenge yourself in the Arena</p>
         </div>
 
-        <div class="section-title">Available Gateways</div>
-
-        <div class="grid">
-            
-            <a href="class10.html" class="class-card c-10">
-                <div class="card-info">
-                    <h3>ICSE - Class 10</h3>
-                    <p>10 Subjects • 3 Difficulty Levels</p>
-                </div>
-                <span class="status-badge badge-cyan">Enter Arena →</span>
-            </a>
-
-            <a href="#" class="class-card c-11" onclick="alert('Class 11 Arena is under construction! Stay tuned 🔥')">
-                <div class="card-info">
-                    <h3>ISC - Class 11</h3>
-                    <p>Computer Science & Analytics</p>
-                </div>
-                <span class="status-badge badge-purple">Coming Soon</span>
-            </a>
-
+        <div id="subject-selector">
+            <button class="subject-choice-btn" onclick="showDashboard('maths')">📐<br>Mathematics</button>
+            <button class="subject-choice-btn" onclick="showDashboard('hindi')">✍️<br>Hindi (हिंदी)</button>
+            <button class="subject-choice-btn" onclick="showDashboard('physics')">⚛️<br>Physics</button>
+            <button class="subject-choice-btn" onclick="showDashboard('chemistry')">🧪<br>Chemistry</button>
+            <button class="subject-choice-btn" onclick="showDashboard('biology')">🧬<br>Biology</button>
+            <button class="subject-choice-btn" onclick="showDashboard('history')">📜<br>History & Civics</button>
+            <button class="subject-choice-btn" onclick="showDashboard('geography')">🌍<br>Geography</button>
+            <button class="subject-choice-btn" onclick="showDashboard('english')">📖<br>English Lit.</button>
         </div>
 
-        <div class="footer-note">
-            ⚡ Powered by Premium Glassmorphism UI Theme
+        <div id="dynamic-dashboard">
+            <div class="back-link" onclick="goBackToHome()">← Back to Main Menu (Change Subject)</div>
+            <div class="grid-container" id="chapters-grid"></div>
+        </div>
+
+        <div id="practice-arena">
+            <div class="back-link" id="arena-back-btn">← Quit Arena & Return to Dashboard</div>
+            <div class="header" style="margin-bottom: 20px;">
+                <h2 id="arena-title" style="color: var(--accent-blue); margin: 0;">Chapter Name</h2>
+                <p id="arena-subtitle" style="color: var(--text-sub); margin: 5px 0 0 0;"></p>
+            </div>
+
+            <div class="level-tabs">
+                <button class="tab-btn active" onclick="switchLevel('normal')">Normal Level</button>
+                <button class="tab-btn" onclick="switchLevel('high')">High Level</button>
+                <button class="tab-btn" onclick="switchLevel('reasoning')">Assertion & Reason / Core Set</button>
+            </div>
+
+            <div class="question-card">
+                <div class="question-text" id="q-text">Loading secure question data...</div>
+                <div class="options-grid" id="options-container"></div>
+                <div class="action-bar">
+                    <button class="nav-btn" id="prev-btn" onclick="navigateQuestion(-1)">Previous</button>
+                    <button class="submit-btn" id="action-btn" onclick="checkAnswer()">Submit Answer</button>
+                    <button class="nav-btn" id="next-btn" onclick="navigateQuestion(1)">Next</button>
+                </div>
+            </div>
         </div>
 
     </div>
 
+    <script>
+        // MASSIVE ALL SUBJECTS CENTRAL DATABASE
+        const globalDatabase = {
+            maths: {
+                gst: {
+                    title: "GST (Goods & Services Tax)",
+                    sub: "Mathematics Chapter 1",
+                    normal: [{ q: "An article is marked at ₹5,000. A dealer sells it to a consumer at a 10% discount. If the GST rate is 18%, calculate the total amount paid by the consumer.", ops: ["₹5,310", "₹4,500", "₹4,810", "₹5,000"], ai: 0 }],
+                    high: [{ q: "Manufacturer A sells a product to Dealer B for ₹10,000 (intra-state). Dealer B sells it to Consumer C at a profit of ₹2,000. If GST is 18%, find the net GST paid by Dealer B.", ops: ["₹1,800", "₹360", "₹2,160", "₹0"], ai: 1 }],
+                    reasoning: [{ q: "Assertion (A): In inter-state sales, CGST and SGST are charged at half the rate of IGST.\nReason (R): IGST is applicable only when goods move inter-state.", ops: ["Both A and R are true and R explains A", "Both true but no explanation", "A is true, R is false", "A is false, R is true"], ai: 3 }]
+                },
+                banking: {
+                    title: "Banking (Recurring Deposits)",
+                    sub: "Mathematics Chapter 2",
+                    normal: [{ q: "Karan deposits ₹600 per month in an RD account for 20 months. If interest earned is ₹1,100, find maturity value.", ops: ["₹12,000", "₹13,100", "₹11,000", "₹12,600"], ai: 1 }],
+                    high: [{ q: "A man deposits ₹400 per month for 2 years. If he receives ₹10,200 at maturity, find the rate of interest.", ops: ["10%", "9%", "8%", "11%"], ai: 1 }],
+                    reasoning: [{ q: "Assertion (A): Equivalent principal formula is P * [n(n+1)/2].\nReason (R): RD interest uses Simple Interest rules.", ops: ["Both true and R explains A", "Both true", "A true", "R true"], ai: 0 }]
+                }
+            },
+            hindi: {
+                baat_athanni_ki: {
+                    title: "बात अठन्नी की (सुदर्शन)",
+                    sub: "साहित्य सागर: कहानी - अध्याय 1",
+                    normal: [
+                        { q: "रसीला का वेतन कितना था और वह कहाँ काम करता था?", ops: ["दस रुपये, बाबू जगतसिंह के यहाँ", "बारह रुपये, इंजीनियर बाबू के यहाँ", "दस रुपये, जिला मजिस्ट्रेट शेख सलीमुद्दीन के यहाँ", "आठ रुपये, रसोइया के यहाँ"], ai: 0 },
+                        { q: "रसीला ने रमजान से कितने रुपये उधार लिए थे?", ops: ["पाँच रुपये", "साढ़े चार रुपये", "आठ आने (अठन्नी)", "दस रुपये"], ai: 1 }
+                    ],
+                    high: [
+                        { q: "रसीला को अठन्नी की चोरी के जुर्म में कितने महीने की सज़ा सुनाई गई?", ops: ["तीन महीने", "छह महीने", "एक साल", "नौ महीने"], ai: 1 },
+                        { q: "दासी रमजान ने बाबू जगतसिंह और शेख सलीमुद्दीन को 'अठन्नी के चोर' क्यों कहा?", ops: ["क्योंकि वे रसीला से चोरी करवाते थे", "क्योंकि वे खुद समाज के बड़े रिश्वतखोर थे", "क्योंकि उन्होंने रसीला की अठन्नी चुराई थी", "क्योंकि वे बहुत कंजूस थे"], ai: 1 }
+                    ],
+                    reasoning: [
+                        { q: "कथन (A): लेखक ने इस कहानी के माध्यम से समाज की न्याय व्यवस्था पर तीखा व्यंग्य किया है.\nकारण (R): गरीब को एक अठन्नी की चोरी पर छह महीने की सजा मिलती है, जबकि बड़े-बड़े रिश्वतखोर खुलेआम घूमते हैं.", ops: ["कथन (A) और कारण (R) दोनों सही हैं और R, A की सही व्याख्या करता है।", "कथन (A) और कारण (R) दोनों सही हैं परंतु R, A की व्याख्या नहीं करता।", "A सही है परंतु R गलत है।", "A गलत है परंतु R सही है।"], ai: 0 }
+                    ]
+                }
+            },
+            physics: {
+                force: {
+                    title: "Force, Work, Power & Energy",
+                    sub: "Physics Chapter 1",
+                    normal: [{ q: "What is the SI unit of moment of force?", ops: ["N m", "N / m", "Joule", "Kg m"], ai: 0 }],
+                    high: [{ q: "A body of mass 5 kg falls from a height of 10 m. Calculate its kinetic energy just before hitting the ground. (g = 10 m/s²)", ops: ["500 J", "250 J", "50 J", "1000 J"], ai: 0 }],
+                    reasoning: [{ q: "Assertion (A): Displacement can be zero even if distance covered is non-zero.\nReason (R): Displacement depends on initial and final positions.", ops: ["Both true and R explains A", "Both true", "A true", "R true"], ai: 0 }]
+                }
+            },
+            chemistry: {
+                periodic: {
+                    title: "Periodic Table & Chemical Bonding",
+                    sub: "Chemistry Chapter 1",
+                    normal: [{ q: "Which element has the highest electron affinity in the periodic table?", ops: ["Fluorine", "Chlorine", "Oxygen", "Neon"], ai: 1 }],
+                    high: [{ q: "An element X belongs to Group 2 and Period 3. Find the number of valence electrons and shells.", ops: ["Valence=2, Shells=3", "Valence=3, Shells=2", "Valence=2, Shells=2", "Valence=1, Shells=3"], ai: 0 }],
+                    reasoning: [{ q: "Assertion (A): Ionization potential decreases down a group.\nReason (R): Atomic size increases down a group, reducing nuclear pull.", ops: ["Both true and R explains A", "Both true", "A true", "R true"], ai: 0 }]
+                }
+            },
+            biology: {
+                cell_division: {
+                    title: "Cell Cycle and Mitosis",
+                    sub: "Biology Chapter 1",
+                    normal: [{ q: "During which phase of cell division do the chromosomes line up at the equatorial plane?", ops: ["Prophase", "Metaphase", "Anaphase", "Telophase"], ai: 1 }],
+                    high: [{ q: "If a cell has 24 chromosomes, how many chromosomes will be present in each daughter cell after Mitosis?", ops: ["12", "24", "48", "6"], ai: 1 }],
+                    reasoning: [{ q: "Assertion (A): Meiosis is also known as reduction division.\nReason (R): It reduces the chromosome number to half in gametes.", ops: ["Both true and R explains A", "Both true", "A true", "R true"], ai: 0 }]
+                }
+            },
+            history: {
+                revolt: {
+                    title: "The First War of Independence (1857)",
+                    sub: "History Chapter 1",
+                    normal: [{ q: "Who was the immediate symbol of leadership during the Revolt of 1857?", ops: ["Bahadur Shah Zafar", "Nana Saheb", "Rani Laxmi Bai", "Mangal Pandey"], ai: 0 }],
+                    high: [{ q: "Which policy introduction by Lord Dalhousie became a major political cause for the annexation of Awadh and Jhansi?", ops: ["Subsidiary Alliance", "Doctrine of Lapse", "Permanent Settlement", "Vernacular Press Act"], ai: 1 }],
+                    reasoning: [{ q: "Assertion (A): The introduction of greased cartridges triggered the immediate mutiny.\nReason (R): Cartridges were rumored to be greased with cow and pig fat, hurting religious sentiments.", ops: ["Both true and R explains A", "Both true", "A true", "R true"], ai: 0 }]
+                }
+            },
+            geography: {
+                climate: {
+                    title: "Climate of India",
+                    sub: "Geography Chapter 1",
+                    normal: [{ q: "Which type of climate does India experience predominantly?", ops: ["Tropical Monsoon", "Mediterranean", "Equatorial", "Tundra"], ai: 0 }],
+                    high: [{ q: "Why does Chennai receive more rainfall in winter than in summer?", ops: ["Due to South-West Monsoon", "Due to North-East Retreating Monsoon", "Due to Western Disturbances", "Due to local convection currents"], ai: 1 }],
+                    reasoning: [{ q: "Assertion (A): The Thar Desert receives very low rainfall.\nReason (R): The Aravalli Range lies parallel to the direction of South-West Monsoon winds.", ops: ["Both true and R explains A", "Both true", "A true", "R true"], ai: 0 }]
+                }
+            },
+            english: {
+                merchant: {
+                    title: "The Merchant of Venice (Act 3)",
+                    sub: "English Literature Set 1",
+                    normal: [{ q: "Where does Portia live in the play?", ops: ["Venice", "Belmont", "Padua", "Genoa"], ai: 1 }],
+                    high: [{ q: "What reason does Shylock give in his famous 'Hath not a Jew eyes?' speech for seeking revenge against Antonio?", ops: ["Antonio disgraced him and hindered his bargains", "Antonio stole his daughter Jessica", "Antonio refused to pay back the three thousand ducats", "Bassanio insulted his dynamic race"], ai: 0 }],
+                    reasoning: [{ q: "Assertion (A): Shylock strictly demands his pound of flesh as per the bond law.\nReason (R): He loves justice more than triple the money offered by Bassanio out of pure hatred.", ops: ["Both true and R explains A", "Both true", "A true", "R true"], ai: 0 }]
+                }
+            }
+        };
+
+        let currentSubject = "";
+        let currentChapter = "";
+        let currentLevel = "normal";
+        let currentQIndex = 0;
+        let selectedOption = null;
+        let answeredQuestions = {};
+
+        function goBackToHome() {
+            document.getElementById('dynamic-dashboard').style.display = "none";
+            document.getElementById('subject-selector').style.display = "grid";
+            document.getElementById('main-global-header').style.display = "block";
+        }
+
+        function showDashboard(sub) {
+            currentSubject = sub;
+            document.getElementById('subject-selector').style.display = "none";
+            document.getElementById('main-global-header').style.display = "none";
+            document.getElementById('dynamic-dashboard').style.display = "block";
+            
+            renderGrid();
+        }
+
+        function renderGrid() {
+            const grid = document.getElementById('chapters-grid');
+            grid.innerHTML = "";
+            const db = globalDatabase[currentSubject];
+            
+            for (let key in db) {
+                const card = document.createElement('div');
+                card.className = "subject-card";
+                card.innerHTML = `
+                    <div>
+                        <h3>${db[key].title}</h3>
+                        <p>${db[key].sub}</p>
+                    </div>
+                    <button class="practice-btn" onclick="openArena('${key}')">Enter Arena</button>
+                `;
+                grid.appendChild(card);
+            }
+        }
+
+        function openArena(chKey) {
+            currentChapter = chKey;
+            currentLevel = "normal";
+            currentQIndex = 0;
+            answeredQuestions = {};
+
+            document.getElementById('dynamic-dashboard').style.display = "none";
+            document.getElementById('practice-arena').style.display = "block";
+
+            const chData = globalDatabase[currentSubject][currentChapter];
+            document.getElementById('arena-title').innerText = chData.title;
+            
+            document.getElementById('arena-back-btn').onclick = function() {
+                document.getElementById('practice-arena').style.display = "none";
+                document.getElementById('dynamic-dashboard').style.display = "block";
+            };
+
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelector('.tab-btn').classList.add('active');
+
+            loadQuestion();
+        }
+
+        function switchLevel(level) {
+            currentLevel = level;
+            currentQIndex = 0;
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            loadQuestion();
+        }
+
+        function loadQuestion() {
+            selectedOption = null;
+            const chData = globalDatabase[currentSubject][currentChapter];
+            document.getElementById('arena-subtitle').innerText = chData.sub;
+
+            const qList = chData[currentLevel];
+            if(!qList || qList.length === 0) {
+                document.getElementById('q-text').innerText = "Questions coming soon for this level!";
+                document.getElementById('options-container').innerHTML = "";
+                return;
+            }
+
+            const q = qList[currentQIndex];
+            document.getElementById('prev-btn').disabled = (currentQIndex === 0);
+            document.getElementById('next-btn').disabled = (currentQIndex === qList.length - 1);
+            document.getElementById('q-text').innerText = `Q${currentQIndex + 1}. ${q.q}`;
+
+            const container = document.getElementById('options-container');
+            container.innerHTML = "";
+
+            const stateKey = `${currentLevel}_${currentQIndex}`;
+            const isAnswered = answeredQuestions[stateKey];
+
+            q.ops.forEach((opt, idx) => {
+                const btn = document.createElement('button');
+                btn.className = "option-btn";
+                btn.innerText = opt;
+                if (isAnswered) {
+                    btn.disabled = true;
+                    if (idx === q.ai) btn.classList.add('correct');
+                    if (idx === isAnswered.chosen && idx !== q.ai) btn.classList.add('wrong');
+                } else {
+                    btn.onclick = () => selectOption(idx);
+                }
+                container.appendChild(btn);
+            });
+
+            const actionBtn = document.getElementById('action-btn');
+            if (isAnswered) {
+                actionBtn.innerText = "Completed";
+                actionBtn.disabled = true;
+                actionBtn.style.background = "var(--card-bg)";
+            } else {
+                actionBtn.innerText = "Submit Answer";
+                actionBtn.disabled = false;
+                actionBtn.style.background = "var(--success)";
+            }
+        }
+
+        function selectOption(idx) {
+            selectedOption = idx;
+            const btns = document.getElementById('options-container').children;
+            for (let i = 0; i < btns.length; i++) btns[i].classList.remove('selected');
+            btns[idx].classList.add('selected');
+        }
+
+        function checkAnswer() {
+            if (selectedOption === null) return alert("Please select an option first!");
+            const q = globalDatabase[currentSubject][currentChapter][currentLevel][currentQIndex];
+            const stateKey = `${currentLevel}_${currentQIndex}`;
+            answeredQuestions[stateKey] = { chosen: selectedOption };
+
+            const btns = document.getElementById('options-container').children;
+            for (let i = 0; i < btns.length; i++) {
+                btns[i].disabled = true;
+                if (i === q.ai) btns[i].classList.add('correct');
+                if (i === selectedOption && i !== q.ai) btns[i].classList.add('wrong');
+            }
+            const actionBtn = document.getElementById('action-btn');
+            actionBtn.innerText = "Completed";
+            actionBtn.disabled = true;
+            actionBtn.style.background = "var(--card-bg)";
+        }
+
+        function navigateQuestion(dir) {
+            currentQIndex += dir;
+            loadQuestion();
+        }
+    </script>
 </body>
 </html>
-
