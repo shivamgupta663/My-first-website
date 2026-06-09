@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>ICSE Class 10 Hindi Sahitya Sagar Practice Arena - Shivam Gupta</title>
+    <meta name="description" content="Premium online practice arena for ICSE Class 10 Hindi Sahitya Sagar (Gadhya & Padhya) by Shivam Gupta. Practice multi-level questions for all 20 chapters including Baat Athanni Ki, Kaki, and Maha Yajna ka Puraskar.">
+    <meta name="keywords" content="ICSE Class 10 Hindi, Shivam Gupta, Sahitya Sagar, Baat Athanni Ki, Kaki, Maha Yajna ka Puraskar, Netaji ka Chashma, Sur ke Pad, Vinay ke Pad, Bhikhari, Hindi MCQs ICSE">
+    <meta name="author" content="Shivam Gupta">
+
+    <style>
+        :root {
+            --bg-color: #0b1329;
+            --card-bg: #1c2541;
+            --text-main: #f8fafc;
+            --text-sub: #8da9c4;
+            --accent-blue: #38bdf8;
+            --accent-purple: #c084fc;
+            --border-color: rgba(255, 255, 255, 0.05);
+            --success: #10b981;
+            --wrong: #ef4444;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            background: linear-gradient(135deg, #38bdf8, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin: 10px 0;
+        }
+
+        .section-title {
+            font-size: 1.6rem;
+            color: var(--accent-purple);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 8px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+
+        .back-link {
+            color: var(--text-sub);
+            text-decoration: none;
+            font-size: 1rem;
+            display: inline-block;
+            margin-bottom: 20px;
+            cursor: pointer;
+            font-weight: 500;
+        }
+        .back-link:hover { color: var(--accent-blue); }
+
+        /* Dashboard Cards Grid */
+        #hindi-dashboard {
+            display: block;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .subject-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            transition: transform 0.2s;
+        }
+
+        .subject-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .subject-card h3 {
+            margin: 0 0 10px 0;
+            font-size: 1.25rem;
+            color: var(--accent-blue);
+        }
+
+        .subject-card p {
+            color: var(--text-sub);
+            font-size: 0.9rem;
+            margin: 0 0 20px 0;
+            flex-grow: 1;
+        }
+
+        .practice-btn {
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        /* Practice Arena View */
+        #practice-arena {
+            display: none;
+        }
+
+        .level-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 25px;
+            background: rgba(255,255,255,0.03);
+            padding: 5px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+
+        .tab-btn {
+            flex: 1;
+            background: transparent;
+            color: var(--text-sub);
+            border: none;
+            padding: 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .tab-btn.active {
+            background: var(--card-bg);
+            color: var(--accent-blue);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        .question-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 25px;
+            margin-bottom: 20px;
+        }
+
+        .question-text {
+            font-size: 1.25rem;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            white-space: pre-line;
+        }
+
+        .options-grid {
+            display: grid;
+            gap: 12px;
+        }
+
+        .option-btn {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            padding: 14px 20px;
+            border-radius: 10px;
+            text-align: left;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .option-btn.selected { border-color: var(--accent-blue); background: rgba(56, 189, 248, 0.1); }
+        .option-btn.correct { border-color: var(--success); background: rgba(16, 185, 129, 0.15); color: #34d399; }
+        .option-btn.wrong { border-color: var(--wrong); background: rgba(239, 68, 68, 0.15); color: #f87171; }
+
+        .action-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 25px;
+        }
+
+        .nav-btn {
+            background: var(--card-bg);
+            color: var(--text-main);
+            border: 1px solid var(--border-color);
+            padding: 12px 24px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .nav-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+        .submit-btn { background: var(--success); color: white; border: none; padding: 12px 28px; border-radius: 10px; font-weight: 600; cursor: pointer; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <div id="hindi-dashboard">
+            <a href="index.html" class="back-link">← मुख्य मेनू (Back to Main Hub)</a>
+            <div class="header">
+                <h1>साहित्य सागर: अभ्यास क्षेत्र</h1>
+                <p style="color: var(--text-sub);">ICSE Class 10 Hindi Premium Quiz Center by Shivam Gupta</p>
+            </div>
+
+            <div class="section-title">📖 गद्य भाग (Kahaniyan)</div>
+            <div class="grid-container" id="gadhya-grid"></div>
+
+            <div class="section-title">🌿 पद्य भाग (Kavitayein)</div>
+            <div class="grid-container" id="padhya-grid"></div>
+        </div>
+
+        <div id="practice-arena">
+            <div class="back-link" onclick="closeArena()">← डैशबोर्ड पर वापस जाएं (Back to Dashboard)</div>
+            <div class="header" style="margin-bottom: 20px;">
+                <h2 id="arena-title" style="color: var(--accent-blue); margin: 0;">अध्याय का नाम</h2>
+                <p id="arena-subtitle" style="color: var(--text-sub); margin: 5px 0 0 0;"></p>
+            </div>
+
+            <div class="level-tabs">
+                <button class="tab-btn active" onclick="switchLevel('normal')">सामान्य स्तर (Normal)</button>
+                <button class="tab-btn" onclick="switchLevel('high')">उच्च स्तर (High)</button>
+                <button class="tab-btn" onclick="switchLevel('reasoning')">गद्यांश / पद्यांश आधारित (Extract Set)</button>
+            </div>
+
+            <div class="question-card">
+                <div class="question-text" id="q-text">प्रश्नों को लोड किया जा रहा है...</div>
+                <div class="options-grid" id="options-container"></div>
+                <div class="action-bar">
+                    <button class="nav-btn" id="prev-btn" onclick="navigateQuestion(-1)">पिछला (Prev)</button>
+                    <button class="submit-btn" id="action-btn" onclick="checkAnswer()">उत्तर सबमिट करें</button>
+                    <button class="nav-btn" id="next-btn" onclick="navigateQuestion(1)">अगला (Next)</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // HINDI 20 CHAPTERS COMPREHENSIVE DATABASE
+        const hindiDatabase = {
+            // GADHYA BHAG (10 CHAPTERS)
+            baat_athanni_ki: {
+                title: "1. बात अठन्नी की (सुदर्शन)",
+                type: "gadhya",
+                sub: "चरित्र चित्रण, रिश्वतखोरी एवं न्याय व्यवस्था पर तीखा व्यंग्य",
+                normal: [
+                    { q: "रसीला का मासिक वेतन कितना था और वह किसके यहाँ कार्य करता था?", ops: ["दस रुपये, बाबू जगतसिंह के यहाँ", "बारह रुपये, शेख सलीमुद्दीन के यहाँ", "आठ रुपये, इंजीनियर बाबू के यहाँ", "पाँच रुपये, रमजान के यहाँ"], ai: 0 },
+                    { q: "रसीला ने रमजान से कितने रुपये उधार लिए थे?", ops: ["पाँच रुपये", "साढ़े चार रुपये", "आठ आने", "दस रुपये"], ai: 1 },
+                    { q: "रसीला के गाँव से क्या समाचार आया था जो उसकी चिंता का कारण बना?", ops: ["उसके पिता बीमार थे", "उसके बच्चे बीमार थे और रुपया नहीं था", "उसका घर गिर गया था", "गाँव में सूखा पड़ा था"], ai: 1 },
+                    { q: "बाबू जगतसिंह पेशे से क्या थे?", ops: ["जिला मजिस्ट्रेट", "डॉक्टर", "इंजीनियर", "व्यापारी"], ai: 2 }
+                ],
+                high: [
+                    { q: "रसीला को अठन्नी की चोरी के जुर्म में कितने महीने की सज़ा सुनाई गई?", ops: ["तीन महीने", "छह महीने", "एक साल", "नौ महीने"], ai: 1 },
+                    { q: "बाबू जगतसिंह ने रसीला की अठन्नी की चोरी को कैसे पकड़ा?", ops: ["मिठाई कम लगने पर हलवाई से पूछताछ करके", "रमजान की शिकायत पर", "रसीला की डायरी देखकर", "पैसा गिर जाने पर"], ai: 0 },
+                    { q: "दासी रमजान ने बाबू जगतसिंह और शेख सलीमुद्दीन को 'अठन्नी के चोर' क्यों कहा?", ops: ["क्योंकि उन्होंने रसीला की अठन्नी चुराई थी", "क्योंकि वे दोनों खुद समाज के बड़े रिश्वतखोर थे", "क्योंकि वे बहुत कंजूस थे", "क्योंकि वे गरीब का शोषण करते थे"], ai: 1 },
+                    { q: "बाबू जगतसिंह रसीला को पीटते हुए किसके पास ले गए?", ops: ["शेख सलीमुद्दीन के पास", "पुलिस थाने", "हलवाई की दुकान पर", "पंचायत के सामने"], ai: 1 }
+                ],
+                reasoning: [
+                    { q: "गद्यांश आधारित विश्लेषण:\n'यह न्याय नहीं, अंधेर है। सिर्फ एक अठन्नी की खातिर...' \n\nकथन (A): लेखक सुदर्शन ने इस कहानी के माध्यम से देश की तत्कालीन न्याय व्यवस्था के खोखलेपन पर प्रहार किया है।\nकारण (R): गरीब को अठन्नी की हेराफेरी पर छह महीने की सजा मिलती है, जबकि हजारों की रिश्वत लेने वाले न्यायाधीश प्रतिष्ठित बने रहते हैं।", ops: ["कथन (A) और कारण (R) दोनों सही हैं और R, A की सही व्याख्या करता है।", "कथन (A) और कारण (R) दोनों सही हैं परंतु R, A की व्याख्या नहीं करता।", "A सही है परंतु R गलत है।", "A गलत है परंतु R सही है।"], ai: 0 },
+                    { q: "फैसला सुनने के बाद रमजान ने आँखों में खून उतर आने (अत्यंत क्रोधित होने) पर क्या सोचा जो इस कहानी का मूल उद्देश्य है?", ops: ["उसने सोचा कि असली चोर बड़ी-बड़ी कोठियों में बैठकर मजे कर रहे हैं", "उसने रसीला से दोस्ती तोड़ लेने का निश्चय किया", "उसने जज साहब से बदला लेने की सोची", "उसने नौकरी छोड़ने का फैसला किया"], ai: 0 }
+                ]
+            },
+            kaki: {
+                title: "2. काकी (सियारामशरण गुप्त)",
+                type: "gadhya",
+                sub: "बाल-मनोविज्ञान और मातृ-वियोग की मार्मिक कहानी",
+                normal: [{ q: "श्यामु ने सुबह उठकर अपनी मां (उमा) को फर्श पर कंबल पर लेटे और राम-नाम से ढके क्यों देखा?", ops: ["क्योंकि काकी सो रही थीं", "क्योंकि काकी की मृत्यु हो चुकी थी", "काकी बीमार थीं", "काकी ध्यान में थीं"], ai: 1 }],
+                high: [{ q: "श्यामु ने काकी को आसमान से नीचे उतारने के लिए क्या उपाय सोचा?", ops: ["एक बड़ी सीढ़ी बनाने का", "पतंग उड़ाकर रस्सी के सहारे नीचे लाने का", "भगवान से प्रार्थना करने का", "विमान मंगवाने का"], ai: 1 }],
+                reasoning: [{ q: "कथन (A): श्यामु ने अपने पिता जवाहर जी की जेब से चोरी छिपे पैसे निकाले।\nकारण (R): वह पतंग और मजबूत डोर खरीदना चाहता था ताकि मां के पास संदेश भेज सके।", ops: ["Both true & R explains A", "Both true but no explanation", "A is true", "R is true"], ai: 0 }]
+            },
+            maha_yajna: { title: "3. महायज्ञ का पुरस्कार", type: "gadhya", sub: "स्वार्थहीन कर्म और परोपकार का सच्चा मूल्य", normal: [], high: [], reasoning: [] },
+            netaji_chashma: { title: "4. नेताजी का चश्मा", type: "gadhya", sub: "देशभक्ति की भावना और कैप्टन चश्मेवाले का महत्व", normal: [], high: [], reasoning: [] },
+            bade_ghar_ki_beti: { title: "5. बड़े घर की बेटी", type: "gadhya", sub: "संयुक्त परिवार के संस्कार और आनंदी का त्याग", normal: [], high: [], reasoning: [] },
+            bheed_mein_khoya: { title: "6. भीड़ में खोया आदमी", type: "gadhya", sub: "बढ़ती जनसंख्या और देश की समस्याओं पर विमर्श", normal: [], high: [], reasoning: [] },
+            bhed_aur_bhediye: { title: "7. भेड़ें और भेड़िए", type: "gadhya", sub: "राजनीतिक व्यवस्था और ढोंगी नेताओं पर तीखा व्यंग्य", normal: [], high: [], reasoning: [] },
+            do_kalakar: { title: "8. दो कलाकार", type: "gadhya", sub: "कला और वास्तविक जीवन की सेवा का तुलनात्मक चित्रण", normal: [], high: [], reasoning: [] },
+            jamun_ka_ped: { title: "9. जामुन का पेड़", type: "gadhya", sub: "सरकारी दफ्तरों की लालफीताशाही पर करारा प्रहार", normal: [], high: [], reasoning: [] },
+            apna_apna_bhagya: { title: "10. अपना-अपना भाग्य", type: "gadhya", sub: "बाल मजदूरी और समाज की संवेदनहीनता की कथा", normal: [], high: [], reasoning: [] },
+
+            // PADHYA BHAG (10 CHAPTERS)
+            sakhi: {
+                title: "11. साखी (कबीरदास)",
+                type: "padhya",
+                sub: "गुरु महिमा, ईश्वर भक्ति और नैतिक उपदेश",
+                normal: [{ q: "कबीरदास जी के अनुसार गुरु का स्थान ईश्वर से भी ऊँचा क्यों माना गया है?", ops: ["क्योंकि गुरु धन देते हैं", "क्योंकि गुरु ही ईश्वर तक पहुँचने का मार्ग दिखाते हैं", "क्योंकि गुरु शक्तिशाली होते हैं", "क्योंकि गुरु संसार का निर्माण करते हैं"], ai: 1 }],
+                high: [], reasoning: []
+            },
+            kundaliya: { title: "12. कुंडलियाँ (गिरिधर कविराय)", type: "padhya", sub: "लाठी, कमरी और व्यावहारिक जीवन की सीख", normal: [], high: [], reasoning: [] },
+            swarg_bana_sakte: { title: "13. स्वर्ग बना सकते हैं", type: "padhya", sub: "समानता, न्याय और धरती को सुंदर बनाने का संदेश", normal: [], high: [], reasoning: [] },
+            woh_todti_patthar: { title: "14. वह तोड़ती पत्थर", type: "padhya", sub: "श्रमजीवी वर्ग के प्रति सहानुभूति और यथार्थ चित्रण", normal: [], high: [], reasoning: [] },
+            bhikhari: { title: "15. भिक्षुक (सूर्यकांत त्रिपाठी निराला)", type: "padhya", sub: "गरीबी, लाचारी और समाज की विडंबना", normal: [], high: [], reasoning: [] },
+            sur_ke_pad: { title: "16. सूर के पद (सूरदास)", type: "padhya", sub: "श्रीकृष्ण की बाल लीलाओं का वात्सल्य रस वर्णन", normal: [], high: [], reasoning: [] },
+            vinay_ke_pad: { title: "17. विनय के पद (तुलसीदास)", type: "padhya", sub: "श्रीराम के प्रति अटूट आस्था और समर्पण भावना", normal: [], high: [], reasoning: [] },
+            bhikkhu_gautam: { title: "18. भिक्षु गौतम (मैथिलीशरण गुप्त)", type: "padhya", sub: "महात्मा बुद्ध का वैराग्य और मानवता का संदेश", normal: [], high: [], reasoning: [] },
+            chalna_hamara_kaam: { title: "19. चलना हमारा काम है", type: "padhya", sub: "जीवन में निरंतर आगे बढ़ते रहने की प्रेरणा", normal: [], high: [], reasoning: [] },
+            matri_bhumi_prem: { title: "20. मातृभूमि (मैथिलीशरण गुप्त)", type: "padhya", sub: "देश की माटी के प्रति अगाध प्रेम और कृतज्ञता", normal: [], high: [], reasoning: [] }
+        };
+
+        let currentChapter = "";
+        let currentLevel = "normal";
+        let currentQIndex = 0;
+        let selectedOption = null;
+        let answeredQuestions = {};
+
+        // RUN SYSTEM ON LOAD & RENDER ALL 20 CHAPTERS
+        function initDashboard() {
+            const gadhyaGrid = document.getElementById('gadhya-grid');
+            const padhyaGrid = document.getElementById('padhya-grid');
+            
+            gadhyaGrid.innerHTML = "";
+            padhyaGrid.innerHTML = "";
+
+            for (let key in hindiDatabase) {
+                const ch = hindiDatabase[key];
+                const card = document.createElement('div');
+                card.className = "subject-card";
+                card.innerHTML = `
+                    <div>
+                        <h3>${ch.title}</h3>
+                        <p>${ch.sub}</p>
+                    </div>
+                    <button class="practice-btn" onclick="openArena('${key}')">Enter Arena</button>
+                `;
+                
+                if(ch.type === "gadhya") {
+                    gadhyaGrid.appendChild(card);
+                } else {
+                    padhyaGrid.appendChild(card);
+                }
+            }
+        }
+
+        function openArena(key) {
+            currentChapter = key;
+            currentLevel = "normal";
+            currentQIndex = 0;
+            answeredQuestions = {};
+
+            document.getElementById('hindi-dashboard').style.display = "none";
+            document.getElementById('practice-arena').style.display = "block";
+
+            document.getElementById('arena-title').innerText = hindiDatabase[key].title;
+            
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelector('.tab-btn').classList.add('active');
+
+            loadQuestion();
+        }
+
+        function closeArena() {
+            document.getElementById('practice-arena').style.display = "none";
+            document.getElementById('hindi-dashboard').style.display = "block";
+        }
+
+        function switchLevel(level) {
+            currentLevel = level;
+            currentQIndex = 0;
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            loadQuestion();
+        }
+
+        function loadQuestion() {
+            selectedOption = null;
+            const ch = hindiDatabase[currentChapter];
+            document.getElementById('arena-subtitle').innerText = ch.sub;
+
+            const qList = ch[currentLevel];
+            if(!qList || qList.length === 0) {
+                document.getElementById('q-text').innerText = "इस स्तर (Level) के प्रश्न जल्द ही अपडेट किए जाएंगे! अभ्यास के लिए 'सामान्य स्तर' चुनें।";
+                document.getElementById('options-container').innerHTML = "";
+                document.getElementById('prev-btn').disabled = true;
+                document.getElementById('next-btn').disabled = true;
+                return;
+            }
+
+            const q = qList[currentQIndex];
+            document.getElementById('prev-btn').disabled = (currentQIndex === 0);
+            document.getElementById('next-btn').disabled = (currentQIndex === qList.length - 1);
+            document.getElementById('q-text').innerText = `प्रश्न ${currentQIndex + 1}. ${q.q}`;
+
+            const container = document.getElementById('options-container');
+            container.innerHTML = "";
+
+            const stateKey = `${currentLevel}_${currentQIndex}`;
+            const isAnswered = answeredQuestions[stateKey];
+
+            q.ops.forEach((opt, idx) => {
+                const btn = document.createElement('button');
+                btn.className = "option-btn";
+                btn.innerText = opt;
+                if (isAnswered) {
+                    btn.disabled = true;
+                    if (idx === q.ai) btn.classList.add('correct');
+                    if (idx === isAnswered.chosen && idx !== q.ai) btn.classList.add('wrong');
+                } else {
+                    btn.onclick = () => selectOption(idx);
+                }
+                container.appendChild(btn);
+            });
+
+            const actionBtn = document.getElementById('action-btn');
+            if (isAnswered) {
+                actionBtn.innerText = "पूर्ण (Completed)";
+                actionBtn.disabled = true;
+                actionBtn.style.background = "var(--card-bg)";
+            } else {
+                actionBtn.innerText = "उत्तर सबmit करें";
+                actionBtn.disabled = false;
+                actionBtn.style.background = "var(--success)";
+            }
+        }
+
+        function selectOption(idx) {
+            selectedOption = idx;
+            const btns = document.getElementById('options-container').children;
+            for (let i = 0; i < btns.length; i++) btns[i].classList.remove('selected');
+            btns[idx].classList.add('selected');
+        }
+
+        function checkAnswer() {
+            if (selectedOption === null) return alert("कृपया पहले एक विकल्प चुनें!");
+            const q = hindiDatabase[currentChapter][currentLevel][currentQIndex];
+            const stateKey = `${currentLevel}_${currentQIndex}`;
+            answeredQuestions[stateKey] = { chosen: selectedOption };
+
+            const btns = document.getElementById('options-container').children;
+            for (let i = 0; i < btns.length; i++) {
+                btns[i].disabled = true;
+                if (i === q.ai) btns[i].classList.add('correct');
+                if (i === selectedOption && i !== q.ai) btns[i].classList.add('wrong');
+            }
+            const actionBtn = document.getElementById('action-btn');
+            actionBtn.innerText = "पूर्ण (Completed)";
+            actionBtn.disabled = true;
+            actionBtn.style.background = "var(--card-bg)";
+        }
+
+        function navigateQuestion(dir) {
+            currentQIndex += dir;
+            loadQuestion();
+        }
+
+        initDashboard();
+    </script>
+</body>
+</html>
